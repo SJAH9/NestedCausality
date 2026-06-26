@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quantized Compactification Explorer • NestedCausality</title>
+<style>
+  body {
+    background: #0a0a0a;
+    color: #ddd;
+    font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.5;
+  }
+  h1 { margin: 0 0 8px; font-size: 1.6rem; }
+  .subtitle { color: #888; margin-bottom: 24px; }
+  
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 24px;
+  }
+  
+  .interaction-box {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    height: 420px;
+    position: relative;
+    cursor: crosshair;
+    overflow: hidden;
+  }
+  
+  .interaction-box::before {
+    content: "Move mouse here (desktop) or shake phone";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #444;
+    font-size: 0.95rem;
+    pointer-events: none;
+    text-align: center;
+  }
+  
+  .status {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .enclosure-list {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 16px;
+    height: 380px;
+    overflow-y: auto;
+    font-family: ui-monospace, monospace;
+    font-size: 0.9rem;
+  }
+  
+  .enclosure-item {
+    padding: 4px 8px;
+    margin: 2px 0;
+    border-radius: 4px;
+  }
+  
+  .positive { background: #1a3a1a; color: #7ed321; }
+  .negative { background: #3a1a1a; color: #ff6b6b; }
+  
+  button {
+    background: #222;
+    color: #ddd;
+    border: 1px solid #444;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+  
+  button:hover { background: #333; }
+  
+  .log {
+    background: #0d0d0d;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 12px;
+    height: 160px;
+    overflow-y: auto;
+    font-size: 0.85rem;
+    font-family: ui-monospace, monospace;
+    margin-top: 16px;
+  }
+  
+  .metric {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #7ed321;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Quantized Compactification Explorer</h1>
+  <div class="subtitle">Departure Calculus • NestedCausality</div>
+
+  <div class="main">
+    <!-- Interaction Area -->
+    <div>
+      <div class="status">
+        <strong>Active Enclosures:</strong> <span id="count">0</span> / 12<br>
+        <strong>Cancellations:</strong> <span id="cancellations">0</span><br>
+        <strong>Scale Escalations:</strong> <span id="escalations">0</span>
+      </div>
+
+      <div id="interaction" class="interaction-box"></div>
+      
+      <div style="margin-top: 12px; display: flex; gap: 12px;">
+        <button onclick="compactifyNow()">Force Compactification</button>
+        <button onclick="resetAll()">Reset</button>
+        <button onclick="exportData()">Export Data</button>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div>
+      <div style="margin-bottom: 8px; font-weight: 600;">Current Enclosures</div>
+      <div id="enclosure-list" class="enclosure-list"></div>
+      
+      <div style="margin-top: 16px; font-weight: 600;">Compactification Log</div>
+      <div id="log" class="log"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Core state
+let enclosures = [];
+let cancellationCount = 0;
+let escalationCount = 0;
+const MAX_ENCLOSURES = 12;
+
+// DOM references
+const interactionBox = document.getElementById('interaction');
+const countEl = document.getElementById('count');
+const cancelEl = document.getElementById('cancellations');
+const escEl = document.getElementById('escalations');
+const listEl = document.getElementById('enclosure-list');
+const logEl = document.getElementById('log');
+
+// Add a departure (core mechanic)
+function addDeparture(value) {
+  if (enclosures.length >= MAX_ENCLOSURES) {
+    compactifyNow();
+  }
+  
+  enclosures.push(value);
+  updateDisplay();
+  
+  // Auto-compactify when full
+  if (enclosures.length >= MAX_ENCLOSURES) {
+    setTimeout(compactifyNow, 400);
+  }
+}
+
+// Update the visual display
+function updateDisplay() {
+  countEl.textContent = enclosures.length;
+  cancelEl.textContent = cancellationCount;
+  escEl.textContent = escalationCount;
+  
+  // Render list
+  listEl.innerHTML = '';
+  enclosures.forEach((val, i) => {
+    const div = document.createElement('div');
+    div.className = `enclosure-item ${val > 0 ? 'positive' : 'negative'}`;
+    div.textContent = `[ E${i} | ${val > 0 ? '+1' : '-1'} | Departure ]`;
+    listEl.appendChild(div);
+  });
+}
+
+// Perform quantized compactification
+function compactifyNow() {
+  if (enclosures.length < 2) return;
+  
+  let positives = enclosures.filter(v => v > 0).length;
+  let negatives = enclosures.filter(v => v < 0).length;
+  
+  const pairs = Math.min(positives, negatives);
+  
+  if (pairs === 0) {
+    addLog("No opposing departures to cancel.");
+    return;
+  }
+  
+  // Remove paired departures
+  let remaining = [];
+  let posLeft = positives - pairs;
+  let negLeft = negatives - pairs;
+  
+  for (let v of enclosures) {
+    if (v > 0 && posLeft > 0) {
+      remaining.push(v);
+      posLeft--;
+    } else if (v < 0 && negLeft > 0) {
+      remaining.push(v);
+      negLeft--;
+    }
+  }
+  
+  const before = enclosures.length;
+  enclosures = remaining;
+  cancellationCount += pairs;
+  escalationCount += 1;
+  
+  addLog(`Compactified: ${pairs} pairs cancelled → ${enclosures.length} remaining (scale escalated)`);
+  updateDisplay();
+}
+
+// Simple logging
+function addLog(message) {
+  const p = document.createElement('div');
+  p.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+  logEl.appendChild(p);
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+// Reset everything
+function resetAll() {
+  enclosures = [];
+  cancellationCount = 0;
+  escalationCount = 0;
+  listEl.innerHTML = '';
+  logEl.innerHTML = '';
+  updateDisplay();
+  addLog("System reset.");
+}
+
+// Export current state
+function exportData() {
+  const data = {
+    timestamp: new Date().toISOString(),
+    enclosures: enclosures,
+    cancellations: cancellationCount,
+    escalations: escalationCount,
+    max_capacity: MAX_ENCLOSURES
+  };
+  
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'quantized_compactification_export.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// === Desktop: Mouse movement ===
+let lastX = null;
+interactionBox.addEventListener('mousemove', (e) => {
+  const rect = interactionBox.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  
+  if (lastX !== null) {
+    const delta = x - lastX;
+    if (Math.abs(delta) > 8) {           // threshold to avoid noise
+      const value = delta > 0 ? 1 : -1;
+      addDeparture(value);
+    }
+  }
+  lastX = x;
+});
+
+// === Mobile: Accelerometer / Shake ===
+let lastAccel = { x: 0, y: 0, z: 0 };
+
+function handleMotion(event) {
+  const acc = event.accelerationIncludingGravity;
+  if (!acc) return;
+  
+  const dx = Math.abs(acc.x - lastAccel.x);
+  const dy = Math.abs(acc.y - lastAccel.y);
+  const dz = Math.abs(acc.z - lastAccel.z);
+  
+  const total = dx + dy + dz;
+  
+  if (total > 4) { // sensitivity threshold
+    // Determine sign based on dominant axis
+    const value = (acc.x > 0 || acc.y > 0) ? 1 : -1;
+    addDeparture(value);
+  }
+  
+  lastAccel = { x: acc.x, y: acc.y, z: acc.z };
+}
+
+// Request permission on mobile (required on iOS)
+function requestMotionPermission() {
+  if (typeof DeviceMotionEvent !== 'undefined' && 
+      typeof DeviceMotionEvent.requestPermission === 'function') {
+    DeviceMotionEvent.requestPermission()
+      .then(permissionState => {
+        if (permissionState === 'granted') {
+          window.addEventListener('devicemotion', handleMotion);
+          addLog("Accelerometer access granted. Shake your phone.");
+        } else {
+          addLog("Accelerometer permission denied.");
+        }
+      })
+      .catch(console.error);
+  } else {
+    // Android or older browsers
+    window.addEventListener('devicemotion', handleMotion);
+    addLog("Listening for device motion (shake to generate departures).");
+  }
+}
+
+// Auto-request on touch (mobile)
+interactionBox.addEventListener('touchstart', () => {
+  if (!window.DeviceMotionEvent) return;
+  requestMotionPermission();
+}, { once: true });
+
+// Initial log
+addLog("Explorer ready. Move mouse or shake device to generate departures.");
+
+// Boot
+updateDisplay();
+</script>
+</body>
+</html>
