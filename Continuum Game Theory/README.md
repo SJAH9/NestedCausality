@@ -72,6 +72,22 @@ Game theory and NCM are not rivals. Game theory is strongest where players, stra
 
 The hybrid is **enclosure-aware game theory**: not only *what should the player do?*, but *what game is the player trapped inside, what larger enclosure makes that game solvable, what lower enclosure carries excluded costs, and what boundary makes the equilibrium unstable?*
 
+## Prisoner's Dilemma as an NCM Game
+
+Dedicated construction of the classic PD inside Nested Causal Modelling:
+
+| File | Role |
+|------|------|
+| [`NCM_Prisoners_Dilemma.md`](./NCM_Prisoners_Dilemma.md) | Formal NCM construction of the PD |
+| [`ncm_prisoners_dilemma.py`](./ncm_prisoners_dilemma.py) | Runnable NCM-PD simulator |
+| [`ncm_prisoners_dilemma_results.json`](./ncm_prisoners_dilemma_results.json) | Reference results |
+
+```bash
+python3 ncm_prisoners_dilemma.py --rounds 20 --seed 42
+```
+
+Core claim: the dominant-strategy Nash (D,D) is an equilibrium *inside* enclosure E₀ — not the Final Frontier of the conflict. Escape is changing the enclosure, not winning the interrogation.
+
 ## Files
 
 | File | Role |

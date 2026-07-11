@@ -1,0 +1,424 @@
+{
+  "formation": {
+    "T": 5.0,
+    "R": 3.0,
+    "P": 1.0,
+    "S": 0.0,
+    "players": [
+      "Prisoner A",
+      "Prisoner B"
+    ]
+  },
+  "classic": [
+    {
+      "label": "both defect (dominant Nash)",
+      "formation": {
+        "players": [
+          "Prisoner A",
+          "Prisoner B"
+        ],
+        "T": 5.0,
+        "R": 3.0,
+        "P": 1.0,
+        "S": 0.0,
+        "ordering_ok": true,
+        "information": "No communication; simultaneous choice; common knowledge of payoffs",
+        "excluded_costs": "Reputation, third-party harm, future alliance value, institutional trust, and the interrogator's outer incentives",
+        "boundary": "Interrogation / local temptation enclosure (E_0)"
+      },
+      "rounds": 20,
+      "strategy_a": "classic_defect",
+      "strategy_b": "classic_defect",
+      "score_a": 20.0,
+      "score_b": 20.0,
+      "joint": 40.0,
+      "final_depth": 0,
+      "final_enclosure": "E0 Local PD (interrogation / temptation)",
+      "residual": 20.0,
+      "compactified": false,
+      "mutual_c_rate": 0.0,
+      "mutual_d_rate": 1.0,
+      "classic_nash_cell_rate": 1.0,
+      "depth_path": [
+        0
+      ]
+    },
+    {
+      "label": "both cooperate (pareto, unstable)",
+      "formation": {
+        "players": [
+          "Prisoner A",
+          "Prisoner B"
+        ],
+        "T": 5.0,
+        "R": 3.0,
+        "P": 1.0,
+        "S": 0.0,
+        "ordering_ok": true,
+        "information": "No communication; simultaneous choice; common knowledge of payoffs",
+        "excluded_costs": "Reputation, third-party harm, future alliance value, institutional trust, and the interrogator's outer incentives",
+        "boundary": "Interrogation / local temptation enclosure (E_0)"
+      },
+      "rounds": 20,
+      "strategy_a": "classic_coop",
+      "strategy_b": "classic_coop",
+      "score_a": 60.0,
+      "score_b": 60.0,
+      "joint": 120.0,
+      "final_depth": 0,
+      "final_enclosure": "E0 Local PD (interrogation / temptation)",
+      "residual": 0.0,
+      "compactified": false,
+      "mutual_c_rate": 1.0,
+      "mutual_d_rate": 0.0,
+      "classic_nash_cell_rate": 0.0,
+      "depth_path": [
+        0
+      ]
+    },
+    {
+      "label": "defect vs cooperate (temptation)",
+      "formation": {
+        "players": [
+          "Prisoner A",
+          "Prisoner B"
+        ],
+        "T": 5.0,
+        "R": 3.0,
+        "P": 1.0,
+        "S": 0.0,
+        "ordering_ok": true,
+        "information": "No communication; simultaneous choice; common knowledge of payoffs",
+        "excluded_costs": "Reputation, third-party harm, future alliance value, institutional trust, and the interrogator's outer incentives",
+        "boundary": "Interrogation / local temptation enclosure (E_0)"
+      },
+      "rounds": 20,
+      "strategy_a": "classic_defect",
+      "strategy_b": "classic_coop",
+      "score_a": 100.0,
+      "score_b": 0.0,
+      "joint": 100.0,
+      "final_depth": 0,
+      "final_enclosure": "E0 Local PD (interrogation / temptation)",
+      "residual": 10.0,
+      "compactified": false,
+      "mutual_c_rate": 0.0,
+      "mutual_d_rate": 0.0,
+      "classic_nash_cell_rate": 0.0,
+      "depth_path": [
+        0
+      ]
+    },
+    {
+      "label": "TFT vs TFT (repeated heuristic)",
+      "formation": {
+        "players": [
+          "Prisoner A",
+          "Prisoner B"
+        ],
+        "T": 5.0,
+        "R": 3.0,
+        "P": 1.0,
+        "S": 0.0,
+        "ordering_ok": true,
+        "information": "No communication; simultaneous choice; common knowledge of payoffs",
+        "excluded_costs": "Reputation, third-party harm, future alliance value, institutional trust, and the interrogator's outer incentives",
+        "boundary": "Interrogation / local temptation enclosure (E_0)"
+      },
+      "rounds": 20,
+      "strategy_a": "tit_for_tat",
+      "strategy_b": "tit_for_tat",
+      "score_a": 60.0,
+      "score_b": 60.0,
+      "joint": 120.0,
+      "final_depth": 0,
+      "final_enclosure": "E0 Local PD (interrogation / temptation)",
+      "residual": 0.0,
+      "compactified": false,
+      "mutual_c_rate": 1.0,
+      "mutual_d_rate": 0.0,
+      "classic_nash_cell_rate": 0.0,
+      "depth_path": [
+        0
+      ]
+    },
+    {
+      "label": "TFT vs always-defect",
+      "formation": {
+        "players": [
+          "Prisoner A",
+          "Prisoner B"
+        ],
+        "T": 5.0,
+        "R": 3.0,
+        "P": 1.0,
+        "S": 0.0,
+        "ordering_ok": true,
+        "information": "No communication; simultaneous choice; common knowledge of payoffs",
+        "excluded_costs": "Reputation, third-party harm, future alliance value, institutional trust, and the interrogator's outer incentives",
+        "boundary": "Interrogation / local temptation enclosure (E_0)"
+      },
+      "rounds": 20,
+      "strategy_a": "tit_for_tat",
+      "strategy_b": "classic_defect",
+      "score_a": 19.0,
+      "score_b": 24.0,
+      "joint": 43.0,
+      "final_depth": 0,
+      "final_enclosure": "E0 Local PD (interrogation / temptation)",
+      "residual": 19.5,
+      "compactified": false,
+      "mutual_c_rate": 0.0,
+      "mutual_d_rate": 0.95,
+      "classic_nash_cell_rate": 0.95,
+      "depth_path": [
+        0
+      ]
+    }
+  ],
+  "ncm": [
+    {
+      "label": "classic defectors inside NCM field",
+      "formation": {
+        "players": [
+          "Prisoner A",
+          "Prisoner B"
+        ],
+        "T": 5.0,
+        "R": 3.0,
+        "P": 1.0,
+        "S": 0.0,
+        "ordering_ok": true,
+        "information": "No communication; simultaneous choice; common knowledge of payoffs",
+        "excluded_costs": "Reputation, third-party harm, future alliance value, institutional trust, and the interrogator's outer incentives",
+        "boundary": "Interrogation / local temptation enclosure (E_0)"
+      },
+      "rounds": 20,
+      "strategy_a": "classic_defect",
+      "strategy_b": "classic_defect",
+      "score_a": 20.0,
+      "score_b": 20.0,
+      "joint": 40.0,
+      "final_depth": 0,
+      "final_enclosure": "E0 Local PD (interrogation / temptation)",
+      "residual": 20.0,
+      "compactified": false,
+      "mutual_c_rate": 0.0,
+      "mutual_d_rate": 1.0,
+      "classic_nash_cell_rate": 1.0,
+      "depth_path": [
+        0
+      ]
+    },
+    {
+      "label": "NCM-aware vs pure defector",
+      "formation": {
+        "players": [
+          "Prisoner A",
+          "Prisoner B"
+        ],
+        "T": 5.0,
+        "R": 3.0,
+        "P": 1.0,
+        "S": 0.0,
+        "ordering_ok": true,
+        "information": "No communication; simultaneous choice; common knowledge of payoffs",
+        "excluded_costs": "Reputation, third-party harm, future alliance value, institutional trust, and the interrogator's outer incentives",
+        "boundary": "Interrogation / local temptation enclosure (E_0)"
+      },
+      "rounds": 20,
+      "strategy_a": "ncm_aware",
+      "strategy_b": "classic_defect",
+      "score_a": 4.5,
+      "score_b": 51.2,
+      "joint": 55.7,
+      "final_depth": 2,
+      "final_enclosure": "E2 Shared project (compactification zone)",
+      "residual": 14.0,
+      "compactified": false,
+      "mutual_c_rate": 0.0,
+      "mutual_d_rate": 0.4,
+      "classic_nash_cell_rate": 0.0,
+      "depth_path": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "label": "NCM-aware vs hawk",
+      "formation": {
+        "players": [
+          "Prisoner A",
+          "Prisoner B"
+        ],
+        "T": 5.0,
+        "R": 3.0,
+        "P": 1.0,
+        "S": 0.0,
+        "ordering_ok": true,
+        "information": "No communication; simultaneous choice; common knowledge of payoffs",
+        "excluded_costs": "Reputation, third-party harm, future alliance value, institutional trust, and the interrogator's outer incentives",
+        "boundary": "Interrogation / local temptation enclosure (E_0)"
+      },
+      "rounds": 20,
+      "strategy_a": "ncm_aware",
+      "strategy_b": "hawk",
+      "score_a": 4.5,
+      "score_b": 51.2,
+      "joint": 55.7,
+      "final_depth": 2,
+      "final_enclosure": "E2 Shared project (compactification zone)",
+      "residual": 14.0,
+      "compactified": false,
+      "mutual_c_rate": 0.0,
+      "mutual_d_rate": 0.4,
+      "classic_nash_cell_rate": 0.0,
+      "depth_path": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "label": "NCM-aware vs TFT",
+      "formation": {
+        "players": [
+          "Prisoner A",
+          "Prisoner B"
+        ],
+        "T": 5.0,
+        "R": 3.0,
+        "P": 1.0,
+        "S": 0.0,
+        "ordering_ok": true,
+        "information": "No communication; simultaneous choice; common knowledge of payoffs",
+        "excluded_costs": "Reputation, third-party harm, future alliance value, institutional trust, and the interrogator's outer incentives",
+        "boundary": "Interrogation / local temptation enclosure (E_0)"
+      },
+      "rounds": 20,
+      "strategy_a": "ncm_aware",
+      "strategy_b": "tit_for_tat",
+      "score_a": 112.8,
+      "score_b": 112.8,
+      "joint": 225.6,
+      "final_depth": 2,
+      "final_enclosure": "E2 Shared project (compactification zone)",
+      "residual": 0.0,
+      "compactified": false,
+      "mutual_c_rate": 1.0,
+      "mutual_d_rate": 0.0,
+      "classic_nash_cell_rate": 0.0,
+      "depth_path": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "label": "two NCM-aware prisoners",
+      "formation": {
+        "players": [
+          "Prisoner A",
+          "Prisoner B"
+        ],
+        "T": 5.0,
+        "R": 3.0,
+        "P": 1.0,
+        "S": 0.0,
+        "ordering_ok": true,
+        "information": "No communication; simultaneous choice; common knowledge of payoffs",
+        "excluded_costs": "Reputation, third-party harm, future alliance value, institutional trust, and the interrogator's outer incentives",
+        "boundary": "Interrogation / local temptation enclosure (E_0)"
+      },
+      "rounds": 20,
+      "strategy_a": "ncm_aware",
+      "strategy_b": "ncm_aware",
+      "score_a": 114.8,
+      "score_b": 114.8,
+      "joint": 229.6,
+      "final_depth": 2,
+      "final_enclosure": "E2 Shared project (compactification zone)",
+      "residual": 0.0,
+      "compactified": true,
+      "mutual_c_rate": 1.0,
+      "mutual_d_rate": 0.0,
+      "classic_nash_cell_rate": 0.0,
+      "depth_path": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "label": "two hawks",
+      "formation": {
+        "players": [
+          "Prisoner A",
+          "Prisoner B"
+        ],
+        "T": 5.0,
+        "R": 3.0,
+        "P": 1.0,
+        "S": 0.0,
+        "ordering_ok": true,
+        "information": "No communication; simultaneous choice; common knowledge of payoffs",
+        "excluded_costs": "Reputation, third-party harm, future alliance value, institutional trust, and the interrogator's outer incentives",
+        "boundary": "Interrogation / local temptation enclosure (E_0)"
+      },
+      "rounds": 20,
+      "strategy_a": "hawk",
+      "strategy_b": "hawk",
+      "score_a": 13.8,
+      "score_b": 13.8,
+      "joint": 27.6,
+      "final_depth": 2,
+      "final_enclosure": "E2 Shared project (compactification zone)",
+      "residual": 17.3,
+      "compactified": false,
+      "mutual_c_rate": 0.1,
+      "mutual_d_rate": 0.9,
+      "classic_nash_cell_rate": 0.1,
+      "depth_path": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "walkthrough": {
+    "label": "walkthrough_ncm_vs_ncm",
+    "formation": {
+      "players": [
+        "Prisoner A",
+        "Prisoner B"
+      ],
+      "T": 5.0,
+      "R": 3.0,
+      "P": 1.0,
+      "S": 0.0,
+      "ordering_ok": true,
+      "information": "No communication; simultaneous choice; common knowledge of payoffs",
+      "excluded_costs": "Reputation, third-party harm, future alliance value, institutional trust, and the interrogator's outer incentives",
+      "boundary": "Interrogation / local temptation enclosure (E_0)"
+    },
+    "rounds": 20,
+    "strategy_a": "ncm_aware",
+    "strategy_b": "ncm_aware",
+    "score_a": 114.8,
+    "score_b": 114.8,
+    "joint": 229.6,
+    "final_depth": 2,
+    "final_enclosure": "E2 Shared project (compactification zone)",
+    "residual": 0.0,
+    "compactified": true,
+    "mutual_c_rate": 1.0,
+    "mutual_d_rate": 0.0,
+    "classic_nash_cell_rate": 0.0,
+    "depth_path": [
+      0,
+      1,
+      2
+    ]
+  }
+}
