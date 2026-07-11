@@ -101,3 +101,21 @@ Core claim: the dominant-strategy Nash (D,D) is an equilibrium *inside* enclosur
 ## License / attribution
 
 Paper and instruments by Sid J.A. Hubbard. See repository root and Zenodo record for deposit metadata.
+
+## Nash of Infinite Depth and Scale
+
+Enclosure game whose equilibrium is defined on the unbounded nested stack
+`G = [G_{n+1} | σ_n | G_{n-1}]` for all `n ∈ ℤ`, with continuum limit of finite truncations.
+
+| File | Role |
+|------|------|
+| [`Enclosure_Nash_Infinite_Depth_Scale.md`](./Enclosure_Nash_Infinite_Depth_Scale.md) | Formal definition of infinite-depth/scale Nash and E_{0∞}^* |
+| [`enclosure_nash_infinite.py`](./enclosure_nash_infinite.py) | Simulator: truncations, continuum scan, scale stability, dynamic seal |
+| [`enclosure_nash_infinite_results.json`](./enclosure_nash_infinite_results.json) | Reference results |
+
+```bash
+python3 enclosure_nash_infinite.py --N 15 --rounds 25
+```
+
+Threshold seal: `s*(n)=D` for `n < n*`, `s*(n)=C` for `n ≥ n*` — ε-Nash on every window as `N → ∞`.
+

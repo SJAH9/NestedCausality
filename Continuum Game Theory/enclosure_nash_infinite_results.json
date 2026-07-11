@@ -1,0 +1,1983 @@
+{
+  "n_star": 5,
+  "candidates": [
+    {
+      "pattern": "always_defect",
+      "N": 15,
+      "scale_L": 0,
+      "is_eps_nash": false,
+      "eps_used": 1e-09,
+      "gain_A": 0.004368,
+      "gain_B": 0.004368,
+      "value_A": 9.990688,
+      "value_B": 9.990688,
+      "joint": 19.981376,
+      "n_star_coop_nash": 5,
+      "residual_proxy": 0.065516,
+      "reopen_profitable": false,
+      "sealed_zero_infinity": false,
+      "local_nash_by_depth": {
+        "-5": [
+          "DD"
+        ],
+        "-4": [
+          "DD"
+        ],
+        "-3": [
+          "DD"
+        ],
+        "-2": [
+          "DD"
+        ],
+        "-1": [
+          "DD"
+        ],
+        "0": [
+          "DD"
+        ],
+        "1": [
+          "DD"
+        ],
+        "2": [
+          "DD"
+        ],
+        "3": [
+          "DD"
+        ],
+        "4": [
+          "DD"
+        ],
+        "5": [
+          "CC",
+          "DD"
+        ]
+      },
+      "note": "not \u03b5-Nash (gain A=0.0044, B=0.0044)"
+    },
+    {
+      "pattern": "always_coop",
+      "N": 15,
+      "scale_L": 0,
+      "is_eps_nash": false,
+      "eps_used": 1e-09,
+      "gain_A": 2.0,
+      "gain_B": 2.0,
+      "value_A": 42.145743,
+      "value_B": 42.145743,
+      "joint": 84.291486,
+      "n_star_coop_nash": 5,
+      "residual_proxy": 6.660218,
+      "reopen_profitable": false,
+      "sealed_zero_infinity": false,
+      "local_nash_by_depth": {
+        "-5": [
+          "DD"
+        ],
+        "-4": [
+          "DD"
+        ],
+        "-3": [
+          "DD"
+        ],
+        "-2": [
+          "DD"
+        ],
+        "-1": [
+          "DD"
+        ],
+        "0": [
+          "DD"
+        ],
+        "1": [
+          "DD"
+        ],
+        "2": [
+          "DD"
+        ],
+        "3": [
+          "DD"
+        ],
+        "4": [
+          "DD"
+        ],
+        "5": [
+          "CC",
+          "DD"
+        ]
+      },
+      "note": "not \u03b5-Nash (gain A=2.0000, B=2.0000)"
+    },
+    {
+      "pattern": "threshold_coop",
+      "N": 15,
+      "scale_L": 0,
+      "is_eps_nash": true,
+      "eps_used": 1e-09,
+      "gain_A": 0.0,
+      "gain_B": 0.0,
+      "value_A": 23.247633,
+      "value_B": 23.247633,
+      "joint": 46.495265,
+      "n_star_coop_nash": 5,
+      "residual_proxy": 0.0,
+      "reopen_profitable": false,
+      "sealed_zero_infinity": true,
+      "local_nash_by_depth": {
+        "-5": [
+          "DD"
+        ],
+        "-4": [
+          "DD"
+        ],
+        "-3": [
+          "DD"
+        ],
+        "-2": [
+          "DD"
+        ],
+        "-1": [
+          "DD"
+        ],
+        "0": [
+          "DD"
+        ],
+        "1": [
+          "DD"
+        ],
+        "2": [
+          "DD"
+        ],
+        "3": [
+          "DD"
+        ],
+        "4": [
+          "DD"
+        ],
+        "5": [
+          "CC",
+          "DD"
+        ]
+      },
+      "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+    },
+    {
+      "pattern": "inner_d_outer_c",
+      "N": 15,
+      "scale_L": 0,
+      "is_eps_nash": false,
+      "eps_used": 1e-09,
+      "gain_A": 2.0,
+      "gain_B": 2.0,
+      "value_A": 33.155055,
+      "value_B": 33.155055,
+      "joint": 66.31011,
+      "n_star_coop_nash": 5,
+      "residual_proxy": 2.781473,
+      "reopen_profitable": false,
+      "sealed_zero_infinity": false,
+      "local_nash_by_depth": {
+        "-5": [
+          "DD"
+        ],
+        "-4": [
+          "DD"
+        ],
+        "-3": [
+          "DD"
+        ],
+        "-2": [
+          "DD"
+        ],
+        "-1": [
+          "DD"
+        ],
+        "0": [
+          "DD"
+        ],
+        "1": [
+          "DD"
+        ],
+        "2": [
+          "DD"
+        ],
+        "3": [
+          "DD"
+        ],
+        "4": [
+          "DD"
+        ],
+        "5": [
+          "CC",
+          "DD"
+        ]
+      },
+      "note": "not \u03b5-Nash (gain A=2.0000, B=2.0000)"
+    },
+    {
+      "pattern": "zero_infinity_seal",
+      "N": 15,
+      "scale_L": 0,
+      "is_eps_nash": true,
+      "eps_used": 1e-09,
+      "gain_A": 0.0,
+      "gain_B": 0.0,
+      "value_A": 23.247633,
+      "value_B": 23.247633,
+      "joint": 46.495265,
+      "n_star_coop_nash": 5,
+      "residual_proxy": 0.0,
+      "reopen_profitable": false,
+      "sealed_zero_infinity": true,
+      "local_nash_by_depth": {
+        "-5": [
+          "DD"
+        ],
+        "-4": [
+          "DD"
+        ],
+        "-3": [
+          "DD"
+        ],
+        "-2": [
+          "DD"
+        ],
+        "-1": [
+          "DD"
+        ],
+        "0": [
+          "DD"
+        ],
+        "1": [
+          "DD"
+        ],
+        "2": [
+          "DD"
+        ],
+        "3": [
+          "DD"
+        ],
+        "4": [
+          "DD"
+        ],
+        "5": [
+          "CC",
+          "DD"
+        ]
+      },
+      "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+    }
+  ],
+  "continuum": {
+    "always_defect": [
+      {
+        "pattern": "always_defect",
+        "N": 3,
+        "scale_L": 0,
+        "is_eps_nash": true,
+        "eps_used": 1e-09,
+        "gain_A": 0.0,
+        "gain_B": 0.0,
+        "value_A": 5.166381,
+        "value_B": 5.166381,
+        "joint": 10.332762,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 0.0,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": false,
+        "local_nash_by_depth": {
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ]
+        },
+        "note": "\u03b5-Nash on truncation"
+      },
+      {
+        "pattern": "always_defect",
+        "N": 6,
+        "scale_L": 0,
+        "is_eps_nash": true,
+        "eps_used": 1e-09,
+        "gain_A": 0.0,
+        "gain_B": 0.0,
+        "value_A": 7.523631,
+        "value_B": 7.523631,
+        "joint": 15.047262,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 0.0,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": false,
+        "local_nash_by_depth": {
+          "-5": [
+            "DD"
+          ],
+          "-4": [
+            "DD"
+          ],
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ],
+          "4": [
+            "DD"
+          ],
+          "5": [
+            "CC",
+            "DD"
+          ]
+        },
+        "note": "\u03b5-Nash on truncation"
+      },
+      {
+        "pattern": "always_defect",
+        "N": 10,
+        "scale_L": 0,
+        "is_eps_nash": true,
+        "eps_used": 1e-09,
+        "gain_A": 0.0,
+        "gain_B": 0.0,
+        "value_A": 9.142886,
+        "value_B": 9.142886,
+        "joint": 18.285772,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 0.0,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": false,
+        "local_nash_by_depth": {
+          "-5": [
+            "DD"
+          ],
+          "-4": [
+            "DD"
+          ],
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ],
+          "4": [
+            "DD"
+          ],
+          "5": [
+            "CC",
+            "DD"
+          ]
+        },
+        "note": "\u03b5-Nash on truncation"
+      },
+      {
+        "pattern": "always_defect",
+        "N": 15,
+        "scale_L": 0,
+        "is_eps_nash": false,
+        "eps_used": 1e-09,
+        "gain_A": 0.004368,
+        "gain_B": 0.004368,
+        "value_A": 9.990688,
+        "value_B": 9.990688,
+        "joint": 19.981376,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 0.065516,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": false,
+        "local_nash_by_depth": {
+          "-5": [
+            "DD"
+          ],
+          "-4": [
+            "DD"
+          ],
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ],
+          "4": [
+            "DD"
+          ],
+          "5": [
+            "CC",
+            "DD"
+          ]
+        },
+        "note": "not \u03b5-Nash (gain A=0.0044, B=0.0044)"
+      },
+      {
+        "pattern": "always_defect",
+        "N": 25,
+        "scale_L": 0,
+        "is_eps_nash": false,
+        "eps_used": 1e-09,
+        "gain_A": 0.015504,
+        "gain_B": 0.015504,
+        "value_A": 10.403839,
+        "value_B": 10.403839,
+        "joint": 20.807677,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 0.36368,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": false,
+        "local_nash_by_depth": {
+          "-5": [
+            "DD"
+          ],
+          "-4": [
+            "DD"
+          ],
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ],
+          "4": [
+            "DD"
+          ],
+          "5": [
+            "CC",
+            "DD"
+          ]
+        },
+        "note": "not \u03b5-Nash (gain A=0.0155, B=0.0155)"
+      }
+    ],
+    "always_coop": [
+      {
+        "pattern": "always_coop",
+        "N": 3,
+        "scale_L": 0,
+        "is_eps_nash": false,
+        "eps_used": 1e-09,
+        "gain_A": 2.0,
+        "gain_B": 2.0,
+        "value_A": 17.360962,
+        "value_B": 17.360962,
+        "joint": 34.721925,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 4.029937,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": false,
+        "local_nash_by_depth": {
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ]
+        },
+        "note": "not \u03b5-Nash (gain A=2.0000, B=2.0000)"
+      },
+      {
+        "pattern": "always_coop",
+        "N": 6,
+        "scale_L": 0,
+        "is_eps_nash": false,
+        "eps_used": 1e-09,
+        "gain_A": 2.0,
+        "gain_B": 2.0,
+        "value_A": 27.388964,
+        "value_B": 27.388964,
+        "joint": 54.777927,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 5.428588,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": false,
+        "local_nash_by_depth": {
+          "-5": [
+            "DD"
+          ],
+          "-4": [
+            "DD"
+          ],
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ],
+          "4": [
+            "DD"
+          ],
+          "5": [
+            "CC",
+            "DD"
+          ]
+        },
+        "note": "not \u03b5-Nash (gain A=2.0000, B=2.0000)"
+      },
+      {
+        "pattern": "always_coop",
+        "N": 10,
+        "scale_L": 0,
+        "is_eps_nash": false,
+        "eps_used": 1e-09,
+        "gain_A": 2.0,
+        "gain_B": 2.0,
+        "value_A": 36.061495,
+        "value_B": 36.061495,
+        "joint": 72.122991,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 6.194757,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": false,
+        "local_nash_by_depth": {
+          "-5": [
+            "DD"
+          ],
+          "-4": [
+            "DD"
+          ],
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ],
+          "4": [
+            "DD"
+          ],
+          "5": [
+            "CC",
+            "DD"
+          ]
+        },
+        "note": "not \u03b5-Nash (gain A=2.0000, B=2.0000)"
+      },
+      {
+        "pattern": "always_coop",
+        "N": 15,
+        "scale_L": 0,
+        "is_eps_nash": false,
+        "eps_used": 1e-09,
+        "gain_A": 2.0,
+        "gain_B": 2.0,
+        "value_A": 42.145743,
+        "value_B": 42.145743,
+        "joint": 84.291486,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 6.660218,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": false,
+        "local_nash_by_depth": {
+          "-5": [
+            "DD"
+          ],
+          "-4": [
+            "DD"
+          ],
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ],
+          "4": [
+            "DD"
+          ],
+          "5": [
+            "CC",
+            "DD"
+          ]
+        },
+        "note": "not \u03b5-Nash (gain A=2.0000, B=2.0000)"
+      },
+      {
+        "pattern": "always_coop",
+        "N": 25,
+        "scale_L": 0,
+        "is_eps_nash": false,
+        "eps_used": 1e-09,
+        "gain_A": 2.0,
+        "gain_B": 2.0,
+        "value_A": 46.822792,
+        "value_B": 46.822792,
+        "joint": 93.645585,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 6.958383,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": false,
+        "local_nash_by_depth": {
+          "-5": [
+            "DD"
+          ],
+          "-4": [
+            "DD"
+          ],
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ],
+          "4": [
+            "DD"
+          ],
+          "5": [
+            "CC",
+            "DD"
+          ]
+        },
+        "note": "not \u03b5-Nash (gain A=2.0000, B=2.0000)"
+      }
+    ],
+    "threshold_coop": [
+      {
+        "pattern": "threshold_coop",
+        "N": 3,
+        "scale_L": 0,
+        "is_eps_nash": true,
+        "eps_used": 1e-09,
+        "gain_A": 0.0,
+        "gain_B": 0.0,
+        "value_A": 5.166381,
+        "value_B": 5.166381,
+        "joint": 10.332762,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 0.0,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": true,
+        "local_nash_by_depth": {
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ]
+        },
+        "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+      },
+      {
+        "pattern": "threshold_coop",
+        "N": 6,
+        "scale_L": 0,
+        "is_eps_nash": true,
+        "eps_used": 1e-09,
+        "gain_A": 0.0,
+        "gain_B": 0.0,
+        "value_A": 10.95791,
+        "value_B": 10.95791,
+        "joint": 21.91582,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 0.0,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": true,
+        "local_nash_by_depth": {
+          "-5": [
+            "DD"
+          ],
+          "-4": [
+            "DD"
+          ],
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ],
+          "4": [
+            "DD"
+          ],
+          "5": [
+            "CC",
+            "DD"
+          ]
+        },
+        "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+      },
+      {
+        "pattern": "threshold_coop",
+        "N": 10,
+        "scale_L": 0,
+        "is_eps_nash": true,
+        "eps_used": 1e-09,
+        "gain_A": 0.0,
+        "gain_B": 0.0,
+        "value_A": 18.011187,
+        "value_B": 18.011187,
+        "joint": 36.022374,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 0.0,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": true,
+        "local_nash_by_depth": {
+          "-5": [
+            "DD"
+          ],
+          "-4": [
+            "DD"
+          ],
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ],
+          "4": [
+            "DD"
+          ],
+          "5": [
+            "CC",
+            "DD"
+          ]
+        },
+        "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+      },
+      {
+        "pattern": "threshold_coop",
+        "N": 15,
+        "scale_L": 0,
+        "is_eps_nash": true,
+        "eps_used": 1e-09,
+        "gain_A": 0.0,
+        "gain_B": 0.0,
+        "value_A": 23.247633,
+        "value_B": 23.247633,
+        "joint": 46.495265,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 0.0,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": true,
+        "local_nash_by_depth": {
+          "-5": [
+            "DD"
+          ],
+          "-4": [
+            "DD"
+          ],
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ],
+          "4": [
+            "DD"
+          ],
+          "5": [
+            "CC",
+            "DD"
+          ]
+        },
+        "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+      },
+      {
+        "pattern": "threshold_coop",
+        "N": 25,
+        "scale_L": 0,
+        "is_eps_nash": true,
+        "eps_used": 1e-09,
+        "gain_A": 0.0,
+        "gain_B": 0.0,
+        "value_A": 27.511531,
+        "value_B": 27.511531,
+        "joint": 55.023063,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 0.0,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": true,
+        "local_nash_by_depth": {
+          "-5": [
+            "DD"
+          ],
+          "-4": [
+            "DD"
+          ],
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ],
+          "4": [
+            "DD"
+          ],
+          "5": [
+            "CC",
+            "DD"
+          ]
+        },
+        "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+      }
+    ],
+    "zero_infinity_seal": [
+      {
+        "pattern": "zero_infinity_seal",
+        "N": 3,
+        "scale_L": 0,
+        "is_eps_nash": true,
+        "eps_used": 1e-09,
+        "gain_A": 0.0,
+        "gain_B": 0.0,
+        "value_A": 5.166381,
+        "value_B": 5.166381,
+        "joint": 10.332762,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 0.0,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": true,
+        "local_nash_by_depth": {
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ]
+        },
+        "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+      },
+      {
+        "pattern": "zero_infinity_seal",
+        "N": 6,
+        "scale_L": 0,
+        "is_eps_nash": true,
+        "eps_used": 1e-09,
+        "gain_A": 0.0,
+        "gain_B": 0.0,
+        "value_A": 10.95791,
+        "value_B": 10.95791,
+        "joint": 21.91582,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 0.0,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": true,
+        "local_nash_by_depth": {
+          "-5": [
+            "DD"
+          ],
+          "-4": [
+            "DD"
+          ],
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ],
+          "4": [
+            "DD"
+          ],
+          "5": [
+            "CC",
+            "DD"
+          ]
+        },
+        "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+      },
+      {
+        "pattern": "zero_infinity_seal",
+        "N": 10,
+        "scale_L": 0,
+        "is_eps_nash": true,
+        "eps_used": 1e-09,
+        "gain_A": 0.0,
+        "gain_B": 0.0,
+        "value_A": 18.011187,
+        "value_B": 18.011187,
+        "joint": 36.022374,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 0.0,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": true,
+        "local_nash_by_depth": {
+          "-5": [
+            "DD"
+          ],
+          "-4": [
+            "DD"
+          ],
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ],
+          "4": [
+            "DD"
+          ],
+          "5": [
+            "CC",
+            "DD"
+          ]
+        },
+        "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+      },
+      {
+        "pattern": "zero_infinity_seal",
+        "N": 15,
+        "scale_L": 0,
+        "is_eps_nash": true,
+        "eps_used": 1e-09,
+        "gain_A": 0.0,
+        "gain_B": 0.0,
+        "value_A": 23.247633,
+        "value_B": 23.247633,
+        "joint": 46.495265,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 0.0,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": true,
+        "local_nash_by_depth": {
+          "-5": [
+            "DD"
+          ],
+          "-4": [
+            "DD"
+          ],
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ],
+          "4": [
+            "DD"
+          ],
+          "5": [
+            "CC",
+            "DD"
+          ]
+        },
+        "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+      },
+      {
+        "pattern": "zero_infinity_seal",
+        "N": 25,
+        "scale_L": 0,
+        "is_eps_nash": true,
+        "eps_used": 1e-09,
+        "gain_A": 0.0,
+        "gain_B": 0.0,
+        "value_A": 27.511531,
+        "value_B": 27.511531,
+        "joint": 55.023063,
+        "n_star_coop_nash": 5,
+        "residual_proxy": 0.0,
+        "reopen_profitable": false,
+        "sealed_zero_infinity": true,
+        "local_nash_by_depth": {
+          "-5": [
+            "DD"
+          ],
+          "-4": [
+            "DD"
+          ],
+          "-3": [
+            "DD"
+          ],
+          "-2": [
+            "DD"
+          ],
+          "-1": [
+            "DD"
+          ],
+          "0": [
+            "DD"
+          ],
+          "1": [
+            "DD"
+          ],
+          "2": [
+            "DD"
+          ],
+          "3": [
+            "DD"
+          ],
+          "4": [
+            "DD"
+          ],
+          "5": [
+            "CC",
+            "DD"
+          ]
+        },
+        "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+      }
+    ]
+  },
+  "scale_stability": [
+    {
+      "pattern": "zero_infinity_seal",
+      "N": 15,
+      "scale_L": 0,
+      "is_eps_nash": true,
+      "eps_used": 1e-09,
+      "gain_A": 0.0,
+      "gain_B": 0.0,
+      "value_A": 23.247633,
+      "value_B": 23.247633,
+      "joint": 46.495265,
+      "n_star_coop_nash": 5,
+      "residual_proxy": 0.0,
+      "reopen_profitable": false,
+      "sealed_zero_infinity": true,
+      "local_nash_by_depth": {
+        "-5": [
+          "DD"
+        ],
+        "-4": [
+          "DD"
+        ],
+        "-3": [
+          "DD"
+        ],
+        "-2": [
+          "DD"
+        ],
+        "-1": [
+          "DD"
+        ],
+        "0": [
+          "DD"
+        ],
+        "1": [
+          "DD"
+        ],
+        "2": [
+          "DD"
+        ],
+        "3": [
+          "DD"
+        ],
+        "4": [
+          "DD"
+        ],
+        "5": [
+          "CC",
+          "DD"
+        ]
+      },
+      "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+    },
+    {
+      "pattern": "zero_infinity_seal",
+      "N": 15,
+      "scale_L": 1,
+      "is_eps_nash": true,
+      "eps_used": 1e-09,
+      "gain_A": 0.0,
+      "gain_B": 0.0,
+      "value_A": 24.410014,
+      "value_B": 24.410014,
+      "joint": 48.820028,
+      "n_star_coop_nash": 5,
+      "residual_proxy": 0.0,
+      "reopen_profitable": false,
+      "sealed_zero_infinity": true,
+      "local_nash_by_depth": {
+        "-5": [
+          "DD"
+        ],
+        "-4": [
+          "DD"
+        ],
+        "-3": [
+          "DD"
+        ],
+        "-2": [
+          "DD"
+        ],
+        "-1": [
+          "DD"
+        ],
+        "0": [
+          "DD"
+        ],
+        "1": [
+          "DD"
+        ],
+        "2": [
+          "DD"
+        ],
+        "3": [
+          "DD"
+        ],
+        "4": [
+          "DD"
+        ],
+        "5": [
+          "CC",
+          "DD"
+        ]
+      },
+      "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+    },
+    {
+      "pattern": "zero_infinity_seal",
+      "N": 15,
+      "scale_L": 2,
+      "is_eps_nash": true,
+      "eps_used": 1e-09,
+      "gain_A": 0.0,
+      "gain_B": 0.0,
+      "value_A": 25.572396,
+      "value_B": 25.572396,
+      "joint": 51.144792,
+      "n_star_coop_nash": 5,
+      "residual_proxy": 0.0,
+      "reopen_profitable": false,
+      "sealed_zero_infinity": true,
+      "local_nash_by_depth": {
+        "-5": [
+          "DD"
+        ],
+        "-4": [
+          "DD"
+        ],
+        "-3": [
+          "DD"
+        ],
+        "-2": [
+          "DD"
+        ],
+        "-1": [
+          "DD"
+        ],
+        "0": [
+          "DD"
+        ],
+        "1": [
+          "DD"
+        ],
+        "2": [
+          "DD"
+        ],
+        "3": [
+          "DD"
+        ],
+        "4": [
+          "DD"
+        ],
+        "5": [
+          "CC",
+          "DD"
+        ]
+      },
+      "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+    },
+    {
+      "pattern": "zero_infinity_seal",
+      "N": 15,
+      "scale_L": 5,
+      "is_eps_nash": true,
+      "eps_used": 1e-09,
+      "gain_A": 0.0,
+      "gain_B": 0.0,
+      "value_A": 29.059541,
+      "value_B": 29.059541,
+      "joint": 58.119081,
+      "n_star_coop_nash": 5,
+      "residual_proxy": 0.0,
+      "reopen_profitable": false,
+      "sealed_zero_infinity": true,
+      "local_nash_by_depth": {
+        "-5": [
+          "DD"
+        ],
+        "-4": [
+          "DD"
+        ],
+        "-3": [
+          "DD"
+        ],
+        "-2": [
+          "DD"
+        ],
+        "-1": [
+          "DD"
+        ],
+        "0": [
+          "DD"
+        ],
+        "1": [
+          "DD"
+        ],
+        "2": [
+          "DD"
+        ],
+        "3": [
+          "DD"
+        ],
+        "4": [
+          "DD"
+        ],
+        "5": [
+          "CC",
+          "DD"
+        ]
+      },
+      "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+    },
+    {
+      "pattern": "zero_infinity_seal",
+      "N": 15,
+      "scale_L": 10,
+      "is_eps_nash": true,
+      "eps_used": 1e-09,
+      "gain_A": 0.0,
+      "gain_B": 0.0,
+      "value_A": 34.871449,
+      "value_B": 34.871449,
+      "joint": 69.742898,
+      "n_star_coop_nash": 5,
+      "residual_proxy": 0.0,
+      "reopen_profitable": false,
+      "sealed_zero_infinity": true,
+      "local_nash_by_depth": {
+        "-5": [
+          "DD"
+        ],
+        "-4": [
+          "DD"
+        ],
+        "-3": [
+          "DD"
+        ],
+        "-2": [
+          "DD"
+        ],
+        "-1": [
+          "DD"
+        ],
+        "0": [
+          "DD"
+        ],
+        "1": [
+          "DD"
+        ],
+        "2": [
+          "DD"
+        ],
+        "3": [
+          "DD"
+        ],
+        "4": [
+          "DD"
+        ],
+        "5": [
+          "CC",
+          "DD"
+        ]
+      },
+      "note": "\u03b5-Nash on truncation; Enclosed Zero Infinity Nash candidate on this window"
+    }
+  ],
+  "dynamic_defect": {
+    "policy": "always_defect",
+    "n_star": 5,
+    "final_depth": 0,
+    "scale_L": 0,
+    "sealed": false,
+    "residual": 25.0,
+    "score_a": 25.0,
+    "score_b": 25.0,
+    "joint": 50.0
+  },
+  "dynamic_ncm": {
+    "policy": "ncm_seal",
+    "n_star": 5,
+    "final_depth": 5,
+    "scale_L": 0,
+    "sealed": true,
+    "residual": 0.0,
+    "score_a": 115.25,
+    "score_b": 115.25,
+    "joint": 230.5
+  },
+  "dynamic_ncm_history": [
+    {
+      "round": 1,
+      "depth": 1,
+      "scale": 0,
+      "action": [
+        "C",
+        "C"
+      ],
+      "pay": [
+        3.35,
+        3.35
+      ],
+      "residual": 0.0,
+      "note": "escalate toward infinite outer stack \u2192 n=1",
+      "local_nash": [
+        "DD"
+      ]
+    },
+    {
+      "round": 2,
+      "depth": 2,
+      "scale": 0,
+      "action": [
+        "C",
+        "C"
+      ],
+      "pay": [
+        3.7,
+        3.7
+      ],
+      "residual": 0.0,
+      "note": "escalate toward infinite outer stack \u2192 n=2",
+      "local_nash": [
+        "DD"
+      ]
+    },
+    {
+      "round": 3,
+      "depth": 3,
+      "scale": 0,
+      "action": [
+        "C",
+        "C"
+      ],
+      "pay": [
+        4.05,
+        4.05
+      ],
+      "residual": 0.0,
+      "note": "escalate toward infinite outer stack \u2192 n=3",
+      "local_nash": [
+        "DD"
+      ]
+    },
+    {
+      "round": 4,
+      "depth": 4,
+      "scale": 0,
+      "action": [
+        "C",
+        "C"
+      ],
+      "pay": [
+        4.4,
+        4.4
+      ],
+      "residual": 0.0,
+      "note": "escalate toward infinite outer stack \u2192 n=4",
+      "local_nash": [
+        "DD"
+      ]
+    },
+    {
+      "round": 5,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "C",
+        "C"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "escalate toward infinite outer stack \u2192 n=5",
+      "local_nash": [
+        "CC",
+        "DD"
+      ]
+    },
+    {
+      "round": 6,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "C",
+        "C"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "outer coop Nash \u2014 compactify residual; seal E_{0\u221e}^*",
+      "local_nash": [
+        "CC",
+        "DD"
+      ]
+    },
+    {
+      "round": 7,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 8,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 9,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 10,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 11,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 12,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 13,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 14,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 15,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 16,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 17,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 18,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 19,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 20,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 21,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 22,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 23,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 24,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    },
+    {
+      "round": 25,
+      "depth": 5,
+      "scale": 0,
+      "action": [
+        "HOLD",
+        "HOLD"
+      ],
+      "pay": [
+        4.75,
+        4.75
+      ],
+      "residual": 0.0,
+      "note": "E_{0\u221e}^* hold \u2014 infinite-depth Nash region active"
+    }
+  ],
+  "payoff_params": {
+    "T0": 5.0,
+    "R0": 3.0,
+    "P0": 1.0,
+    "S0": 0.0,
+    "outer_coop_gain": 0.35,
+    "outer_tempt_decay": 0.12,
+    "inner_trap": 0.08
+  }
+}
