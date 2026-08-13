@@ -199,7 +199,96 @@ From the ternary paper §6: the model may represent unbounded descriptive depth 
 
 ---
 
-## 9. Core claim
+## 9. Nonterminal Zero Infinity game
+
+The threshold-seal model above asks whether a profile can become stable across
+infinite descriptive depth and scale. A second construction asks a different
+question:
+
+> Can strategic play remain active forever without assigning victory, defeat,
+> or cumulative advantage to either player?
+
+The companion instrument
+[`zero_infinity_endless_game.py`](./zero_infinity_endless_game.py) defines that
+game as a deterministic transition system.
+
+### State
+
+Each player occupies a signed depth-and-scale coordinate:
+
+```text
+level_i = (n_i, m_i) ∈ ℤ × ℤ
+```
+
+The signed scale coordinate extends the earlier nonnegative computational tier
+into relative scale: `m > 0` is scale-out from the initial reference and
+`m < 0` is scale-in. `(0,0)` is the initial Zero Infinity reference, not a
+terminal center.
+
+There are no scores and no terminal labels:
+
+```text
+u_A(h) = u_B(h) = 0       for every realized history h
+winner(h) = loser(h) = ∅
+active(h) = true
+```
+
+### Pursuit and last-moment evasion
+
+Every encounter has exactly three phases:
+
+```text
+countdown 2  SEEK   attacker targets the other player's level
+countdown 1  MATCH  attacker occupies that exact depth and scale
+countdown 0  EVADE  defender changes enclosure before victory matures
+```
+
+The players alternate roles after every evasion. Each therefore continues
+seeking the other player's level. A strategic move that could produce victory
+reaches its final pre-terminal state, but the game contains no transition from
+that state to victory. Its next lawful transition changes the enclosure.
+
+### Infinite depth-and-scale path
+
+Evasions follow an expanding square spiral over `ℤ × ℤ`:
+
+```text
++depth ×1, +scale ×1,
+-depth ×2, -scale ×2,
++depth ×3, +scale ×3, ...
+```
+
+The segment lengths grow without bound while direction cycles through depth
+escalation, scale escalation, depth de-escalation, and scale de-escalation.
+The path therefore has no greatest or least depth or scale. No randomizer is
+used.
+
+### Equilibrium interpretation
+
+This is not a conventional payoff-maximizing Nash with a winning cell. It is a
+nonterminal equilibrium under the enclosure-transition rules:
+
+1. neither player can improve a realized utility above zero;
+2. neither player is assigned a loss;
+3. every apparent winning alignment is unstable for exactly one final event;
+4. the only continuation is enclosure movement;
+5. after movement, pursuit changes hands and begins again.
+
+Every finite observation is only a prefix. The generator itself has no halt
+condition:
+
+```bash
+python3 zero_infinity_endless_game.py --evasions 12
+python3 zero_infinity_endless_game.py --stream
+```
+
+The first command shows and validates twelve evasions. The second continues
+until the observer interrupts the process; interruption ends observation, not
+the modelled game.
+
+---
+
+## 10. Core claim
 
 > A player does not escape a zero-sum enclosure by winning its local Nash.  
 > A player escapes by reaching the region of the infinite stack where that zero-sum was only a local description — and sealing residual so reopening is not rational.  

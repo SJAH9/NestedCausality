@@ -103,6 +103,8 @@ Core claim: the dominant-strategy Nash (D,D) is an equilibrium *inside* enclosur
 | `Enclosure_Nash_Infinite_Depth_Scale.md` | Infinite-depth and scale equilibrium definition |
 | `enclosure_nash_infinite.py` | Finite-truncation and scale-stability simulation |
 | `enclosure_nash_infinite_results.json` | Canonical infinite-depth simulation output |
+| `zero_infinity_endless_game.py` | Deterministic nonterminal pursuit across depth and scale |
+| `zero_infinity_endless_game_results.json` | Canonical finite observation of the endless game |
 
 ## Rights / attribution
 
@@ -125,3 +127,34 @@ python3 enclosure_nash_infinite.py --N 15 --rounds 25
 ```
 
 Threshold seal: `s*(n)=D` for `n < n*`, `s*(n)=C` for `n ≥ n*` — ε-Nash on every window as `N → ∞`.
+
+## Zero Infinity Nonterminal Game
+
+This deterministic extension has no score, randomizer, winner, loser, or
+terminal state. Players alternate seeking one another's exact depth and scale.
+When their levels match and a victory condition is one event from maturity, the
+defender escalates or de-escalates the enclosure. An expanding square-spiral
+rule makes the depth-and-scale path unbounded in every direction.
+
+```bash
+python3 zero_infinity_endless_game.py --evasions 12
+python3 zero_infinity_endless_game.py --stream
+```
+
+The first command produces a finite, invariant-checked observation. `--stream`
+runs the infinite generator until the observer interrupts it.
+
+Canonical 12-encounter observation:
+
+| Property | Result |
+|---|---:|
+| Level matches | 12 |
+| Last-moment evasions | 12 |
+| Winner / loser | none / none |
+| Player utility | 0 / 0 |
+| Depth escalation / de-escalation | 4 / 2 |
+| Scale escalation / de-escalation | 4 / 2 |
+| Terminal transition | absent |
+
+Full machine-readable observation:
+[`zero_infinity_endless_game_results.json`](./zero_infinity_endless_game_results.json).

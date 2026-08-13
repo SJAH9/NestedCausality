@@ -38,6 +38,11 @@ EXPERIMENTS = (
         "enclosure_nash_infinite_results.json",
         ("--N", "15", "--rounds", "25"),
     ),
+    Experiment(
+        "zero_infinity_endless_game.py",
+        "zero_infinity_endless_game_results.json",
+        ("--evasions", "12"),
+    ),
 )
 
 

@@ -31,10 +31,17 @@ python3 "Continuum Game Theory/ncm_prisoners_dilemma.py" \
 python3 "Continuum Game Theory/enclosure_nash_infinite.py" \
   --N 15 --rounds 25 \
   --json-out /tmp/enclosure_nash_infinite_results.json
+
+python3 "Continuum Game Theory/zero_infinity_endless_game.py" \
+  --evasions 12 \
+  --json-out /tmp/zero_infinity_endless_game_results.json
 ```
 
 With the current source, each output should match its corresponding committed
 JSON file byte-for-byte.
+
+The nonterminal game also supports `--stream`. That mode intentionally runs
+until interrupted and is not used by automated verification.
 
 ## Intentional result changes
 
