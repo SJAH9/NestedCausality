@@ -146,6 +146,11 @@ python3 zero_infinity_endless_game.py --stream
 The first command produces a finite, invariant-checked observation. `--stream`
 runs the infinite generator until the observer interrupts it.
 
+To watch the same deterministic rules operate as a realtime enclosure network,
+open the [Zero Infinity Network Game](../instruments/zero-infinity-network.html).
+`SEEK` generates a temporary claim node, `MATCH` binds the pursuer to the
+defender's level, and `EVADE` removes the claim while advancing the frontier.
+
 Canonical 12-encounter observation:
 
 | Property | Result |

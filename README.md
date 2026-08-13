@@ -22,6 +22,7 @@ empirical validation of the broader theoretical claims.
 | Reproduce committed results | [`docs/reproducibility.md`](docs/reproducibility.md) |
 | Run the game-theory models | [`Continuum Game Theory/`](Continuum%20Game%20Theory/) |
 | Observe the nonterminal Zero Infinity game | [`zero_infinity_endless_game.py`](Continuum%20Game%20Theory/zero_infinity_endless_game.py) |
+| Watch the realtime enclosure network | [`zero-infinity-network.html`](instruments/zero-infinity-network.html) |
 | Use the browser instruments | [`instruments/`](instruments/) |
 
 ## Quick verification

@@ -13,6 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 GAME_DIR = ROOT / "Continuum Game Theory"
+INSTRUMENT_DIR = ROOT / "instruments"
 
 
 @dataclass(frozen=True)
@@ -116,14 +117,65 @@ def verify_plot(output_dir: Path) -> bool:
     return True
 
 
+def verify_network_instrument() -> bool:
+    files = (
+        "zero-infinity-network.html",
+        "zero-infinity-network.css",
+        "zero-infinity-network-engine.js",
+        "zero-infinity-network.js",
+    )
+    missing = [name for name in files if not (INSTRUMENT_DIR / name).is_file()]
+    if missing:
+        print(f"FAIL network instrument: missing {', '.join(missing)}")
+        return False
+
+    html = (INSTRUMENT_DIR / files[0]).read_text(encoding="utf-8")
+    engine = (INSTRUMENT_DIR / files[2]).read_text(encoding="utf-8")
+    renderer = (INSTRUMENT_DIR / files[3]).read_text(encoding="utf-8")
+    engine_tag = '<script src="zero-infinity-network-engine.js"></script>'
+    renderer_tag = '<script src="zero-infinity-network.js"></script>'
+    forbidden = ("Math.random", "crypto.getRandomValues", "setInterval")
+
+    checks = {
+        "engine loads before renderer": (
+            engine_tag in html
+            and renderer_tag in html
+            and html.index(engine_tag) < html.index(renderer_tag)
+        ),
+        "game state uses arbitrary-precision integers": (
+            "event: 0n" in engine
+            and "depth: 0n" in engine
+            and "utilityA: 0n" in engine
+        ),
+        "game engine contains no random source": not any(
+            token in engine for token in forbidden
+        ),
+        "pixel projection remains outside game engine": (
+            "const projected = value => Number(" in renderer
+        ),
+        "runtime invariants are enforced": "validateEvent(state, event)" in engine,
+    }
+    failed = [name for name, passed in checks.items() if not passed]
+    if failed:
+        print(f"FAIL network instrument: {', '.join(failed)}")
+        return False
+
+    print("PASS zero-infinity-network instrument")
+    return True
+
+
 def main() -> int:
     with tempfile.TemporaryDirectory(prefix="nested-causality-") as temp_dir:
         output_dir = Path(temp_dir)
         passed = [run_experiment(item, output_dir) for item in EXPERIMENTS]
         passed.append(verify_plot(output_dir))
+        passed.append(verify_network_instrument())
 
     if all(passed):
-        print(f"Verified {len(EXPERIMENTS)} experiments and 1 generated plot.")
+        print(
+            f"Verified {len(EXPERIMENTS)} experiments, 1 generated plot, "
+            "and 1 browser instrument."
+        )
         return 0
 
     print(f"Verification failed: {passed.count(False)} experiment(s).")

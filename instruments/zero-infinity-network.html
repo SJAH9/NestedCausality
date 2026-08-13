@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Realtime deterministic network view of the Zero Infinity nonterminal enclosure game.">
+    <title>Zero Infinity Network Game</title>
+    <link rel="stylesheet" href="zero-infinity-network.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Nested Causality / Continuum Game Theory</p>
+        <h1>Zero Infinity Network Game</h1>
+      </div>
+      <div class="status-line" aria-live="polite">
+        <span class="live-indicator" aria-hidden="true"></span>
+        <span id="run-status">Running</span>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="network-panel" aria-label="Realtime enclosure network">
+        <svg id="network" viewBox="-600 -420 1200 840" role="img" aria-labelledby="network-title network-description">
+          <title id="network-title">Zero Infinity enclosure network</title>
+          <desc id="network-description">Players seek the same enclosure. A temporary victory claim is removed at the final moment as the defender changes depth or scale.</desc>
+          <defs>
+            <filter id="node-glow" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur stdDeviation="7" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <marker id="arrow-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 Z" fill="#46d6c2"/>
+            </marker>
+            <marker id="arrow-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 Z" fill="#ff786d"/>
+            </marker>
+          </defs>
+          <g id="grid-layer"></g>
+          <g id="edge-layer"></g>
+          <g id="claim-layer"></g>
+          <g id="node-layer"></g>
+          <g id="player-layer"></g>
+        </svg>
+
+        <div class="network-key" aria-label="Network legend">
+          <span><i class="key-dot reference"></i>0∞ reference</span>
+          <span><i class="key-dot enclosure"></i>Enclosure</span>
+          <span><i class="key-dot claim"></i>Victory claim</span>
+          <span><i class="key-line frontier"></i>Frontier path</span>
+        </div>
+
+        <div class="controls" aria-label="Simulation controls">
+          <button class="icon-button" id="play-pause" type="button" aria-label="Pause" title="Pause">Ⅱ</button>
+          <button class="icon-button" id="step" type="button" aria-label="Advance one event" title="Advance one event">›</button>
+          <button class="icon-button" id="reset" type="button" aria-label="Reset simulation" title="Reset simulation">↺</button>
+          <label class="speed-control" for="speed">
+            <span>Speed</span>
+            <input id="speed" type="range" min="100" max="1800" step="50" value="850">
+          </label>
+        </div>
+      </section>
+
+      <aside class="data-panel" aria-label="Exact game state">
+        <section class="phase-block">
+          <p class="eyebrow">Current transition</p>
+          <div class="phase-row">
+            <span class="phase" id="phase">SEEK</span>
+            <span class="countdown">t−<strong id="countdown">2</strong></span>
+          </div>
+          <p class="event-copy" id="event-copy">Player A seeks Player B's level.</p>
+        </section>
+
+        <section class="metric-grid" aria-label="Game counters">
+          <div><strong id="encounter">1</strong><span>Encounter</span></div>
+          <div><strong id="event">0</strong><span>Exact event</span></div>
+          <div><strong id="active-nodes">1</strong><span>Active nodes</span></div>
+          <div><strong id="retired-nodes">0</strong><span>Claims removed</span></div>
+        </section>
+
+        <section class="player-state">
+          <h2>Players</h2>
+          <div class="player-row player-a">
+            <span class="player-token">A</span>
+            <div><strong id="a-level">(0, 0)</strong><span>depth, scale</span></div>
+            <em id="a-role">Pursuer</em>
+          </div>
+          <div class="player-row player-b">
+            <span class="player-token">B</span>
+            <div><strong id="b-level">(0, 0)</strong><span>depth, scale</span></div>
+            <em id="b-role">Defender</em>
+          </div>
+        </section>
+
+        <section class="invariants">
+          <h2>Exact invariants</h2>
+          <dl>
+            <div><dt>Randomness</dt><dd>None</dd></div>
+            <div><dt>Utility</dt><dd>0 / 0</dd></div>
+            <div><dt>Winner</dt><dd>None</dd></div>
+            <div><dt>Loser</dt><dd>None</dd></div>
+            <div><dt>Terminal state</dt><dd>Absent</dd></div>
+            <div><dt>Next event</dt><dd>Exists</dd></div>
+          </dl>
+        </section>
+
+        <section class="event-log">
+          <h2>Transition log</h2>
+          <ol id="event-log"></ol>
+        </section>
+      </aside>
+    </main>
+
+    <script src="zero-infinity-network-engine.js"></script>
+    <script src="zero-infinity-network.js"></script>
+  </body>
+</html>
