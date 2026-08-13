@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1000" viewBox="0 0 1440 1000" role="img" aria-labelledby="title description">
+  <title id="title">Zero Infinity Nonterminal Enclosure Game</title>
+  <description id="description">A finite observation of an endless deterministic pursuit. Players repeatedly match depth and scale, then evade at the last possible moment by moving the enclosure frontier.</description>
+  <defs>
+    <marker id="arrow-a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#45d6c0"/></marker>
+    <marker id="arrow-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ff786d"/></marker>
+    <marker id="arrow-frontier" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#f2c66d"/></marker>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <style>
+    text { font-family: Inter, ui-sans-serif, system-ui, sans-serif; letter-spacing: 0; }
+    .title { fill: #f5f7f8; font-size: 34px; font-weight: 700; }
+    .subtitle { fill: #9eacb5; font-size: 16px; }
+    .axis-title { fill: #c9d2d7; font-size: 13px; font-weight: 700; text-transform: uppercase; }
+    .grid { stroke: #26333c; stroke-width: 1; }
+    .axis { stroke: #71838e; stroke-width: 1.5; }
+    .shell { fill: none; stroke: #465660; stroke-width: 1.2; }
+    .shell-label, .event-label { fill: #81929d; font-size: 11px; font-weight: 700; }
+    .final-frontier { fill: none; stroke: #f2c66d; stroke-width: 3; stroke-dasharray: 10 8; }
+    .frontier-path { fill: none; stroke: #f2c66d; stroke-width: 3; opacity: .95; marker-end: url(#arrow-frontier); }
+    .frontier-node { fill: #090d11; stroke: #f2c66d; stroke-width: 2; }
+    .path-a { fill: none; stroke: #45d6c0; stroke-width: 2.5; opacity: .58; marker-end: url(#arrow-a); }
+    .path-b { fill: none; stroke: #ff786d; stroke-width: 2.5; opacity: .58; marker-end: url(#arrow-b); }
+    .match-node { fill: none; stroke: #f5f7f8; stroke-width: 1.5; opacity: .58; }
+    .zero { fill: #090d11; stroke: #f5f7f8; stroke-width: 3; }
+    .zero-label { fill: #f5f7f8; font-size: 17px; font-weight: 800; }
+    .ff-label { fill: #f2c66d; font-size: 13px; font-weight: 800; }
+    .panel { fill: #111820; stroke: #30404b; stroke-width: 1; }
+    .panel-title { fill: #f5f7f8; font-size: 20px; font-weight: 750; }
+    .panel-copy { fill: #b7c2c8; font-size: 14px; }
+    .step-number { fill: #090d11; font-size: 12px; font-weight: 800; text-anchor: middle; dominant-baseline: central; }
+    .step-label { fill: #f5f7f8; font-size: 14px; font-weight: 750; }
+    .step-copy { fill: #9eacb5; font-size: 12px; }
+    .metric { fill: #f5f7f8; font-size: 25px; font-weight: 800; }
+    .metric-label { fill: #9eacb5; font-size: 11px; font-weight: 700; }
+    .legend { fill: #b7c2c8; font-size: 13px; }
+    .footer { fill: #81929d; font-size: 12px; }
+  </style>
+  <rect width="100%" height="100%" fill="#090d11"/>
+  <text x="70" y="54" class="title">Zero Infinity Nonterminal Enclosure Game</text>
+  <text x="70" y="83" class="subtitle">Finite view of 48 encounters · no score · no terminal state · no randomizer</text>
+
+  <rect x="70" y="130" width="720" height="720" fill="#0d1318" stroke="#30404b"/>
+  <line x1="121.4" y1="130.0" x2="121.4" y2="850.0" class="grid"/><line x1="70.0" y1="798.6" x2="790.0" y2="798.6" class="grid"/><line x1="224.3" y1="130.0" x2="224.3" y2="850.0" class="grid"/><line x1="70.0" y1="695.7" x2="790.0" y2="695.7" class="grid"/><line x1="327.1" y1="130.0" x2="327.1" y2="850.0" class="grid"/><line x1="70.0" y1="592.9" x2="790.0" y2="592.9" class="grid"/><line x1="430.0" y1="130.0" x2="430.0" y2="850.0" class="grid"/><line x1="70.0" y1="490.0" x2="790.0" y2="490.0" class="grid"/><line x1="532.9" y1="130.0" x2="532.9" y2="850.0" class="grid"/><line x1="70.0" y1="387.1" x2="790.0" y2="387.1" class="grid"/><line x1="635.7" y1="130.0" x2="635.7" y2="850.0" class="grid"/><line x1="70.0" y1="284.3" x2="790.0" y2="284.3" class="grid"/><line x1="738.6" y1="130.0" x2="738.6" y2="850.0" class="grid"/><line x1="70.0" y1="181.4" x2="790.0" y2="181.4" class="grid"/>
+  <line x1="70" y1="490.0" x2="790" y2="490.0" class="axis"/>
+  <line x1="430.0" y1="130" x2="430.0" y2="850" class="axis"/>
+  <rect x="327.1" y="387.1" width="205.7" height="205.7" class="shell shell-1"/><text x="336.1" y="405.1" class="shell-label">E1</text><rect x="224.3" y="284.3" width="411.4" height="411.4" class="shell shell-2"/><text x="233.3" y="302.3" class="shell-label">E2</text><rect x="121.4" y="181.4" width="617.1" height="617.1" class="shell shell-3"/><text x="130.4" y="199.4" class="shell-label">E3</text>
+  <rect x="121.4" y="181.4" width="617.1" height="617.1" class="final-frontier"/>
+  <text x="133.4" y="786.6" class="ff-label">FINAL FRONTIER · OBSERVED PREFIX</text>
+
+  <polyline points="430.0,490.0 532.9,387.1 430.0,490.0 327.1,387.1 430.0,490.0 327.1,592.9 430.0,490.0 532.9,592.9 430.0,490.0 635.7,490.0 430.0,490.0 635.7,284.3 430.0,490.0 430.0,284.3 430.0,490.0 224.3,284.3 430.0,490.0 224.3,490.0 430.0,490.0 224.3,695.7 430.0,490.0 430.0,695.7 430.0,490.0 635.7,695.7 430.0,490.0 738.6,592.9 430.0,490.0 738.6,387.1 430.0,490.0 738.6,181.4 430.0,490.0 532.9,181.4 430.0,490.0 327.1,181.4 430.0,490.0 121.4,181.4 430.0,490.0 121.4,387.1 430.0,490.0 121.4,592.9 430.0,490.0 121.4,798.6 430.0,490.0 327.1,798.6 430.0,490.0 532.9,798.6 430.0,490.0 738.6,798.6" class="path-a"/>
+  <polyline points="430.0,490.0 532.9,490.0 430.0,490.0 430.0,387.1 430.0,490.0 327.1,490.0 430.0,490.0 430.0,592.9 430.0,490.0 635.7,592.9 430.0,490.0 635.7,387.1 430.0,490.0 532.9,284.3 430.0,490.0 327.1,284.3 430.0,490.0 224.3,387.1 430.0,490.0 224.3,592.9 430.0,490.0 327.1,695.7 430.0,490.0 532.9,695.7 430.0,490.0 738.6,695.7 430.0,490.0 738.6,490.0 430.0,490.0 738.6,284.3 430.0,490.0 635.7,181.4 430.0,490.0 430.0,181.4 430.0,490.0 224.3,181.4 430.0,490.0 121.4,284.3 430.0,490.0 121.4,490.0 430.0,490.0 121.4,695.7 430.0,490.0 224.3,798.6 430.0,490.0 430.0,798.6 430.0,490.0 635.7,798.6 430.0,490.0" class="path-b"/>
+  <polyline points="430.0,490.0 532.9,490.0 532.9,387.1 430.0,387.1 327.1,387.1 327.1,490.0 327.1,592.9 430.0,592.9 532.9,592.9 635.7,592.9 635.7,490.0 635.7,387.1 635.7,284.3 532.9,284.3 430.0,284.3 327.1,284.3 224.3,284.3 224.3,387.1 224.3,490.0 224.3,592.9 224.3,695.7 327.1,695.7 430.0,695.7 532.9,695.7 635.7,695.7 738.6,695.7 738.6,592.9 738.6,490.0 738.6,387.1 738.6,284.3 738.6,181.4 635.7,181.4 532.9,181.4 430.0,181.4 327.1,181.4 224.3,181.4 121.4,181.4 121.4,284.3 121.4,387.1 121.4,490.0 121.4,592.9 121.4,695.7 121.4,798.6 224.3,798.6 327.1,798.6 430.0,798.6 532.9,798.6 635.7,798.6 738.6,798.6" class="frontier-path"/>
+  <circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/><circle cx="430.0" cy="490.0" r="8" class="match-node"/>
+  <circle cx="532.9" cy="490.0" r="5" class="frontier-node"/><text x="540.9" y="482.0" class="event-label">1</text><circle cx="532.9" cy="387.1" r="5" class="frontier-node"/><circle cx="430.0" cy="387.1" r="5" class="frontier-node"/><circle cx="327.1" cy="387.1" r="5" class="frontier-node"/><circle cx="327.1" cy="490.0" r="5" class="frontier-node"/><circle cx="327.1" cy="592.9" r="5" class="frontier-node"/><circle cx="430.0" cy="592.9" r="5" class="frontier-node"/><circle cx="532.9" cy="592.9" r="5" class="frontier-node"/><text x="540.9" y="584.9" class="event-label">8</text><circle cx="635.7" cy="592.9" r="5" class="frontier-node"/><circle cx="635.7" cy="490.0" r="5" class="frontier-node"/><circle cx="635.7" cy="387.1" r="5" class="frontier-node"/><circle cx="635.7" cy="284.3" r="5" class="frontier-node"/><circle cx="532.9" cy="284.3" r="5" class="frontier-node"/><circle cx="430.0" cy="284.3" r="5" class="frontier-node"/><circle cx="327.1" cy="284.3" r="5" class="frontier-node"/><circle cx="224.3" cy="284.3" r="5" class="frontier-node"/><text x="232.3" y="276.3" class="event-label">16</text><circle cx="224.3" cy="387.1" r="5" class="frontier-node"/><circle cx="224.3" cy="490.0" r="5" class="frontier-node"/><circle cx="224.3" cy="592.9" r="5" class="frontier-node"/><circle cx="224.3" cy="695.7" r="5" class="frontier-node"/><circle cx="327.1" cy="695.7" r="5" class="frontier-node"/><circle cx="430.0" cy="695.7" r="5" class="frontier-node"/><circle cx="532.9" cy="695.7" r="5" class="frontier-node"/><circle cx="635.7" cy="695.7" r="5" class="frontier-node"/><text x="643.7" y="687.7" class="event-label">24</text><circle cx="738.6" cy="695.7" r="5" class="frontier-node"/><circle cx="738.6" cy="592.9" r="5" class="frontier-node"/><circle cx="738.6" cy="490.0" r="5" class="frontier-node"/><circle cx="738.6" cy="387.1" r="5" class="frontier-node"/><circle cx="738.6" cy="284.3" r="5" class="frontier-node"/><circle cx="738.6" cy="181.4" r="5" class="frontier-node"/><circle cx="635.7" cy="181.4" r="5" class="frontier-node"/><circle cx="532.9" cy="181.4" r="5" class="frontier-node"/><text x="540.9" y="173.4" class="event-label">32</text><circle cx="430.0" cy="181.4" r="5" class="frontier-node"/><circle cx="327.1" cy="181.4" r="5" class="frontier-node"/><circle cx="224.3" cy="181.4" r="5" class="frontier-node"/><circle cx="121.4" cy="181.4" r="5" class="frontier-node"/><circle cx="121.4" cy="284.3" r="5" class="frontier-node"/><circle cx="121.4" cy="387.1" r="5" class="frontier-node"/><circle cx="121.4" cy="490.0" r="5" class="frontier-node"/><circle cx="121.4" cy="592.9" r="5" class="frontier-node"/><text x="129.4" y="584.9" class="event-label">40</text><circle cx="121.4" cy="695.7" r="5" class="frontier-node"/><circle cx="121.4" cy="798.6" r="5" class="frontier-node"/><circle cx="224.3" cy="798.6" r="5" class="frontier-node"/><circle cx="327.1" cy="798.6" r="5" class="frontier-node"/><circle cx="430.0" cy="798.6" r="5" class="frontier-node"/><circle cx="532.9" cy="798.6" r="5" class="frontier-node"/><circle cx="635.7" cy="798.6" r="5" class="frontier-node"/><circle cx="738.6" cy="798.6" r="5" class="frontier-node"/><text x="746.6" y="790.6" class="event-label">48</text>
+
+  <circle cx="430.0" cy="490.0" r="15" class="zero" filter="url(#glow)"/>
+  <text x="430.0" y="496.0" text-anchor="middle" class="zero-label">0∞</text>
+  <circle cx="738.6" cy="798.6" r="8" fill="#f2c66d"/>
+  <text x="430.0" y="888.0" text-anchor="middle" class="axis-title">DEPTH  ← DE-ESCALATE · ESCALATE →</text>
+  <text x="26.0" y="490.0" text-anchor="middle" transform="rotate(-90 26.0 490.0)" class="axis-title">SCALE  ← IN · OUT →</text>
+
+  <rect x="850" y="120" width="480" height="300" rx="6" class="panel"/>
+  <text x="878" y="158" class="panel-title">One encounter</text>
+  <circle cx="898" cy="205" r="15" fill="#45d6c0"/><text x="898" y="205" class="step-number">1</text>
+  <text x="928" y="202" class="step-label">SEEK</text>
+  <text x="928" y="222" class="step-copy">Active player targets the other's level.</text>
+  <line x1="898" y1="226" x2="898" y2="253" stroke="#465660" stroke-width="2"/>
+  <circle cx="898" cy="274" r="15" fill="#f5f7f8"/><text x="898" y="274" class="step-number">2</text>
+  <text x="928" y="271" class="step-label">MATCH</text>
+  <text x="928" y="291" class="step-copy">Both occupy one enclosure; victory is one event away.</text>
+  <line x1="898" y1="295" x2="898" y2="322" stroke="#465660" stroke-width="2"/>
+  <circle cx="898" cy="343" r="15" fill="#f2c66d"/><text x="898" y="343" class="step-number">3</text>
+  <text x="928" y="340" class="step-label">EVADE</text>
+  <text x="928" y="360" class="step-copy">Defender changes depth or scale at countdown zero.</text>
+  <text x="878" y="400" class="panel-copy">Roles reverse. Pursuit resumes from the new enclosure.</text>
+
+  <rect x="850" y="448" width="480" height="202" rx="6" class="panel"/>
+  <text x="878" y="486" class="panel-title">Observed invariants</text>
+  <text x="878" y="530" class="metric">48</text><text x="878" y="550" class="metric-label">LEVEL MATCHES</text>
+  <text x="1008" y="530" class="metric">48</text><text x="1008" y="550" class="metric-label">LAST-MOMENT EVASIONS</text>
+  <text x="1194" y="530" class="metric">0 / 0</text><text x="1194" y="550" class="metric-label">PLAYER UTILITY</text>
+  <text x="878" y="592" class="panel-copy">Winner: none</text>
+  <text x="1008" y="592" class="panel-copy">Loser: none</text>
+  <text x="1138" y="592" class="panel-copy">Next event: exists</text>
+  <text x="878" y="625" class="panel-copy">Current frontier: (+3, -3) · boundary radius E3</text>
+
+  <rect x="850" y="678" width="480" height="202" rx="6" class="panel"/>
+  <text x="878" y="716" class="panel-title">How to read the field</text>
+  <line x1="880" y1="750" x2="922" y2="750" stroke="#45d6c0" stroke-width="3"/><text x="938" y="755" class="legend">Player A pursuit path</text>
+  <line x1="1110" y1="750" x2="1152" y2="750" stroke="#ff786d" stroke-width="3"/><text x="1168" y="755" class="legend">Player B pursuit path</text>
+  <line x1="880" y1="788" x2="922" y2="788" stroke="#f2c66d" stroke-width="3"/><text x="938" y="793" class="legend">Moving enclosure frontier</text>
+  <circle cx="1131" cy="788" r="8" fill="none" stroke="#f5f7f8"/><text x="1168" y="793" class="legend">Matched level</text>
+  <text x="878" y="835" class="panel-copy">0∞ is the scalable reference. It is not a winning cell.</text>
+  <text x="878" y="858" class="panel-copy">The Final Frontier bounds this rendering, not the game.</text>
+
+  <text x="70" y="975" class="footer">Generated deterministically from zero_infinity_endless_game.py · every finite plot is a prefix of an unbounded rule.</text>
+</svg>

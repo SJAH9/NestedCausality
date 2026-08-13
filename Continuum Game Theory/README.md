@@ -105,6 +105,8 @@ Core claim: the dominant-strategy Nash (D,D) is an equilibrium *inside* enclosur
 | `enclosure_nash_infinite_results.json` | Canonical infinite-depth simulation output |
 | `zero_infinity_endless_game.py` | Deterministic nonterminal pursuit across depth and scale |
 | `zero_infinity_endless_game_results.json` | Canonical finite observation of the endless game |
+| `plot_zero_infinity_endless_game.py` | Dependency-free SVG renderer for the game trace |
+| `zero_infinity_endless_game_plot.svg` | Enclosure plot of a 48-encounter prefix |
 
 ## Rights / attribution
 
@@ -158,3 +160,19 @@ Canonical 12-encounter observation:
 
 Full machine-readable observation:
 [`zero_infinity_endless_game_results.json`](./zero_infinity_endless_game_results.json).
+
+### Plot the enclosures
+
+```bash
+python3 plot_zero_infinity_endless_game.py --evasions 48
+```
+
+[Open the canonical enclosure plot.](./zero_infinity_endless_game_plot.svg)
+
+The plot uses signed depth on the horizontal axis and signed scale on the
+vertical axis. Nested square shells are enclosures around the `0∞` reference.
+The gold spiral is the deterministic moving frontier. Teal and coral paths show
+the players seeking one another's current level; white rings mark matches; the
+dashed outer shell is the Final Frontier of the observed prefix. Increasing
+`--evasions` expands that boundary. It never becomes a boundary of the game
+itself.

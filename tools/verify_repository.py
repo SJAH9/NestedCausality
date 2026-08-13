@@ -84,13 +84,46 @@ def run_experiment(experiment: Experiment, output_dir: Path) -> bool:
     return True
 
 
+def verify_plot(output_dir: Path) -> bool:
+    result = "zero_infinity_endless_game_plot.svg"
+    generated = output_dir / result
+    command = (
+        sys.executable,
+        str(GAME_DIR / "plot_zero_infinity_endless_game.py"),
+        "--evasions",
+        "48",
+        "--output",
+        str(generated),
+    )
+    completed = subprocess.run(
+        command,
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if completed.returncode != 0:
+        print(f"FAIL {result}: renderer exited {completed.returncode}")
+        if completed.stderr:
+            print(completed.stderr.rstrip())
+        return False
+
+    if generated.read_bytes() != (GAME_DIR / result).read_bytes():
+        print(f"FAIL {result}: differs from committed reference")
+        return False
+
+    print(f"PASS {result}")
+    return True
+
+
 def main() -> int:
     with tempfile.TemporaryDirectory(prefix="nested-causality-") as temp_dir:
         output_dir = Path(temp_dir)
         passed = [run_experiment(item, output_dir) for item in EXPERIMENTS]
+        passed.append(verify_plot(output_dir))
 
     if all(passed):
-        print(f"Verified {len(passed)} canonical experiments.")
+        print(f"Verified {len(EXPERIMENTS)} experiments and 1 generated plot.")
         return 0
 
     print(f"Verification failed: {passed.count(False)} experiment(s).")

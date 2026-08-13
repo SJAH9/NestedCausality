@@ -286,6 +286,37 @@ The first command shows and validates twelve evasions. The second continues
 until the observer interrupts the process; interruption ends observation, not
 the modelled game.
 
+### Enclosure plot
+
+The state can be plotted on signed depth and scale with Zero Infinity at the
+origin:
+
+```text
+                         + scale (out)
+                               ↑
+                  E₂ ┌───────────────┐
+                     │   E₁ ┌─────┐   │
+ - depth  ←──────────│──────│ 0∞  │───│──────────→ + depth
+                     │      └─────┘   │
+                     └───────────────┘
+                               ↓
+                         - scale (in)
+```
+
+The nested shells organize the available enclosures. The moving square spiral
+records the enclosure selected by each last-moment evasion. The players' paths
+converge when one reaches the other's level and separate when the defender
+moves. The Final Frontier is the outer shell required to contain a chosen
+finite prefix; it moves outward when the observation is extended.
+
+Generate the full SVG without third-party packages:
+
+```bash
+python3 plot_zero_infinity_endless_game.py --evasions 48
+```
+
+[Open the canonical 48-encounter plot.](./zero_infinity_endless_game_plot.svg)
+
 ---
 
 ## 10. Core claim

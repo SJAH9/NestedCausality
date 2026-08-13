@@ -35,6 +35,10 @@ python3 "Continuum Game Theory/enclosure_nash_infinite.py" \
 python3 "Continuum Game Theory/zero_infinity_endless_game.py" \
   --evasions 12 \
   --json-out /tmp/zero_infinity_endless_game_results.json
+
+python3 "Continuum Game Theory/plot_zero_infinity_endless_game.py" \
+  --evasions 48 \
+  --output /tmp/zero_infinity_endless_game_plot.svg
 ```
 
 With the current source, each output should match its corresponding committed
