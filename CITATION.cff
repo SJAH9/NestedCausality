@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Cite the specific paper or instrument used. For the repository as a whole, use this metadata."
+title: "Nested Causality"
+type: software
+authors:
+  - family-names: "Hubbard"
+    given-names: "Sid J.A."
+repository-code: "https://github.com/SJAH9/NestedCausality"
+url: "https://github.com/SJAH9/NestedCausality"
+abstract: "Research, computational models, and interactive instruments for Nested Causal Modelling, the Departure Calculus, and the Continuum of Steady States."
+keywords:
+  - nested causal modelling
+  - departure calculus
+  - continuum of steady states
+  - enclosure-aware game theory
+license: "LicenseRef-Proprietary"

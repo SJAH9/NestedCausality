@@ -97,10 +97,17 @@ Core claim: the dominant-strategy Nash (D,D) is an equilibrium *inside* enclosur
 | `NCM_Game_Theory_Ternary_Enclosure_Paper.pdf` | Paper (PDF, Zenodo deposit) |
 | `enclosure_game.py` | Runnable Enclosure Game simulator |
 | `enclosure_game_results.json` | Default experiment output |
+| `NCM_Prisoners_Dilemma.md` | Formal NCM construction of the Prisoner's Dilemma |
+| `ncm_prisoners_dilemma.py` | Runnable NCM-PD simulation |
+| `ncm_prisoners_dilemma_results.json` | Canonical NCM-PD output |
+| `Enclosure_Nash_Infinite_Depth_Scale.md` | Infinite-depth and scale equilibrium definition |
+| `enclosure_nash_infinite.py` | Finite-truncation and scale-stability simulation |
+| `enclosure_nash_infinite_results.json` | Canonical infinite-depth simulation output |
 
-## License / attribution
+## Rights / attribution
 
-Paper and instruments by Sid J.A. Hubbard. See repository root and Zenodo record for deposit metadata.
+Paper and instruments by Sid J.A. Hubbard. See the repository
+[`RIGHTS.md`](../RIGHTS.md) and the relevant Zenodo record for controlling terms.
 
 ## Nash of Infinite Depth and Scale
 
@@ -118,4 +125,3 @@ python3 enclosure_nash_infinite.py --N 15 --rounds 25
 ```
 
 Threshold seal: `s*(n)=D` for `n < n*`, `s*(n)=C` for `n ≥ n*` — ε-Nash on every window as `N → ∞`.
-

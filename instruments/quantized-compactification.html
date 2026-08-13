@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Quantized Compactification Explorer • NestedCausality</title>
 <style>
   body {
@@ -34,6 +35,7 @@
     position: relative;
     cursor: crosshair;
     overflow: hidden;
+    touch-action: none;
   }
   
   .interaction-box::before {
@@ -105,6 +107,21 @@
     font-weight: 600;
     color: #7ed321;
   }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  @media (max-width: 760px) {
+    body { padding: 16px; }
+    .main { grid-template-columns: minmax(0, 1fr); }
+    .interaction-box { height: min(58vh, 420px); min-height: 280px; }
+    .enclosure-list { height: 260px; }
+    .actions button { flex: 1 1 10rem; }
+  }
 </style>
 </head>
 <body>
@@ -121,12 +138,12 @@
         <strong>Scale Escalations:</strong> <span id="escalations">0</span>
       </div>
 
-      <div id="interaction" class="interaction-box"></div>
+      <div id="interaction" class="interaction-box" role="application" tabindex="0" aria-label="Departure input area. Move a pointer horizontally or shake a supported phone to generate departures."></div>
       
-      <div style="margin-top: 12px; display: flex; gap: 12px;">
-        <button onclick="compactifyNow()">Force Compactification</button>
-        <button onclick="resetAll()">Reset</button>
-        <button onclick="exportData()">Export Data</button>
+      <div class="actions">
+        <button id="compactify" type="button">Force Compactification</button>
+        <button id="reset" type="button">Reset</button>
+        <button id="export" type="button">Export Data</button>
       </div>
     </div>
 
@@ -155,6 +172,9 @@ const cancelEl = document.getElementById('cancellations');
 const escEl = document.getElementById('escalations');
 const listEl = document.getElementById('enclosure-list');
 const logEl = document.getElementById('log');
+const compactifyButton = document.getElementById('compactify');
+const resetButton = document.getElementById('reset');
+const exportButton = document.getElementById('export');
 
 // Add a departure (core mechanic)
 function addDeparture(value) {
@@ -263,9 +283,9 @@ function exportData() {
   URL.revokeObjectURL(url);
 }
 
-// === Desktop: Mouse movement ===
+// === Pointer movement ===
 let lastX = null;
-interactionBox.addEventListener('mousemove', (e) => {
+interactionBox.addEventListener('pointermove', (e) => {
   const rect = interactionBox.getBoundingClientRect();
   const x = e.clientX - rect.left;
   
@@ -278,6 +298,7 @@ interactionBox.addEventListener('mousemove', (e) => {
   }
   lastX = x;
 });
+interactionBox.addEventListener('pointerleave', () => { lastX = null; });
 
 // === Mobile: Accelerometer / Shake ===
 let lastAccel = { x: 0, y: 0, z: 0 };
@@ -327,6 +348,10 @@ interactionBox.addEventListener('touchstart', () => {
   if (!window.DeviceMotionEvent) return;
   requestMotionPermission();
 }, { once: true });
+
+compactifyButton.addEventListener('click', compactifyNow);
+resetButton.addEventListener('click', resetAll);
+exportButton.addEventListener('click', exportData);
 
 // Initial log
 addLog("Explorer ready. Move mouse or shake device to generate departures.");
