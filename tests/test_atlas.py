@@ -19,6 +19,7 @@ class AtlasTests(unittest.TestCase):
         self.assertEqual(record.reference.scale_address, "human-visible combustion enclosure")
         self.assertEqual(record.enclosure.active["id"], "flame-envelope")
         self.assertEqual(len(record.enclosure.projection_tests()), 1)
+        self.assertEqual(record.ivm_passage.active_cell["geometry"], "tetrahedral_octahedral_junction")
 
     def test_exchange_retains_residual(self):
         record = load_record(self.path)
@@ -40,9 +41,33 @@ class AtlasTests(unittest.TestCase):
             from src.atlas import AtlasRecord
             AtlasRecord.compose(broken)
 
+    def test_scale_route_names_the_ivm_passage(self):
+        record = load_record(self.path)
+        self.assertEqual(
+            record.raw["scale_route"]["ivm_passage_id"],
+            record.ivm_passage.current_address,
+        )
+
+    def test_ivm_passage_requires_preserved_quantities(self):
+        broken = json.loads(json.dumps(self.raw))
+        broken["ivm_passage"]["preserved_across_passage"] = []
+        with self.assertRaises(MapError):
+            from src.atlas import AtlasRecord
+            AtlasRecord.compose(broken)
+
     def test_all_ten_volume_slots_exist(self):
         registry = json.loads((ROOT / "data" / "volume_destinations.json").read_text(encoding="utf-8"))
         self.assertEqual([item["volume"] for item in registry["volumes"]], list(range(1, 11)))
+
+    def test_star_map_contains_repeated_ivm_passage(self):
+        layout = json.loads((ROOT / "data" / "star_layout.json").read_text(encoding="utf-8"))
+        roles = {cell["role"] for cell in layout["ivm_cells"]}
+        self.assertIn("active", roles)
+        self.assertIn("adjacent", roles)
+        self.assertGreaterEqual(len(layout["ivm_cells"]), 3)
+        passages = [edge for edge in layout["edges"] if edge["kind"] == "ivm"]
+        self.assertEqual(len(passages), 1)
+        self.assertEqual(passages[0]["target"], "adjacent-ivm")
 
 
 if __name__ == "__main__":

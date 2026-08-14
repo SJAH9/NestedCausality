@@ -72,6 +72,19 @@ What is the smallest enclosure presently maintaining the departure?
 **Next enclosed tier:**  
 **Parallel tier junctions:**  
 
+### Isotropic Vector Matrix Passage
+
+**Current IVM address:**  
+**Local Vector Equilibrium:**  
+**Departure geometry: contracted / balanced / expanded / mixed:**  
+**Active tetrahedral-octahedral cell:**  
+**Periphery boundary:**  
+**Saturation quantity:**  
+**Capacity condition:**  
+**Jitterbug state:**  
+**Adjacent IVM address:**  
+**Matter, energy, state, or information preserved across passage:**  
+
 ## 7. Final Frontier
 
 Where does present physical or epistemic availability end?
@@ -124,7 +137,7 @@ $$
 - [ ] Parallel enclosures are mapped.
 - [ ] Exchanges balance or residuals are explicit.
 - [ ] Scale-transition triggers are stated.
+- [ ] IVM address, Vector Equilibrium, periphery, and passage are stated.
 - [ ] Final Frontier is declared.
 - [ ] Prediction precedes intervention.
 - [ ] Return path reaches an actionable scale.
-

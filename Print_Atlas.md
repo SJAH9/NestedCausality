@@ -15,7 +15,8 @@ header-includes:
 The Nested Causality Atlas is the navigational instrument produced by
 *Causality and Attraction*, Volumes I--X. It begins with one observation and
 retains the reference, departure, enclosing conditions, enclosed contributions,
-parallel relations, exchanges, scale routes, and present limit of the map.
+parallel relations, exchanges, local IVM passage, scale routes, and present
+limit of the map.
 
 \vfill
 
@@ -50,6 +51,8 @@ of this inquiry, not a claim that the chart contains all territory.
 | Inward route | Record causal projection from outer enclosure to interior. |
 | Outward route | Record emergence, contribution, or feedback without renaming it projection. |
 | Boundary route | Balance Nested Exchange across a shared boundary. |
+| IVM field | Locate the local Vector Equilibrium, periphery, and adjacent scale enclosures. |
+| Jitterbug passage | Record the geometric transition available when the current enclosure reaches capacity. |
 | Horizon | Declare the Final Frontier of observation, derivation, and physical availability. |
 
 # Canonical Question
@@ -60,7 +63,7 @@ of this inquiry, not a claim that the chart contains all territory.
 
 \clearpage
 
-# Eight Mapping Modules
+# Nine Mapping Modules
 
 ## Reference
 
@@ -78,6 +81,14 @@ Locate the active enclosure, the equilibrium enclosing it, the states it
 encloses, and its parallel neighbors. A non-equilibrium steady state may be
 maintained by a larger steady-state equilibrium.
 
+## IVM Passage
+
+Locate the inquiry in a repeated Isotropic Vector Matrix field. Record its local
+Vector Equilibrium, active tetrahedral-octahedral cell, contracted or expanded
+departure, periphery, saturation condition, Jitterbug state, and adjacent IVM
+address. Escalation is passage through this geometry, not radial travel through
+an empty ring.
+
 ## Projection
 
 Reserve causal projection for outer-to-inner influence. Record a carrier and a
@@ -91,8 +102,8 @@ departure, arrival, storage, transformation, uncertainty, and residual.
 ## Scale Route
 
 Test the authority of local equations and categories. Escalate or de-escalate
-through an addressed junction when the present enclosure no longer contains
-the departure while retaining its geometry.
+through the named IVM passage when the present enclosure no longer contains the
+departure while retaining its geometry.
 
 ## Frontier
 
@@ -188,6 +199,18 @@ test, and open destination.
 **Current tier and local model authority:**
 
 \vspace{0.35in}
+
+**IVM address / Vector Equilibrium / active cell:**
+
+\vspace{0.35in}
+
+**Periphery / saturation quantity / capacity condition:**
+
+\vspace{0.35in}
+
+**Jitterbug state / adjacent IVM address / preserved exchange:**
+
+\vspace{0.45in}
 
 **Escalation trigger and destination:**
 

@@ -143,6 +143,28 @@ window.CONTINUUM_ATLAS = {
         "status": "bounded"
       }
     ],
+    "ivm_passage": {
+      "current_ivm_address": "IVM:combustion:macroscopic:flame-envelope",
+      "vector_equilibrium": "the stable mean flame geometry under the declared fuel, oxygen, pressure, and flow conditions",
+      "departure_geometry": "expanded",
+      "active_cell": {
+        "geometry": "tetrahedral_octahedral_junction",
+        "address": "worked-chart-cell:0"
+      },
+      "periphery_boundary": "the reaction envelope at which heat release and reactant supply no longer sustain the declared flame geometry",
+      "saturation_quantity": "departure of oxygen supply, heat release, and flow from the stable mean flame condition",
+      "capacity_condition": "the current macroscopic combustion enclosure ceases to maintain a stable visible flame when projected atmospheric conditions cross the sustaining range",
+      "jitterbug_state": "not_observed",
+      "adjacent_ivm_address": "IVM:combustion:extinguished-or-transformed-envelope",
+      "passage_direction": "deescalation",
+      "preserved_across_passage": [
+        "wax-derived matter",
+        "oxygen and combustion products",
+        "energy transformed into heat, radiation, and stored thermal states"
+      ],
+      "post_passage_projection": "the room atmosphere continues to project pressure, composition, and heat-removal conditions into the transformed state",
+      "evidence_status": "illustrative"
+    },
     "scale_route": {
       "current_tier": "macroscopic combustion geometry",
       "local_authority": [
@@ -152,6 +174,7 @@ window.CONTINUUM_ATLAS = {
         "radiative transfer"
       ],
       "smooth_within_tier": true,
+      "ivm_passage_id": "IVM:combustion:macroscopic:flame-envelope",
       "escalation": {
         "trigger": "room-scale ventilation or pressure dominates flame-local conditions",
         "destination": "room atmosphere and building airflow enclosure",
@@ -218,7 +241,7 @@ window.CONTINUUM_ATLAS = {
         "label": "Visible flame",
         "kind": "active",
         "x": 800,
-        "y": 420,
+        "y": 380,
         "size": 20
       },
       {
@@ -260,6 +283,14 @@ window.CONTINUUM_ATLAS = {
         "x": 1040,
         "y": 255,
         "size": 13
+      },
+      {
+        "id": "adjacent-ivm",
+        "label": "Adjacent IVM address",
+        "kind": "passage",
+        "x": 1055,
+        "y": 745,
+        "size": 15
       }
     ],
     "edges": [
@@ -267,37 +298,115 @@ window.CONTINUUM_ATLAS = {
         "source": "room-atmosphere",
         "target": "flame-envelope",
         "kind": "projection",
-        "label": "oxygen · pressure · flow"
+        "label": "oxygen · pressure · flow",
+        "label_x": 670,
+        "label_y": 275
       },
       {
         "source": "wick-fuel-interface",
         "target": "flame-envelope",
         "kind": "contribution",
-        "label": "fuel vapor · heat feedback"
+        "label": "fuel vapor · heat feedback",
+        "label_x": 655,
+        "label_y": 612
       },
       {
         "source": "flame-envelope",
         "target": "exhaust-plume",
         "kind": "exchange",
-        "label": "products · heat"
+        "label": "products · heat",
+        "label_x": 1040,
+        "label_y": 350
       },
       {
         "source": "wax-pool",
         "target": "wick-fuel-interface",
         "kind": "exchange",
-        "label": "liquid fuel"
+        "label": "liquid fuel",
+        "label_x": 605,
+        "label_y": 675
       },
       {
         "source": "room-atmosphere",
         "target": "target-oxygen",
         "kind": "targeting",
-        "label": "vary enclosing condition"
+        "label": "vary enclosing condition",
+        "label_x": 960,
+        "label_y": 175
       },
       {
         "source": "target-oxygen",
         "target": "flame-envelope",
         "kind": "targeting",
-        "label": "predicted persistence change"
+        "label": "predicted persistence change",
+        "label_x": 980,
+        "label_y": 320
+      },
+      {
+        "source": "zero-infinity",
+        "target": "adjacent-ivm",
+        "kind": "ivm",
+        "label": "Jitterbug passage · not observed",
+        "label_x": 930,
+        "label_y": 615
+      }
+    ],
+    "ivm_cells": [
+      {
+        "id": "ivm-west",
+        "cx": 430,
+        "cy": 500,
+        "radius": 128,
+        "role": "parallel",
+        "address": "parallel IVM field"
+      },
+      {
+        "id": "ivm-northwest",
+        "cx": 615,
+        "cy": 180,
+        "radius": 128,
+        "role": "enclosing",
+        "address": "enclosing IVM field A"
+      },
+      {
+        "id": "ivm-northeast",
+        "cx": 985,
+        "cy": 180,
+        "radius": 128,
+        "role": "enclosing",
+        "address": "enclosing IVM field B"
+      },
+      {
+        "id": "ivm-current",
+        "cx": 800,
+        "cy": 500,
+        "radius": 158,
+        "role": "active",
+        "address": "IVM:combustion:macroscopic:flame-envelope"
+      },
+      {
+        "id": "ivm-east",
+        "cx": 1170,
+        "cy": 500,
+        "radius": 128,
+        "role": "parallel",
+        "address": "parallel IVM field"
+      },
+      {
+        "id": "ivm-southwest",
+        "cx": 615,
+        "cy": 820,
+        "radius": 128,
+        "role": "enclosed",
+        "address": "enclosed IVM field A"
+      },
+      {
+        "id": "ivm-southeast",
+        "cx": 985,
+        "cy": 820,
+        "radius": 128,
+        "role": "adjacent",
+        "address": "IVM:combustion:extinguished-or-transformed-envelope"
       }
     ]
   },

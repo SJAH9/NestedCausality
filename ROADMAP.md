@@ -8,7 +8,7 @@ reason to enlarge the active release.
 
 Status: in development.
 
-Establish the compass rose, star-map grammar, eight mapping modules, canonical
+Establish the compass rose, star-map grammar, nine mapping modules, canonical
 record, web atlas, print atlas, worked example, field worksheet, and Volumes
 I--X destination registry. Complete three independent design cycles before the
 release candidate is accepted. See `docs/RELEASE_0.1.md`.

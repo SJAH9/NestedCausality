@@ -23,12 +23,13 @@ Its governing question is:
 > causal projection from what enclosing equilibrium, while exchanging what
 > across which boundaries, and where does the present map stop?**
 
-The map begins at Zero Infinity, moves through a countable hierarchy of scale
-tiers, and stops at the Final Frontier of the inquiry. It preserves smooth
-coordinates within a lawful tier without granting any local equation unlimited
-authority across every scale. It allows the observer to approach infinity by
-addressed escalation and de-escalation rather than falling into an
-undifferentiated infinite coordinate.
+The map begins at Zero Infinity, locates the inquiry in a local Isotropic
+Vector Matrix, moves through a countable hierarchy of adjacent scale
+enclosures, and stops at the Final Frontier of the inquiry. It preserves smooth
+coordinates within a lawful IVM field without granting any local equation
+unlimited authority across every scale. It allows the observer to approach
+infinity by addressed geometric escalation and de-escalation rather than
+falling into an undifferentiated infinite coordinate.
 
 # The Compass Rose
 
@@ -151,10 +152,11 @@ $$
 $$
 
 Each tier may support locally smooth coordinates and the established laws that
-operate within its demonstrated domain. Crossing from one tier to another is
-not accomplished by extending the local coordinate indefinitely. It requires a
-junction: a change in enclosure, admissible geometry, resolution, or maintained
-state.
+operate within its demonstrated domain. Each also carries the locally repeated
+geometry of the Isotropic Vector Matrix. Crossing from one tier to another is
+not accomplished by extending the local coordinate indefinitely or by moving
+through an empty concentric band. It requires a junction: a change in
+enclosure, admissible geometry, resolution, or maintained state.
 
 Scale escalation follows a departure until the current enclosure can no longer
 contain its state. The next enclosure receives the transition under its own
@@ -163,7 +165,51 @@ smaller states whose relations participate in it. Neither movement terminates
 in a smooth infinity inside one coordinate system.
 
 The ellipses in the tier sequence mean "another address remains available."
-They do not assert a completed physical inventory of every tier.
+They do not assert a completed physical inventory of every tier. The IVM at one
+address does not enclose the entire infinite matrix as completed occupancy. It
+provides the repeatable local geometry by which an adjacent address can be
+defined.
+
+# Isotropic Vector Matrix Passage
+
+The Isotropic Vector Matrix is not the background texture of the map. It is the
+geometric field through which a maintained departure occupies its current
+scale enclosure. Its tetrahedral and octahedral relations supply local
+orientation around a Vector Equilibrium and repeat without requiring a single
+smooth coordinate to contain every scale at once.
+
+Volume V identifies three relevant boundaries. The macro-closure horizon is the
+enclosing halt condition. The periphery is the active limit of the current
+geometry. The inner boundary is the quantized core associated with passage
+through the zero phase. The atlas must keep these distinct.
+
+At the periphery, contracted and expanded configurations accumulate within the
+current IVM enclosure. When the departure remains within capacity, the geometry
+continues to maintain it. When a sustained departure reaches the limit of that
+geometry, the periphery supplies the trigger for Jitterbug transformation. The
+transition changes the enclosure while preserving a route into an adjacent IVM
+address.
+
+Escalation therefore means more than moving north on a page. It is the
+continued expression of a departure through the capacity limit of one
+enclosure into the more expansive geometry of the next. De-escalation is not a
+fall toward a terminal point. It is contraction within the geometry of the
+enclosure and the state enclosed, with another addressed geometry available
+when that boundary is crossed.
+
+The minimum passage record contains:
+
+- current IVM address and local Vector Equilibrium;
+- contracted, balanced, or expanded departure state;
+- active tetrahedral-octahedral cell;
+- quantity accumulating at the periphery;
+- capacity or saturation condition;
+- Jitterbug transition state;
+- adjacent enclosing or enclosed IVM address;
+- exchanges preserved across the passage;
+- causal projection retained from the new enclosing equilibrium.
+
+A drawn lattice without these records is not an IVM map. It is decoration.
 
 # The Enclosure Function
 
@@ -194,6 +240,7 @@ A complete practical record also carries:
 - parallel exchanges;
 - conserved, stored, and transformed quantities;
 - state-transition conditions;
+- IVM cell, periphery, saturation, and Jitterbug passage;
 - evidentiary status;
 - Final Frontier;
 - prediction, intervention, and return path.
@@ -252,6 +299,10 @@ Ask whether the active enclosure still contains the departure. Escalate only
 when the current geometry reaches its limit. De-escalate only when the smaller
 structure is required to explain or predict the maintained state.
 
+Place that test in the local IVM. Name the Vector Equilibrium, active cell,
+periphery condition, contracted or expanded state, and adjacent enclosure. A
+scale arrow without a mapped passage is incomplete.
+
 ## 10. Declare the Final Frontier
 
 State where observation, derivation, or model authority ends. Unknown is a
@@ -300,6 +351,7 @@ A Continuum Map is complete for its declared inquiry when:
 - boundary exchanges balance within measurement uncertainty or are marked
   unknown;
 - escalation and de-escalation conditions are stated;
+- the local IVM address, periphery, and passage geometry are stated;
 - the Final Frontier is explicit;
 - the model makes a differentiating prediction;
 - a return path reaches an actionable scale;
@@ -326,4 +378,3 @@ through countably available tiers. At every transition the compass retains the
 reference, departure, enclosure, exchange, and frontier.
 
 That is how the inquiry returns home.
-

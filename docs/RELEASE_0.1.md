@@ -22,20 +22,24 @@ work correctly.
 - Causal projection directed inward only.
 - Emergence, contribution, and feedback directed outward under their own names.
 - Nested Exchange along shared boundaries.
+- Isotropic Vector Matrix passage geometry at every mapped scale address.
 - Final Frontier as the horizon of the presently available map.
 
 ### 2. Star-Map Representation
 
 - observations and departures rendered as stars;
 - causal enclosures rendered as constellations or bounded fields;
-- scale tiers rendered as depth fields;
+- scale tiers rendered as repeated IVM fields rather than empty concentric
+  bands;
+- local Vector Equilibria, periphery boundaries, saturation, and Jitterbug
+  passages rendered as addressable map objects;
 - projection, contribution, exchange, and targeting rendered as distinct routes;
 - every visible object connected to a machine-readable record.
 
-### 3. Eight Mapping Modules
+### 3. Nine Mapping Modules
 
-Reference, Departure, Enclosure, Projection, Exchange, Scale Route, Frontier,
-and Targeting.
+Reference, Departure, Enclosure, IVM Passage, Projection, Exchange, Scale
+Route, Frontier, and Targeting.
 
 ### 4. One Canonical Data Source
 
@@ -111,11 +115,13 @@ Release 0.1 is complete when a new user can:
 
 1. open the web atlas without installing software;
 2. identify every compass bearing without reading the books;
-3. inspect the worked flame map and trace each visible route to its record;
-4. complete a blank mapping record;
-5. validate that record locally;
-6. locate each volume in the destination registry;
-7. print a coherent field instrument from the same source data;
-8. distinguish the edge of the present map from the end of the territory.
-9. remain coherent and visually compelling in day, night, screen, and print
+3. distinguish the 60-degree IVM field from decoration and trace one explicit
+   scale-transition passage through its record;
+4. inspect the worked flame map and trace each visible route to its record;
+5. complete a blank mapping record;
+6. validate that record locally;
+7. locate each volume in the destination registry;
+8. print a coherent field instrument from the same source data;
+9. distinguish the edge of the present map from the end of the territory;
+10. remain coherent and visually compelling in day, night, screen, and print
    forms after all three design cycles.

@@ -10,6 +10,7 @@
     "reference",
     "departure",
     "active_enclosure",
+    "ivm_passage",
     "scale_route",
     "final_frontier",
     "target"
@@ -63,9 +64,52 @@
       "type": "array",
       "items": {"$ref": "#/$defs/exchange"}
     },
+    "ivm_passage": {
+      "type": "object",
+      "required": [
+        "current_ivm_address",
+        "vector_equilibrium",
+        "departure_geometry",
+        "active_cell",
+        "periphery_boundary",
+        "saturation_quantity",
+        "capacity_condition",
+        "jitterbug_state",
+        "adjacent_ivm_address",
+        "preserved_across_passage"
+      ],
+      "properties": {
+        "current_ivm_address": {"type": "string", "minLength": 1},
+        "vector_equilibrium": {"type": "string", "minLength": 1},
+        "departure_geometry": {"enum": ["contracted", "balanced", "expanded", "mixed", "unassigned"]},
+        "active_cell": {
+          "type": "object",
+          "required": ["geometry", "address"],
+          "properties": {
+            "geometry": {"enum": ["tetrahedral", "octahedral", "tetrahedral_octahedral_junction", "unresolved"]},
+            "address": {"type": "string", "minLength": 1}
+          },
+          "additionalProperties": false
+        },
+        "periphery_boundary": {"type": "string", "minLength": 1},
+        "saturation_quantity": {"type": "string", "minLength": 1},
+        "capacity_condition": {"type": "string", "minLength": 1},
+        "jitterbug_state": {"enum": ["stable", "approaching_transition", "transforming", "completed", "not_observed", "hypothesized"]},
+        "adjacent_ivm_address": {"type": "string", "minLength": 1},
+        "passage_direction": {"enum": ["escalation", "deescalation", "none", "unresolved"]},
+        "preserved_across_passage": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "post_passage_projection": {"type": "string"},
+        "evidence_status": {"enum": ["observed", "derived", "hypothesized", "illustrative", "unresolved"]}
+      },
+      "additionalProperties": false
+    },
     "scale_route": {
       "type": "object",
-      "required": ["current_tier", "local_authority", "escalation", "deescalation"],
+      "required": ["current_tier", "local_authority", "ivm_passage_id", "escalation", "deescalation"],
       "properties": {
         "current_tier": {"type": "string", "minLength": 1},
         "local_authority": {
@@ -73,6 +117,7 @@
           "items": {"type": "string"}
         },
         "smooth_within_tier": {"type": "boolean"},
+        "ivm_passage_id": {"type": "string", "minLength": 1},
         "escalation": {"$ref": "#/$defs/scaleTransition"},
         "deescalation": {"$ref": "#/$defs/scaleTransition"}
       },

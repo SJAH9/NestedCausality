@@ -96,6 +96,51 @@ class EnclosureModule:
 
 
 @dataclass(frozen=True)
+class IVMPassageModule:
+    current_address: str
+    vector_equilibrium: str
+    departure_geometry: str
+    active_cell: Mapping[str, Any]
+    periphery_boundary: str
+    saturation_quantity: str
+    capacity_condition: str
+    jitterbug_state: str
+    adjacent_address: str
+    passage_direction: str
+    preserved: tuple[str, ...]
+    evidence_status: str
+
+    @classmethod
+    def map(cls, record: Mapping[str, Any]) -> "IVMPassageModule":
+        cell = record.get("active_cell", {})
+        geometry = _require_text(cell.get("geometry"), "ivm_passage.active_cell.geometry")
+        if geometry not in {
+            "tetrahedral",
+            "octahedral",
+            "tetrahedral_octahedral_junction",
+            "unresolved",
+        }:
+            raise MapError("ivm_passage.active_cell.geometry is not recognized")
+        preserved = tuple(str(item) for item in record.get("preserved_across_passage", []))
+        if not preserved:
+            raise MapError("ivm_passage must name what is preserved across passage")
+        return cls(
+            _require_text(record.get("current_ivm_address"), "ivm_passage.current_ivm_address"),
+            _require_text(record.get("vector_equilibrium"), "ivm_passage.vector_equilibrium"),
+            _require_text(record.get("departure_geometry"), "ivm_passage.departure_geometry"),
+            cell,
+            _require_text(record.get("periphery_boundary"), "ivm_passage.periphery_boundary"),
+            _require_text(record.get("saturation_quantity"), "ivm_passage.saturation_quantity"),
+            _require_text(record.get("capacity_condition"), "ivm_passage.capacity_condition"),
+            _require_text(record.get("jitterbug_state"), "ivm_passage.jitterbug_state"),
+            _require_text(record.get("adjacent_ivm_address"), "ivm_passage.adjacent_ivm_address"),
+            _require_text(record.get("passage_direction"), "ivm_passage.passage_direction"),
+            preserved,
+            _require_text(record.get("evidence_status"), "ivm_passage.evidence_status"),
+        )
+
+
+@dataclass(frozen=True)
 class ExchangeModule:
     exchanges: tuple[Mapping[str, Any], ...]
 

@@ -121,10 +121,33 @@
       "status": "bounded"
     }
   ],
+  "ivm_passage": {
+    "current_ivm_address": "IVM:combustion:macroscopic:flame-envelope",
+    "vector_equilibrium": "the stable mean flame geometry under the declared fuel, oxygen, pressure, and flow conditions",
+    "departure_geometry": "expanded",
+    "active_cell": {
+      "geometry": "tetrahedral_octahedral_junction",
+      "address": "worked-chart-cell:0"
+    },
+    "periphery_boundary": "the reaction envelope at which heat release and reactant supply no longer sustain the declared flame geometry",
+    "saturation_quantity": "departure of oxygen supply, heat release, and flow from the stable mean flame condition",
+    "capacity_condition": "the current macroscopic combustion enclosure ceases to maintain a stable visible flame when projected atmospheric conditions cross the sustaining range",
+    "jitterbug_state": "not_observed",
+    "adjacent_ivm_address": "IVM:combustion:extinguished-or-transformed-envelope",
+    "passage_direction": "deescalation",
+    "preserved_across_passage": [
+      "wax-derived matter",
+      "oxygen and combustion products",
+      "energy transformed into heat, radiation, and stored thermal states"
+    ],
+    "post_passage_projection": "the room atmosphere continues to project pressure, composition, and heat-removal conditions into the transformed state",
+    "evidence_status": "illustrative"
+  },
   "scale_route": {
     "current_tier": "macroscopic combustion geometry",
     "local_authority": ["thermodynamics", "fluid mechanics", "reaction kinetics", "radiative transfer"],
     "smooth_within_tier": true,
+    "ivm_passage_id": "IVM:combustion:macroscopic:flame-envelope",
     "escalation": {
       "trigger": "room-scale ventilation or pressure dominates flame-local conditions",
       "destination": "room atmosphere and building airflow enclosure",

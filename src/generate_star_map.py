@@ -18,10 +18,12 @@ COLORS = {
     "enclosed": "#e98b73",
     "parallel": "#9ab6ff",
     "target": "#ffcf70",
+    "passage": "#d7a6ff",
     "projection": "#e98b73",
     "contribution": "#9ab6ff",
     "exchange": "#79c7c5",
     "targeting": "#f4c95d",
+    "ivm": "#d7a6ff",
 }
 
 
@@ -34,14 +36,14 @@ def line(edge: dict, nodes: dict[str, dict]) -> str:
     target = nodes[edge["target"]]
     color = COLORS[edge["kind"]]
     dash = " stroke-dasharray=\"10 8\"" if edge["kind"] in {"contribution", "targeting"} else ""
-    midpoint_x = (source["x"] + target["x"]) / 2
-    midpoint_y = (source["y"] + target["y"]) / 2
+    midpoint_x = edge.get("label_x", (source["x"] + target["x"]) / 2)
+    midpoint_y = edge.get("label_y", (source["y"] + target["y"]) / 2 - 10)
     label = html.escape(edge["label"])
     return (
         f'<g class="edge {edge["kind"]}">'
         f'<line x1="{source["x"]}" y1="{source["y"]}" x2="{target["x"]}" y2="{target["y"]}" '
         f'stroke="{color}" stroke-width="3" marker-end="url(#arrow-{edge["kind"]})"{dash}/>'
-        f'<text x="{midpoint_x}" y="{midpoint_y - 10}" text-anchor="middle" class="edge-label">{label}</text>'
+        f'<text x="{midpoint_x}" y="{midpoint_y}" text-anchor="middle" class="edge-label">{label}</text>'
         "</g>"
     )
 
@@ -62,13 +64,39 @@ def star(node: dict) -> str:
     )
 
 
+def ivm_cell(cell: dict) -> str:
+    cx = cell["cx"]
+    cy = cell["cy"]
+    radius = cell["radius"]
+    points = []
+    for dx, dy in ((0, -1), (.866, -.5), (.866, .5), (0, 1), (-.866, .5), (-.866, -.5)):
+        points.append((cx + radius * dx, cy + radius * dy))
+    point_text = " ".join(f"{x:.1f},{y:.1f}" for x, y in points)
+    spokes = "".join(
+        f'<line x1="{cx}" y1="{cy}" x2="{x:.1f}" y2="{y:.1f}"/>'
+        for x, y in points
+    )
+    vertices = "".join(
+        f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.2"/>'
+        for x, y in points
+    )
+    return (
+        f'<g class="ivm-cell {cell["role"]}">' 
+        f'<polygon points="{point_text}"/>{spokes}{vertices}'
+        f'<circle cx="{cx}" cy="{cy}" r="4.5" class="ve-node"/>'
+        f'<text x="{cx}" y="{cy + radius + 22}" text-anchor="middle" class="ivm-label">{html.escape(cell["address"])}</text>'
+        '</g>'
+    )
+
+
 def build_svg(layout: dict) -> str:
     nodes = {node["id"]: node for node in layout["nodes"]}
     markers = "".join(
         f'<marker id="arrow-{kind}" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">'
         f'<path d="M0,0 L0,6 L9,3 z" fill="{COLORS[kind]}"/></marker>'
-        for kind in ("projection", "contribution", "exchange", "targeting")
+        for kind in ("projection", "contribution", "exchange", "targeting", "ivm")
     )
+    ivm_cells = "".join(ivm_cell(cell) for cell in layout.get("ivm_cells", []))
     edges = "".join(line(edge, nodes) for edge in layout["edges"])
     stars = "".join(star(node) for node in layout["nodes"])
     lattice = []
@@ -92,16 +120,22 @@ def build_svg(layout: dict) -> str:
   .tier{{fill:none;stroke:#8fa2bd;stroke-opacity:.28;stroke-width:1.5}}
   .frontier{{fill:none;stroke:#f4c95d;stroke-opacity:.68;stroke-width:2;stroke-dasharray:8 10}}
   .target-ring{{fill:none;stroke:#f4c95d;stroke-width:2;stroke-dasharray:5 5}}
+  .ivm-cell polygon,.ivm-cell line{{fill:none;stroke:#9ab6ff;stroke-opacity:.22;stroke-width:1.2}}
+  .ivm-cell circle{{fill:#9ab6ff;fill-opacity:.44}}
+  .ivm-cell.active polygon,.ivm-cell.active line{{stroke:#f4c95d;stroke-opacity:.48;stroke-width:1.5}}
+  .ivm-cell.active circle{{fill:#f4c95d;fill-opacity:.72}}
+  .ivm-cell.adjacent polygon,.ivm-cell.adjacent line{{stroke:#d7a6ff;stroke-opacity:.42}}
+  .ivm-cell.adjacent circle{{fill:#d7a6ff}}
+  .ivm-label{{font-family:Inter,Arial,sans-serif;fill:#8190a7;font-size:11px;letter-spacing:0}}
 </style>
 <rect width="1600" height="1000" fill="#07111f"/>
 <g class="lattice">{''.join(lattice)}</g>
+<ellipse cx="800" cy="500" rx="745" ry="480" class="frontier"/>
+<rect x="70" y="28" width="505" height="90" fill="#07111f"/>
 <text x="90" y="72" class="title">THE CONTINUUM MAP</text>
 <text x="92" y="103" class="small">Nested Causality Atlas · worked enclosure chart</text>
-<circle cx="800" cy="500" r="410" class="frontier"/>
 <text x="800" y="82" text-anchor="middle" class="axis">FINAL FRONTIER · PRESENT MAP HORIZON</text>
-<ellipse cx="800" cy="500" rx="330" ry="315" class="tier"/>
-<ellipse cx="800" cy="500" rx="225" ry="215" class="tier"/>
-<ellipse cx="800" cy="500" rx="115" ry="110" class="tier"/>
+{ivm_cells}
 <text x="800" y="130" text-anchor="middle" class="axis">ENCLOSING · SCALE ESCALATION</text>
 <text x="800" y="910" text-anchor="middle" class="axis">ENCLOSED · SCALE DE-ESCALATION</text>
 <text x="125" y="500" class="axis">PARALLEL</text>
@@ -125,7 +159,8 @@ def build_svg(layout: dict) -> str:
   <line x1="0" y1="28" x2="70" y2="28" stroke="#e98b73" stroke-width="3"/><text x="82" y="34" class="small">causal projection</text>
   <line x1="0" y1="58" x2="70" y2="58" stroke="#9ab6ff" stroke-width="3" stroke-dasharray="10 8"/><text x="82" y="64" class="small">emergence / contribution</text>
   <line x1="0" y1="88" x2="70" y2="88" stroke="#79c7c5" stroke-width="3"/><text x="82" y="94" class="small">nested exchange</text>
-  <line x1="0" y1="118" x2="70" y2="118" stroke="#f4c95d" stroke-width="3" stroke-dasharray="10 8"/><text x="82" y="124" class="small">targeting route</text>
+  <line x1="0" y1="118" x2="70" y2="118" stroke="#d7a6ff" stroke-width="3" stroke-dasharray="6 6"/><text x="82" y="124" class="small">IVM / Jitterbug passage</text>
+  <line x1="0" y1="148" x2="70" y2="148" stroke="#f4c95d" stroke-width="3" stroke-dasharray="10 8"/><text x="82" y="154" class="small">targeting route</text>
 </g>
 </svg>'''
 

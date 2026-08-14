@@ -12,6 +12,7 @@ from .modules import (
     EnclosureModule,
     ExchangeModule,
     FrontierModule,
+    IVMPassageModule,
     ReferenceModule,
     ScaleRouteModule,
     TargetingModule,
@@ -24,6 +25,7 @@ class AtlasRecord:
     reference: ReferenceModule
     departure: DepartureModule
     enclosure: EnclosureModule
+    ivm_passage: IVMPassageModule
     exchange: ExchangeModule
     scale_route: ScaleRouteModule
     frontier: FrontierModule
@@ -43,6 +45,7 @@ class AtlasRecord:
                 raw.get("enclosed_enclosures", []),
                 raw.get("parallel_enclosures", []),
             ),
+            ivm_passage=IVMPassageModule.map(raw.get("ivm_passage", {})),
             exchange=ExchangeModule.map(raw.get("exchanges", [])),
             scale_route=ScaleRouteModule.map(raw.get("scale_route", {})),
             frontier=FrontierModule.map(raw.get("final_frontier", {})),
@@ -58,6 +61,8 @@ class AtlasRecord:
             "enclosing_count": len(self.enclosure.enclosing),
             "enclosed_count": len(self.enclosure.enclosed),
             "parallel_count": len(self.enclosure.parallel),
+            "ivm_address": self.ivm_passage.current_address,
+            "jitterbug_state": self.ivm_passage.jitterbug_state,
             "exchange_count": len(self.exchange.exchanges),
             "unresolved_exchange_count": len(self.exchange.unresolved),
             "current_tier": self.scale_route.current_tier,

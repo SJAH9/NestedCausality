@@ -12,14 +12,15 @@
   const inspector = document.getElementById("mapInspector");
   const colors = {
     reference: "#f4c95d", active: "#f8fafc", enclosing: "#79c7c5",
-    enclosed: "#e98b73", parallel: "#9ab6ff", target: "#ffcf70",
-    projection: "#e98b73", contribution: "#9ab6ff", exchange: "#79c7c5", targeting: "#f4c95d"
+    enclosed: "#e98b73", parallel: "#9ab6ff", target: "#ffcf70", passage: "#d7a6ff",
+    projection: "#e98b73", contribution: "#9ab6ff", exchange: "#79c7c5", ivm: "#d7a6ff", targeting: "#f4c95d"
   };
 
   const modules = [
     ["Reference", "Declare the local zero and scale address without turning either into the origin of everything."],
     ["Departure", "Record what differs from the reference, including sign, magnitude, duration, and state."],
     ["Enclosure", "Locate the active, enclosing, enclosed, and parallel states that maintain the identity."],
+    ["IVM Passage", "Map the local Vector Equilibrium, active cell, periphery saturation, and Jitterbug route into an adjacent enclosure."],
     ["Projection", "Test the conditions projected from an outer equilibrium into the maintained interior."],
     ["Exchange", "Follow matter, energy, state, or information across a boundary and retain every residual."],
     ["Scale Route", "Test local authority and move through an addressed escalation or de-escalation junction."],
@@ -36,7 +37,7 @@
 
   function renderDefs() {
     const defs = el("defs");
-    ["projection", "contribution", "exchange", "targeting"].forEach(kind => {
+    ["projection", "contribution", "exchange", "ivm", "targeting"].forEach(kind => {
       const marker = el("marker", { id: `web-arrow-${kind}`, markerWidth: 10, markerHeight: 10, refX: 8, refY: 3, orient: "auto", markerUnits: "strokeWidth" });
       marker.append(el("path", { d: "M0,0 L0,6 L9,3 z", fill: colors[kind] }));
       defs.append(marker);
@@ -59,11 +60,21 @@
       lattice.append(el("line", { x1: x, y1: 60, x2: x + 510, y2: 940 }));
     }
     svg.append(lattice);
-    [110, 220, 330].forEach((radius, index) => svg.append(el("ellipse", {
-      cx: 800, cy: 500, rx: radius * 1.08, ry: radius,
-      fill: "none", stroke: "#8fa2bd", "stroke-opacity": .22 + index * .04, "stroke-width": 1.4
-    })));
-    svg.append(el("circle", { cx: 800, cy: 500, r: 420, fill: "none", stroke: "#f4c95d", "stroke-opacity": .62, "stroke-width": 2, "stroke-dasharray": "8 11" }));
+    (atlas.layout.ivm_cells || []).forEach(cell => {
+      const group = el("g", { class: `ivm-cell ivm-${cell.role}`, "data-ivm-cell": cell.id });
+      const points = [[0,-1],[.866,-.5],[.866,.5],[0,1],[-.866,.5],[-.866,-.5]].map(([dx,dy]) => [cell.cx + cell.radius * dx, cell.cy + cell.radius * dy]);
+      const stroke = cell.role === "active" ? "#f4c95d" : cell.role === "adjacent" ? "#d7a6ff" : "#9ab6ff";
+      const opacity = cell.role === "active" ? .52 : .22;
+      group.append(el("polygon", { points: points.map(point => point.join(",")).join(" "), fill: "none", stroke, "stroke-opacity": opacity, "stroke-width": cell.role === "active" ? 1.8 : 1.2 }));
+      points.forEach(([x,y]) => {
+        group.append(el("line", { x1: cell.cx, y1: cell.cy, x2: x, y2: y, stroke, "stroke-opacity": opacity, "stroke-width": 1.1 }));
+        group.append(el("circle", { cx: x, cy: y, r: 3, fill: stroke, opacity: Math.min(1, opacity + .22) }));
+      });
+      group.append(el("circle", { cx: cell.cx, cy: cell.cy, r: 4.5, fill: stroke, opacity: .82 }));
+      group.append(el("text", { x: cell.cx, y: cell.cy + cell.radius + 20, "text-anchor": "middle", fill: "#7f8ea5", "font-size": 10 }, cell.address));
+      svg.append(group);
+    });
+    svg.append(el("ellipse", { cx: 800, cy: 500, rx: 745, ry: 480, fill: "none", stroke: "#f4c95d", "stroke-opacity": .62, "stroke-width": 2, "stroke-dasharray": "8 11" }));
     svg.append(el("text", { x: 800, y: 71, "text-anchor": "middle", fill: "#f4c95d", "font-size": 14, "font-weight": 750 }, "FINAL FRONTIER · PRESENT MAP HORIZON"));
     svg.append(el("text", { x: 800, y: 124, "text-anchor": "middle", fill: "#79c7c5", "font-size": 14, "font-weight": 750 }, "ENCLOSING · SCALE ESCALATION"));
     svg.append(el("text", { x: 800, y: 925, "text-anchor": "middle", fill: "#e98b73", "font-size": 14, "font-weight": 750 }, "ENCLOSED · SCALE DE-ESCALATION"));
@@ -84,7 +95,7 @@
         "marker-end": `url(#web-arrow-${edge.kind})`
       });
       const label = el("text", {
-        x: (source.x + target.x) / 2, y: (source.y + target.y) / 2 - 13,
+        x: edge.label_x ?? (source.x + target.x) / 2, y: edge.label_y ?? (source.y + target.y) / 2 - 13,
         "text-anchor": "middle", fill: "#dce5f2", "font-size": 15,
         style: "paint-order:stroke;stroke:#07111f;stroke-width:5px;stroke-linejoin:round"
       }, edge.label);
@@ -120,6 +131,7 @@
     }
     if (id === "zero-infinity") return { name: "Zero Infinity", relation: "Reference architecture", kind: "countably infinite reference", boundary: record.reference.local_zero, maintained_identity: record.reference.justification };
     if (id === "target-oxygen") return { name: "Oxygen boundary target", relation: "Target", kind: "controlled enclosing condition", boundary: record.target.boundary_condition, maintained_identity: record.target.prediction };
+    if (id === "adjacent-ivm") return { name: "Adjacent IVM address", relation: "Scale passage", kind: record.ivm_passage.jitterbug_state, boundary: record.ivm_passage.periphery_boundary, maintained_identity: record.ivm_passage.capacity_condition };
     return null;
   }
 
@@ -134,6 +146,7 @@
       projection: "Outer-to-inner causal projection. Vary the enclosing condition and observe whether the interior remains stable.",
       contribution: "An enclosed state contributes outward without being renamed causal projection.",
       exchange: "Matter, energy, state, or information crosses a shared boundary and remains in the ledger.",
+      ivm: "The current IVM geometry reaches its periphery and records a possible Jitterbug passage into an adjacent scale enclosure.",
       targeting: "A proposed route from controlled boundary change to a preregistered observable result."
     };
     inspector.innerHTML = `<p class="eyebrow">Selected route</p><h3>${escapeHtml(edge.label)}</h3><p class="inspector-kind">${escapeHtml(edge.kind)}</p><p>${descriptions[edge.kind]}</p><dl><div><dt>Departure</dt><dd>${escapeHtml(edge.source)}</dd></div><div><dt>Arrival</dt><dd>${escapeHtml(edge.target)}</dd></div><div><dt>Direction retained</dt><dd>Yes</dd></div></dl>`;

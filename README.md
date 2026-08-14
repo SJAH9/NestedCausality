@@ -5,8 +5,9 @@
 The Nested Causality Atlas is the operational map produced by the first ten
 volumes of *Causality and Attraction*. It provides a compass rose for locating
 an inquiry inside nested causal enclosures, tracing exchange across boundaries,
-moving between addressed scale tiers, and returning from an encounter with
-infinity to an observable and testable target.
+moving through Isotropic Vector Matrix passages between addressed scale tiers,
+and returning from an encounter with infinity to an observable and testable
+target.
 
 The atlas is modeled after the RTLDI Atlas architecture:
 
@@ -38,6 +39,10 @@ ends.
   an enclosing state without being renamed causal projection.
 - **Boundary route -- Nested exchange:** matter, energy, state, or information
   crossing without an unexplained loss.
+- **Passage geometry -- Isotropic Vector Matrix:** the repeated local geometry
+  within which contracted, balanced, and expanded states approach a periphery
+  boundary and may transform through a Jitterbug transition into an adjacent
+  enclosure.
 - **Horizon -- Final Frontier:** the deterministic infinity at the end of
   presently available knowledge and physical reach. It moves when the map
   expands and remains the same boundary condition.
@@ -47,11 +52,13 @@ ends.
 1. `reference` declares the local zero and scale address.
 2. `departure` records what differs from that reference.
 3. `enclosure` identifies active, enclosing, enclosed, and parallel states.
-4. `projection` records testable outer-to-inner stabilizing conditions.
-5. `exchange` balances what crosses each boundary.
-6. `scale_route` tests local authority and maps escalation or de-escalation.
-7. `frontier` marks the end of observation, derivation, and model authority.
-8. `targeting` turns the completed map into a prediction or intervention.
+4. `ivm_passage` maps the local Vector Equilibrium, periphery saturation, and
+   Jitterbug transition geometry.
+5. `projection` records testable outer-to-inner stabilizing conditions.
+6. `exchange` balances what crosses each boundary.
+7. `scale_route` tests local authority and maps escalation or de-escalation.
+8. `frontier` marks the end of observation, derivation, and model authority.
+9. `targeting` turns the completed map into a prediction or intervention.
 
 ## Layout
 
@@ -64,7 +71,9 @@ ends.
 |   |-- atlas.schema.json             data contract
 |   `-- candle_flame.json             worked map
 |-- docs/
-|   `-- MAPPING_MODULES.md             module definitions
+|   |-- MAPPING_MODULES.md             module definitions
+|   |-- IVM_PASSAGE_SOURCE.md          Volume V escalation provenance
+|   `-- RELEASE_0.1.md                 locked release contract
 |-- src/
 |   |-- atlas.py                      validation and composition
 |   |-- modules.py                    mapping operations
