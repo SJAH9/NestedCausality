@@ -1,0 +1,86 @@
+{
+  "registry_version": "0.1.0",
+  "series": "Causality and Attraction: A Continuum of Steady States",
+  "volumes": [
+    {
+      "volume": 1,
+      "title": "Causality and Attraction: A Continuum of Steady States",
+      "status": "source-located",
+      "doi": "10.5281/zenodo.19468550",
+      "primary_region": "The discovery field",
+      "mapping_note": "Original observations of persistence, steady-state dynamic equilibria, nested enclosures, the Final Frontier, human systems, and the Great Attractor vector require page-level destination mapping."
+    },
+    {
+      "volume": 2,
+      "title": "The Climate Continuum",
+      "status": "source-located",
+      "doi": "10.5281/zenodo.21009123",
+      "primary_region": "Living planetary enclosures",
+      "mapping_note": "Climate, ecology, policy, dampening fields, and intervention destinations require page-level mapping."
+    },
+    {
+      "volume": 3,
+      "title": "The Antarctic Enclosure",
+      "status": "source-located",
+      "doi": "10.5281/zenodo.21009234",
+      "primary_region": "Edges that act",
+      "mapping_note": "Geography, ice, atmosphere, discovery, access, and the active edge of knowledge require page-level mapping."
+    },
+    {
+      "volume": 4,
+      "title": "Numbers and Enclosures",
+      "status": "source-located",
+      "doi": "10.5281/zenodo.21009393",
+      "primary_region": "Geometry and notation",
+      "mapping_note": "Enclosure Function, departure signs, Vector Equilibrium, Isotropic Vector Matrix, Zero Infinity, Final Frontier, and Departure Calculus require separate origin and maturity coordinates."
+    },
+    {
+      "volume": 5,
+      "title": "The Origin of Cosmology",
+      "status": "source-located",
+      "doi": "10.5281/zenodo.21010141",
+      "primary_region": "Cosmological enclosure",
+      "mapping_note": "Big Bang and Big Pull, top-down causal projection, bottom-up emergence, Great Attractors, origin models, and boundary-adjacent physics require page-level mapping."
+    },
+    {
+      "volume": 6,
+      "title": "Nested Causal Modelling",
+      "status": "source-located",
+      "doi": null,
+      "primary_region": "The formal discipline",
+      "mapping_note": "Canonical source is the corrected plain-language Volume VI. Superseded technical files must not be substituted for it."
+    },
+    {
+      "volume": 7,
+      "title": "A Continuum of Cognitive States",
+      "status": "source-located",
+      "doi": null,
+      "primary_region": "The observing enclosure",
+      "mapping_note": "Cognitive navigation, awareness, observation, and phenomenological proposals require claim-status mapping."
+    },
+    {
+      "volume": 8,
+      "title": null,
+      "status": "unmapped",
+      "doi": null,
+      "primary_region": "Unlocated",
+      "mapping_note": "Identify the canonical manuscript before assigning any destination."
+    },
+    {
+      "volume": 9,
+      "title": null,
+      "status": "unmapped",
+      "doi": null,
+      "primary_region": "Unlocated",
+      "mapping_note": "A Rolling Stone research record exists, but the canonical volume title and manuscript must be established before mapping."
+    },
+    {
+      "volume": 10,
+      "title": "codeX: A Continuum of 630 Million Tokens",
+      "status": "provisional",
+      "doi": null,
+      "primary_region": "Human-machine inquiry",
+      "mapping_note": "Working manuscript maps the long-horizon Codex session, token as vessel, prior capture, compaction, and the attempt to preserve original thought."
+    }
+  ]
+}

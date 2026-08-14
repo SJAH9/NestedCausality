@@ -1,0 +1,251 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sidhubbard.com/NCM/atlas/continuum-map.schema.json",
+  "title": "Nested Causality Atlas Record",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "inquiry",
+    "observation",
+    "reference",
+    "departure",
+    "active_enclosure",
+    "scale_route",
+    "final_frontier",
+    "target"
+  ],
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "inquiry": {
+      "type": "object",
+      "required": ["id", "title", "question", "status"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "question": {"type": "string", "minLength": 1},
+        "investigator": {"type": "string"},
+        "created": {"type": "string", "format": "date-time"},
+        "status": {"enum": ["open", "mapped", "tested", "falsified", "revised"]}
+      },
+      "additionalProperties": false
+    },
+    "observation": {"$ref": "#/$defs/observation"},
+    "reference": {
+      "type": "object",
+      "required": ["local_zero", "scale_address", "duration", "justification"],
+      "properties": {
+        "local_zero": {"type": "string", "minLength": 1},
+        "scale_address": {"type": "string", "minLength": 1},
+        "duration": {"type": "string", "minLength": 1},
+        "resolution": {"type": "string"},
+        "justification": {"type": "string", "minLength": 1},
+        "zero_infinity_role": {
+          "const": "recursively_available_departure_reference"
+        }
+      },
+      "additionalProperties": false
+    },
+    "departure": {"$ref": "#/$defs/departure"},
+    "active_enclosure": {"$ref": "#/$defs/enclosure"},
+    "enclosing_enclosures": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/enclosingEnclosure"}
+    },
+    "enclosed_enclosures": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/enclosedEnclosure"}
+    },
+    "parallel_enclosures": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/parallelEnclosure"}
+    },
+    "exchanges": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/exchange"}
+    },
+    "scale_route": {
+      "type": "object",
+      "required": ["current_tier", "local_authority", "escalation", "deescalation"],
+      "properties": {
+        "current_tier": {"type": "string", "minLength": 1},
+        "local_authority": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "smooth_within_tier": {"type": "boolean"},
+        "escalation": {"$ref": "#/$defs/scaleTransition"},
+        "deescalation": {"$ref": "#/$defs/scaleTransition"}
+      },
+      "additionalProperties": false
+    },
+    "final_frontier": {
+      "type": "object",
+      "required": ["observed_end", "derived_end", "unavailable", "halt_reason"],
+      "properties": {
+        "observed_end": {"type": "string", "minLength": 1},
+        "derived_end": {"type": "string", "minLength": 1},
+        "unavailable": {"type": "string", "minLength": 1},
+        "halt_reason": {"type": "string", "minLength": 1},
+        "frontier_condition": {
+          "const": "deterministic_infinity_at_present_end_of_knowledge_and_physical_availability"
+        },
+        "prohibited_promotions": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      },
+      "additionalProperties": false
+    },
+    "target": {
+      "type": "object",
+      "required": ["boundary_condition", "prediction", "alternative", "falsification", "return_path"],
+      "properties": {
+        "boundary_condition": {"type": "string", "minLength": 1},
+        "intervention": {"type": "string"},
+        "prediction": {"type": "string", "minLength": 1},
+        "alternative": {"type": "string", "minLength": 1},
+        "falsification": {"type": "string", "minLength": 1},
+        "return_path": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        }
+      },
+      "additionalProperties": false
+    },
+    "enclosure_function": {"$ref": "#/$defs/enclosureNode"},
+    "unresolved": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "observation": {
+      "type": "object",
+      "required": ["statement", "kind", "observer", "time", "uncertainty"],
+      "properties": {
+        "statement": {"type": "string", "minLength": 1},
+        "kind": {
+          "enum": ["observation", "report", "inference", "model_output", "inherited_claim"]
+        },
+        "observer": {"type": "string", "minLength": 1},
+        "instrument": {"type": "string"},
+        "location": {"type": "string"},
+        "time": {"type": "string", "minLength": 1},
+        "resolution": {"type": "string"},
+        "uncertainty": {"type": "string", "minLength": 1},
+        "reproduction": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "departure": {
+      "type": "object",
+      "required": ["description", "sign", "magnitude", "unit", "duration", "state"],
+      "properties": {
+        "description": {"type": "string", "minLength": 1},
+        "sign": {"enum": [-1, 0, 1, "unassigned"]},
+        "magnitude": {"type": ["number", "string"]},
+        "unit": {"type": "string"},
+        "duration": {"type": "string", "minLength": 1},
+        "state": {"enum": ["forming", "maintained", "transforming", "ending", "unknown"]}
+      },
+      "additionalProperties": false
+    },
+    "enclosure": {
+      "type": "object",
+      "required": ["id", "name", "kind", "boundary", "maintained_identity", "required_conditions"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "name": {"type": "string", "minLength": 1},
+        "kind": {"enum": ["steady_state_equilibrium", "non_equilibrium_steady_state", "transitional", "unknown"]},
+        "boundary": {"type": "string", "minLength": 1},
+        "maintained_identity": {"type": "string", "minLength": 1},
+        "required_conditions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        }
+      },
+      "additionalProperties": true
+    },
+    "enclosingEnclosure": {
+      "allOf": [
+        {"$ref": "#/$defs/enclosure"},
+        {
+          "type": "object",
+          "required": ["projected_conditions", "projection_carrier", "variation_test"],
+          "properties": {
+            "projected_conditions": {"type": "array", "items": {"type": "string"}},
+            "projection_carrier": {"type": "string"},
+            "variation_test": {"type": "string"}
+          }
+        }
+      ]
+    },
+    "enclosedEnclosure": {
+      "allOf": [
+        {"$ref": "#/$defs/enclosure"},
+        {
+          "type": "object",
+          "required": ["contribution", "outward_direction_name"],
+          "properties": {
+            "contribution": {"type": "string"},
+            "outward_direction_name": {"enum": ["emergence", "contribution", "feedback", "exchange"]}
+          }
+        }
+      ]
+    },
+    "parallelEnclosure": {
+      "allOf": [
+        {"$ref": "#/$defs/enclosure"},
+        {
+          "type": "object",
+          "required": ["shared_boundary", "relationship"],
+          "properties": {
+            "shared_boundary": {"type": "string"},
+            "relationship": {"enum": ["competitive", "cooperative", "mixed", "independent", "unknown"]}
+          }
+        }
+      ]
+    },
+    "exchange": {
+      "type": "object",
+      "required": ["boundary", "quantity", "unit", "departing", "arriving", "stored", "transformed", "residual", "uncertainty"],
+      "properties": {
+        "boundary": {"type": "string", "minLength": 1},
+        "quantity": {"type": "string", "minLength": 1},
+        "unit": {"type": "string"},
+        "departing": {"type": ["number", "string"]},
+        "arriving": {"type": ["number", "string"]},
+        "stored": {"type": ["number", "string"]},
+        "transformed": {"type": ["number", "string"]},
+        "residual": {"type": ["number", "string"]},
+        "uncertainty": {"type": "string", "minLength": 1},
+        "status": {"enum": ["balanced", "bounded", "unresolved"]}
+      },
+      "additionalProperties": false
+    },
+    "scaleTransition": {
+      "type": "object",
+      "required": ["trigger", "destination", "status"],
+      "properties": {
+        "trigger": {"type": "string", "minLength": 1},
+        "destination": {"type": "string", "minLength": 1},
+        "status": {"enum": ["not_required", "available", "observed", "hypothesized", "unavailable"]}
+      },
+      "additionalProperties": false
+    },
+    "enclosureNode": {
+      "type": "object",
+      "required": ["enclosing", "departure", "enclosed"],
+      "properties": {
+        "enclosing": {"type": ["string", "object"]},
+        "departure": {"type": ["string", "object"]},
+        "enclosed": {"type": ["string", "object"]},
+        "parallel": {"type": "array", "items": {"type": ["string", "object"]}}
+      },
+      "additionalProperties": false
+    }
+  }
+}

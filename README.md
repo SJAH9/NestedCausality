@@ -1,70 +1,96 @@
-# Nested Causality
+# Nested Causality Atlas
 
-Research, models, simulations, and interactive instruments for Nested Causal
-Modelling, the Departure Calculus, and the Continuum of Steady States.
+## The Continuum Map
 
-This repository separates three kinds of material:
+The Nested Causality Atlas is the operational map produced by the first ten
+volumes of *Causality and Attraction*. It provides a compass rose for locating
+an inquiry inside nested causal enclosures, tracing exchange across boundaries,
+moving between addressed scale tiers, and returning from an encounter with
+infinity to an observable and testable target.
 
-1. **Research texts** define or discuss the proposed framework.
-2. **Computational models** make selected constructions explicit and reproducible.
-3. **Interactive instruments** provide exploratory interfaces for working with the concepts.
+The atlas is modeled after the RTLDI Atlas architecture:
 
-The simulations are demonstrations of stated model assumptions. They are not
-empirical validation of the broader theoretical claims.
+- one canonical machine-readable map;
+- several views of the same map;
+- explicit mapping modules;
+- worked and blank records;
+- an interactive web atlas;
+- a printable field instrument;
+- reproducible validation.
 
-## Start here
+It is a map, not the territory. It does not make every claim true. It records
+where a claim begins, what encloses it, what it encloses, what crosses its
+boundaries, which scale gives its terms meaning, and where present knowledge
+ends.
 
-| Goal | Resource |
-|---|---|
-| Understand the repository | [`docs/repository-map.md`](docs/repository-map.md) |
-| Learn the working vocabulary | [`docs/glossary.md`](docs/glossary.md) |
-| Distinguish claims, models, and demonstrations | [`docs/model-boundaries.md`](docs/model-boundaries.md) |
-| Reproduce committed results | [`docs/reproducibility.md`](docs/reproducibility.md) |
-| Run the game-theory models | [`Continuum Game Theory/`](Continuum%20Game%20Theory/) |
-| Observe the nonterminal Zero Infinity game | [`zero_infinity_endless_game.py`](Continuum%20Game%20Theory/zero_infinity_endless_game.py) |
-| Watch the realtime enclosure network | [`zero-infinity-network.html`](instruments/zero-infinity-network.html) |
-| Use the browser instruments | [`instruments/`](instruments/) |
+## Compass Rose
 
-## Quick verification
+- **Center -- Zero Infinity:** the countably infinite reference architecture
+  from which a local state can be described as a departure.
+- **North -- Enclosing:** scale escalation toward the equilibrium projecting
+  stabilizing conditions inward.
+- **South -- Enclosed:** scale de-escalation toward the states contributing to
+  the maintained interior.
+- **East and West -- Parallel:** adjacent enclosures with shared boundaries,
+  competitive dynamics, cooperation, or exchange.
+- **Inward bearing -- Causal projection:** outer-to-inner causality.
+- **Outward bearing -- Emergence and contribution:** inner activity reaching
+  an enclosing state without being renamed causal projection.
+- **Boundary route -- Nested exchange:** matter, energy, state, or information
+  crossing without an unexplained loss.
+- **Horizon -- Final Frontier:** the deterministic infinity at the end of
+  presently available knowledge and physical reach. It moves when the map
+  expands and remains the same boundary condition.
 
-Python 3.10 or newer is recommended. The current simulations use only the
-Python standard library.
+## Mapping Modules
 
-```bash
-python3 tools/verify_repository.py
-```
+1. `reference` declares the local zero and scale address.
+2. `departure` records what differs from that reference.
+3. `enclosure` identifies active, enclosing, enclosed, and parallel states.
+4. `projection` records testable outer-to-inner stabilizing conditions.
+5. `exchange` balances what crosses each boundary.
+6. `scale_route` tests local authority and maps escalation or de-escalation.
+7. `frontier` marks the end of observation, derivation, and model authority.
+8. `targeting` turns the completed map into a prediction or intervention.
 
-The verifier runs each canonical experiment in a temporary directory,
-validates the resulting JSON, and compares it with the committed reference
-results.
-
-## Repository structure
+## Layout
 
 ```text
-NestedCausality/
-├── Continuum Game Theory/  Papers, simulations, and reference outputs
-├── docs/                   Orientation and research-use resources
-├── instruments/            Self-contained browser instruments
-└── tools/                  Repository validation utilities
+.
+|-- index.html                         interactive star atlas
+|-- Continuum_Map.md                  canonical field doctrine
+|-- Continuum_Map_Field_Worksheet.md  printable blank instrument
+|-- data/
+|   |-- atlas.schema.json             data contract
+|   `-- candle_flame.json             worked map
+|-- docs/
+|   `-- MAPPING_MODULES.md             module definitions
+|-- src/
+|   |-- atlas.py                      validation and composition
+|   |-- modules.py                    mapping operations
+|   `-- generate_star_map.py          reproducible SVG generator
+|-- outputs/
+|   `-- continuum_star_map.svg         generated visual map
+|-- tests/
+|   `-- test_atlas.py                 structural tests
+`-- research_archive/                pre-atlas repository materials
 ```
 
-## Citation
+## Build
 
-Repository citation metadata is provided in [`CITATION.cff`](CITATION.cff).
-Individual papers should be cited using the DOI or citation statement attached
-to that work. The current game-theory paper is available at
-[doi:10.5281/zenodo.21306704](https://doi.org/10.5281/zenodo.21306704).
+```bash
+python3 -m src.generate_star_map
+python3 -m unittest discover -s tests
+```
 
-## Contributing
+Open `index.html` directly in a modern browser. No server or external assets
+are required.
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) before changing equations, terminology,
-reference outputs, or generated research artifacts.
+## Status
 
-## Rights and reuse
+Working research instrument. Not published. Not a claim of completed physical
+theory.
 
-See [`RIGHTS.md`](RIGHTS.md). Availability of source code in this repository
-does not by itself define a reuse license.
-
-## Author
-
-Sid J.A. Hubbard
+The repository materials that preceded the Atlas remain available under
+`research_archive/` for provenance. They are not part of the 0.1 interface or
+release contract.

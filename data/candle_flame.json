@@ -1,0 +1,175 @@
+{
+  "schema_version": "0.1.0",
+  "inquiry": {
+    "id": "CMA-DEMO-001",
+    "title": "The maintained candle flame",
+    "question": "What stabilizes the visible flame while its material inventory is continuously replaced?",
+    "investigator": "Nested Causality Atlas working example",
+    "created": "2026-08-14T11:30:00-07:00",
+    "status": "mapped"
+  },
+  "observation": {
+    "statement": "A candle flame retains a recognizable position and form while wax vapor, oxygen, products, and heat continuously cross its boundary.",
+    "kind": "observation",
+    "observer": "human observer",
+    "instrument": "vision; optional thermocouple, balance, and gas analyzer",
+    "location": "still indoor air at standard room conditions",
+    "time": "during a stable burn interval",
+    "resolution": "macroscopic flame envelope",
+    "uncertainty": "air motion, wick geometry, wax composition, and measurement disturbance alter the envelope",
+    "reproduction": "repeat with the same candle and controlled airflow"
+  },
+  "reference": {
+    "local_zero": "the same candle and room conditions before ignition, with no sustained flame envelope",
+    "scale_address": "human-visible combustion enclosure",
+    "duration": "one stable burn interval",
+    "resolution": "millimetres and seconds",
+    "justification": "the comparison isolates the maintained combustion departure without treating the local unlit state as the origin of all scale",
+    "zero_infinity_role": "recursively_available_departure_reference"
+  },
+  "departure": {
+    "description": "a luminous, heat-releasing, non-equilibrium steady-state reaction envelope",
+    "sign": 1,
+    "magnitude": "measured by luminosity, temperature field, and reaction rate",
+    "unit": "instrument-dependent",
+    "duration": "while fuel, oxidizer, ignition temperature, and pressure remain admissible",
+    "state": "maintained"
+  },
+  "active_enclosure": {
+    "id": "flame-envelope",
+    "name": "visible combustion envelope",
+    "kind": "non_equilibrium_steady_state",
+    "boundary": "the spatial region in which reaction, luminosity, and temperature remain above the declared detection thresholds",
+    "maintained_identity": "a flame of stable mean location and recognizable geometry",
+    "required_conditions": [
+      "wax vapor supply",
+      "oxygen supply",
+      "temperature above the sustaining threshold",
+      "pressure and flow within a stable regime"
+    ]
+  },
+  "enclosing_enclosures": [
+    {
+      "id": "room-atmosphere",
+      "name": "room atmosphere",
+      "kind": "steady_state_equilibrium",
+      "boundary": "the pressure and composition field surrounding the flame",
+      "maintained_identity": "an oxygen-bearing atmosphere near room pressure",
+      "required_conditions": ["available oxidizer", "pressure", "buoyant exhaust path"],
+      "projected_conditions": ["oxygen partial pressure", "ambient pressure", "flow constraints", "heat-removal conditions"],
+      "projection_carrier": "molecular collision, diffusion, convection, and pressure",
+      "variation_test": "reduce oxygen concentration or impose airflow while holding candle geometry approximately fixed and measure the change in flame persistence"
+    }
+  ],
+  "enclosed_enclosures": [
+    {
+      "id": "wick-fuel-interface",
+      "name": "wick and vaporization interface",
+      "kind": "non_equilibrium_steady_state",
+      "boundary": "wick surface and adjacent wax-vapor region",
+      "maintained_identity": "capillary fuel delivery and vapor formation",
+      "required_conditions": ["liquid wax", "wick continuity", "sufficient heat feedback"],
+      "contribution": "delivers wax vapor and heat-coupled fuel flow into the reaction envelope",
+      "outward_direction_name": "contribution"
+    }
+  ],
+  "parallel_enclosures": [
+    {
+      "id": "exhaust-plume",
+      "name": "buoyant exhaust plume",
+      "kind": "non_equilibrium_steady_state",
+      "boundary": "rising region of heated products above the flame",
+      "maintained_identity": "a convective plume carrying products and heat away",
+      "required_conditions": ["gravity", "density contrast", "available surrounding air"],
+      "shared_boundary": "upper reaction envelope",
+      "relationship": "cooperative"
+    },
+    {
+      "id": "wax-pool",
+      "name": "liquid wax pool",
+      "kind": "non_equilibrium_steady_state",
+      "boundary": "melted wax surrounding the wick",
+      "maintained_identity": "a replenished liquid fuel reservoir",
+      "required_conditions": ["solid wax supply", "heat flux", "container geometry"],
+      "shared_boundary": "wick base and thermal field",
+      "relationship": "cooperative"
+    }
+  ],
+  "exchanges": [
+    {
+      "boundary": "wick interface to flame envelope",
+      "quantity": "wax-derived matter",
+      "unit": "mass per time",
+      "departing": "mass loss measured at candle",
+      "arriving": "vapor entering reaction zone",
+      "stored": "transient vapor and intermediates",
+      "transformed": "combustion products and soot fraction",
+      "residual": "measurement closure error",
+      "uncertainty": "requires synchronized mass and exhaust measurements",
+      "status": "bounded"
+    },
+    {
+      "boundary": "atmosphere to flame and flame to room",
+      "quantity": "energy",
+      "unit": "joules per second",
+      "departing": "chemical potential of reactants",
+      "arriving": "reaction energy",
+      "stored": "transient thermal energy in wax, wick, gases, and nearby surfaces",
+      "transformed": "radiation, convection, conduction, and chemical products",
+      "residual": "calorimetric closure error",
+      "uncertainty": "open-room calorimetry does not capture every path",
+      "status": "bounded"
+    }
+  ],
+  "scale_route": {
+    "current_tier": "macroscopic combustion geometry",
+    "local_authority": ["thermodynamics", "fluid mechanics", "reaction kinetics", "radiative transfer"],
+    "smooth_within_tier": true,
+    "escalation": {
+      "trigger": "room-scale ventilation or pressure dominates flame-local conditions",
+      "destination": "room atmosphere and building airflow enclosure",
+      "status": "available"
+    },
+    "deescalation": {
+      "trigger": "macroscopic averages fail to account for reaction or transport",
+      "destination": "molecular reaction and transport enclosure",
+      "status": "available"
+    }
+  },
+  "final_frontier": {
+    "observed_end": "the instrumented room, candle, flame envelope, and measured exhaust during the burn interval",
+    "derived_end": "mass and energy pathways supported by the selected thermodynamic, fluid, and reaction models",
+    "unavailable": "unmeasured microscopic trajectories and influences beyond the instrumented room and time interval",
+    "halt_reason": "the inquiry ends where available instruments and the declared model cannot distinguish further boundary contributions",
+    "frontier_condition": "deterministic_infinity_at_present_end_of_knowledge_and_physical_availability",
+    "prohibited_promotions": [
+      "a bounded residual is not proof of destruction",
+      "the room boundary is not the end of physical scale",
+      "a stable flame shape is not a static material inventory"
+    ]
+  },
+  "target": {
+    "boundary_condition": "oxygen partial pressure projected by the enclosing atmosphere",
+    "intervention": "vary oxygen concentration in a controlled chamber while holding wick, wax, pressure, and airflow within measured bounds",
+    "prediction": "below a reproducible oxygen condition the enclosing atmosphere will no longer sustain the flame departure and the visible envelope will collapse",
+    "alternative": "if flame persistence is unchanged across the admissible oxygen variation, the proposed active projection is incomplete or incorrectly targeted",
+    "falsification": "the flame remains stable after the mapped projected condition is removed while all replacement conditions and exchanges are measured",
+    "return_path": [
+      "instrument chamber oxygen and pressure",
+      "observe flame geometry and persistence",
+      "balance fuel and energy exchanges",
+      "compare with the declared local zero",
+      "revise the active enclosure or reject the proposed projection"
+    ]
+  },
+  "enclosure_function": {
+    "enclosing": "room-atmosphere",
+    "departure": "flame-envelope",
+    "enclosed": "wick-fuel-interface",
+    "parallel": ["exhaust-plume", "wax-pool"]
+  },
+  "unresolved": [
+    "complete calorimetric closure is not supplied by this example",
+    "the scale-transition thresholds are operational choices, not universal constants"
+  ]
+}

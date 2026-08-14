@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Nested Causality Atlas Continuum Star Map</title>
+<desc id="desc">A star chart mapping a candle flame across enclosing, enclosed, and parallel causal enclosures.</desc>
+<defs><marker id="arrow-projection" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#e98b73"/></marker><marker id="arrow-contribution" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#9ab6ff"/></marker><marker id="arrow-exchange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#79c7c5"/></marker><marker id="arrow-targeting" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#f4c95d"/></marker></defs>
+<style>
+  .edge-label,.node-label,.small,.axis,.title{font-family:Inter,Arial,sans-serif;fill:#e7edf7;letter-spacing:0}
+  .edge-label{font-size:16px;paint-order:stroke;stroke:#07111f;stroke-width:5px;stroke-linejoin:round}
+  .node-label{font-size:19px;font-weight:650}
+  .small{font-size:15px;fill:#9eabc0}
+  .axis{font-size:17px;font-weight:700;fill:#cbd5e1}
+  .title{font-family:Georgia,serif;font-size:36px;font-weight:700}
+  .lattice path{stroke:#9ab6ff;stroke-opacity:.055;stroke-width:1}
+  .tier{fill:none;stroke:#8fa2bd;stroke-opacity:.28;stroke-width:1.5}
+  .frontier{fill:none;stroke:#f4c95d;stroke-opacity:.68;stroke-width:2;stroke-dasharray:8 10}
+  .target-ring{fill:none;stroke:#f4c95d;stroke-width:2;stroke-dasharray:5 5}
+</style>
+<rect width="1600" height="1000" fill="#07111f"/>
+<g class="lattice"><path d="M100 70 L1500 70"/><path d="M100 145 L1500 145"/><path d="M100 220 L1500 220"/><path d="M100 295 L1500 295"/><path d="M100 370 L1500 370"/><path d="M100 445 L1500 445"/><path d="M100 520 L1500 520"/><path d="M100 595 L1500 595"/><path d="M100 670 L1500 670"/><path d="M100 745 L1500 745"/><path d="M100 820 L1500 820"/><path d="M100 895 L1500 895"/><path d="M-700 940 L-200 70"/><path d="M-700 70 L-200 940"/><path d="M-550 940 L-50 70"/><path d="M-550 70 L-50 940"/><path d="M-400 940 L100 70"/><path d="M-400 70 L100 940"/><path d="M-250 940 L250 70"/><path d="M-250 70 L250 940"/><path d="M-100 940 L400 70"/><path d="M-100 70 L400 940"/><path d="M50 940 L550 70"/><path d="M50 70 L550 940"/><path d="M200 940 L700 70"/><path d="M200 70 L700 940"/><path d="M350 940 L850 70"/><path d="M350 70 L850 940"/><path d="M500 940 L1000 70"/><path d="M500 70 L1000 940"/><path d="M650 940 L1150 70"/><path d="M650 70 L1150 940"/><path d="M800 940 L1300 70"/><path d="M800 70 L1300 940"/><path d="M950 940 L1450 70"/><path d="M950 70 L1450 940"/><path d="M1100 940 L1600 70"/><path d="M1100 70 L1600 940"/><path d="M1250 940 L1750 70"/><path d="M1250 70 L1750 940"/><path d="M1400 940 L1900 70"/><path d="M1400 70 L1900 940"/></g>
+<text x="90" y="72" class="title">THE CONTINUUM MAP</text>
+<text x="92" y="103" class="small">Nested Causality Atlas · worked enclosure chart</text>
+<circle cx="800" cy="500" r="410" class="frontier"/>
+<text x="800" y="82" text-anchor="middle" class="axis">FINAL FRONTIER · PRESENT MAP HORIZON</text>
+<ellipse cx="800" cy="500" rx="330" ry="315" class="tier"/>
+<ellipse cx="800" cy="500" rx="225" ry="215" class="tier"/>
+<ellipse cx="800" cy="500" rx="115" ry="110" class="tier"/>
+<text x="800" y="130" text-anchor="middle" class="axis">ENCLOSING · SCALE ESCALATION</text>
+<text x="800" y="910" text-anchor="middle" class="axis">ENCLOSED · SCALE DE-ESCALATION</text>
+<text x="125" y="500" class="axis">PARALLEL</text>
+<text x="1390" y="500" class="axis">PARALLEL</text>
+<g class="edge projection"><line x1="800" y1="175" x2="800" y2="420" stroke="#e98b73" stroke-width="3" marker-end="url(#arrow-projection)"/><text x="800.0" y="287.5" text-anchor="middle" class="edge-label">oxygen · pressure · flow</text></g><g class="edge contribution"><line x1="800" y1="735" x2="800" y2="420" stroke="#9ab6ff" stroke-width="3" marker-end="url(#arrow-contribution)" stroke-dasharray="10 8"/><text x="800.0" y="567.5" text-anchor="middle" class="edge-label">fuel vapor · heat feedback</text></g><g class="edge exchange"><line x1="800" y1="420" x2="1190" y2="365" stroke="#79c7c5" stroke-width="3" marker-end="url(#arrow-exchange)"/><text x="995.0" y="382.5" text-anchor="middle" class="edge-label">products · heat</text></g><g class="edge exchange"><line x1="410" y1="650" x2="800" y2="735" stroke="#79c7c5" stroke-width="3" marker-end="url(#arrow-exchange)"/><text x="605.0" y="682.5" text-anchor="middle" class="edge-label">liquid fuel</text></g><g class="edge targeting"><line x1="800" y1="175" x2="1040" y2="255" stroke="#f4c95d" stroke-width="3" marker-end="url(#arrow-targeting)" stroke-dasharray="10 8"/><text x="920.0" y="205.0" text-anchor="middle" class="edge-label">vary enclosing condition</text></g><g class="edge targeting"><line x1="1040" y1="255" x2="800" y2="420" stroke="#f4c95d" stroke-width="3" marker-end="url(#arrow-targeting)" stroke-dasharray="10 8"/><text x="920.0" y="327.5" text-anchor="middle" class="edge-label">predicted persistence change</text></g>
+<g class="node reference" id="node-zero-infinity"><circle cx="800" cy="500" r="23" fill="#f4c95d" opacity=".11"/><circle cx="800" cy="500" r="15" fill="#f4c95d"/><circle cx="795.8" cy="495.5" r="2.6999999999999997" fill="#fff" opacity=".8"/><text x="800" y="542" text-anchor="middle" class="node-label">0∞</text></g><g class="node active" id="node-flame-envelope"><circle cx="800" cy="420" r="28" fill="#f8fafc" opacity=".11"/><circle cx="800" cy="420" r="20" fill="#f8fafc"/><circle cx="794.4" cy="414.0" r="3.5999999999999996" fill="#fff" opacity=".8"/><text x="800" y="467" text-anchor="middle" class="node-label">Visible flame</text></g><g class="node enclosing" id="node-room-atmosphere"><circle cx="800" cy="175" r="26" fill="#79c7c5" opacity=".11"/><circle cx="800" cy="175" r="18" fill="#79c7c5"/><circle cx="794.96" cy="169.6" r="3.2399999999999998" fill="#fff" opacity=".8"/><text x="800" y="220" text-anchor="middle" class="node-label">Room atmosphere</text></g><g class="node enclosed" id="node-wick-fuel-interface"><circle cx="800" cy="735" r="24" fill="#e98b73" opacity=".11"/><circle cx="800" cy="735" r="16" fill="#e98b73"/><circle cx="795.52" cy="730.2" r="2.88" fill="#fff" opacity=".8"/><text x="800" y="778" text-anchor="middle" class="node-label">Wick + vapor</text></g><g class="node parallel" id="node-exhaust-plume"><circle cx="1190" cy="365" r="22" fill="#9ab6ff" opacity=".11"/><circle cx="1190" cy="365" r="14" fill="#9ab6ff"/><circle cx="1186.08" cy="360.8" r="2.52" fill="#fff" opacity=".8"/><text x="1190" y="406" text-anchor="middle" class="node-label">Exhaust plume</text></g><g class="node parallel" id="node-wax-pool"><circle cx="410" cy="650" r="22" fill="#9ab6ff" opacity=".11"/><circle cx="410" cy="650" r="14" fill="#9ab6ff"/><circle cx="406.08" cy="645.8" r="2.52" fill="#fff" opacity=".8"/><text x="410" y="691" text-anchor="middle" class="node-label">Wax pool</text></g><g class="node target" id="node-target-oxygen"><circle cx="1040" cy="255" r="31" class="target-ring"/><circle cx="1040" cy="255" r="21" fill="#ffcf70" opacity=".11"/><circle cx="1040" cy="255" r="13" fill="#ffcf70"/><circle cx="1036.36" cy="251.1" r="2.34" fill="#fff" opacity=".8"/><text x="1040" y="295" text-anchor="middle" class="node-label">O₂ boundary target</text></g>
+<g transform="translate(135,780)">
+  <circle cx="80" cy="80" r="64" fill="#0c1b2f" stroke="#8fa2bd"/>
+  <path d="M80 8 L92 68 L80 58 L68 68 Z" fill="#79c7c5"/>
+  <path d="M80 152 L92 92 L80 102 L68 92 Z" fill="#e98b73"/>
+  <path d="M8 80 L68 68 L58 80 L68 92 Z M152 80 L92 68 L102 80 L92 92 Z" fill="#9ab6ff"/>
+  <circle cx="80" cy="80" r="14" fill="#f4c95d"/>
+  <text x="80" y="86" text-anchor="middle" font-size="14" font-weight="700" fill="#07111f">0∞</text>
+  <text x="80" y="-7" text-anchor="middle" class="small">ENCLOSING</text>
+  <text x="80" y="181" text-anchor="middle" class="small">ENCLOSED</text>
+  <text x="-9" y="85" text-anchor="end" class="small">PARALLEL</text>
+  <text x="169" y="85" class="small">PARALLEL</text>
+</g>
+<g transform="translate(1190,760)">
+  <text x="0" y="0" class="axis">ROUTE LEGEND</text>
+  <line x1="0" y1="28" x2="70" y2="28" stroke="#e98b73" stroke-width="3"/><text x="82" y="34" class="small">causal projection</text>
+  <line x1="0" y1="58" x2="70" y2="58" stroke="#9ab6ff" stroke-width="3" stroke-dasharray="10 8"/><text x="82" y="64" class="small">emergence / contribution</text>
+  <line x1="0" y1="88" x2="70" y2="88" stroke="#79c7c5" stroke-width="3"/><text x="82" y="94" class="small">nested exchange</text>
+  <line x1="0" y1="118" x2="70" y2="118" stroke="#f4c95d" stroke-width="3" stroke-dasharray="10 8"/><text x="82" y="124" class="small">targeting route</text>
+</g>
+</svg>

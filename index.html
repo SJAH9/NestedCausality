@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" data-theme="night">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Nested Causality Atlas: a map of the known, a compass for inquiry, and a route home from infinity.">
+  <title>Nested Causality Atlas · The Continuum Map</title>
+  <link rel="stylesheet" href="atlas.css">
+  <script>
+    (() => {
+      const stored = localStorage.getItem("continuum-theme");
+      const hour = new Date().getHours();
+      document.documentElement.dataset.theme = stored || (hour >= 7 && hour < 19 ? "day" : "night");
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="identity" href="#top" aria-label="Nested Causality Atlas home">
+      <span class="identity-mark">0∞</span>
+      <span><strong>Nested Causality Atlas</strong><small>Release 0.1 · The Compass</small></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#map">Map</a>
+      <a href="#modules">Modules</a>
+      <a href="#gazetteer">Gazetteer</a>
+      <a href="#fieldwork">Fieldwork</a>
+    </nav>
+    <button class="icon-button" id="themeToggle" type="button" aria-label="Change day or night theme" title="Change day or night theme">
+      <span aria-hidden="true">◐</span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">A product of Causality and Attraction, Volumes I–X</p>
+        <h1 id="hero-title">The Continuum Map</h1>
+        <p class="hero-line">A map of the known, a compass for inquiry, and a route home from infinity.</p>
+        <p class="hero-intro">Locate a departure. Find what holds it. Follow what crosses its boundaries. Travel outward, inward, or across without losing the address from which the inquiry began.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#map">Open the star map</a>
+          <a class="button secondary" href="Continuum_Map_Field_Worksheet.md">Use the field worksheet</a>
+        </div>
+      </div>
+      <div class="hero-compass" aria-label="Nested Causality compass rose">
+        <div class="compass-orbit orbit-outer"></div>
+        <div class="compass-orbit orbit-inner"></div>
+        <span class="bearing north">Enclosing</span>
+        <span class="bearing south">Enclosed</span>
+        <span class="bearing west">Parallel</span>
+        <span class="bearing east">Parallel</span>
+        <span class="compass-axis axis-ns"></span>
+        <span class="compass-axis axis-ew"></span>
+        <span class="compass-axis axis-ne"></span>
+        <span class="compass-axis axis-nw"></span>
+        <span class="compass-center">0∞</span>
+      </div>
+    </section>
+
+    <section class="atlas-section" id="map" aria-labelledby="map-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Worked map · Candle flame</p>
+          <h2 id="map-title">One maintained light in a field of relations</h2>
+        </div>
+        <p>Stars are observed states. Constellations are causal enclosures. Routes preserve direction. The horizon marks where this map stops.</p>
+      </div>
+
+      <div class="map-shell">
+        <div class="map-toolbar" aria-label="Map layers">
+          <button class="layer-control active" type="button" data-layer="all">All routes</button>
+          <button class="layer-control" type="button" data-layer="projection">Projection</button>
+          <button class="layer-control" type="button" data-layer="contribution">Contribution</button>
+          <button class="layer-control" type="button" data-layer="exchange">Exchange</button>
+          <button class="layer-control" type="button" data-layer="targeting">Target</button>
+          <button class="icon-button print-control" type="button" id="printMap" aria-label="Print atlas" title="Print atlas">⌑</button>
+        </div>
+        <div class="map-stage" id="mapStage">
+          <svg id="starMap" viewBox="0 0 1600 1000" role="img" aria-label="Interactive nested causal star map"></svg>
+          <div class="map-caption">
+            <span><i class="route-key projection"></i>Causal projection</span>
+            <span><i class="route-key contribution"></i>Emergence / contribution</span>
+            <span><i class="route-key exchange"></i>Nested exchange</span>
+            <span><i class="route-key targeting"></i>Targeting route</span>
+          </div>
+        </div>
+        <aside class="map-inspector" id="mapInspector" aria-live="polite">
+          <p class="eyebrow">Selected coordinate</p>
+          <h3>Visible flame</h3>
+          <p class="inspector-kind">Active enclosure · non-equilibrium steady state</p>
+          <p>A recognizable flame persists while its inventory is continuously replaced.</p>
+          <dl>
+            <div><dt>Boundary</dt><dd>Reaction, light, and temperature detection thresholds</dd></div>
+            <div><dt>Scale</dt><dd>Human-visible combustion enclosure</dd></div>
+            <div><dt>Status</dt><dd>Mapped, with bounded exchange residuals</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="modules-section" id="modules" aria-labelledby="modules-title">
+      <div class="section-heading narrow">
+        <div><p class="eyebrow">Mapping instrument</p><h2 id="modules-title">Eight modules. One lawful route.</h2></div>
+        <p>The modules preserve the conditions of an inquiry before asking the map to predict or intervene.</p>
+      </div>
+      <div class="module-grid" id="moduleGrid"></div>
+    </section>
+
+    <section class="gazetteer-section" id="gazetteer" aria-labelledby="gazetteer-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Volumes I–X</p><h2 id="gazetteer-title">The destination registry</h2></div>
+        <p>The atlas preserves where an idea first appeared, where it matured, where it was withdrawn, and where the route remains unfinished.</p>
+      </div>
+      <div class="volume-route" aria-hidden="true"><span></span></div>
+      <div class="volume-grid" id="volumeGrid"></div>
+    </section>
+
+    <section class="fieldwork-section" id="fieldwork" aria-labelledby="fieldwork-title">
+      <div class="fieldwork-copy">
+        <p class="eyebrow">Begin an inquiry</p>
+        <h2 id="fieldwork-title">Do not begin with everything.</h2>
+        <p>Begin with one observation. Declare the local zero. Record the departure. Find the active enclosure and ask what larger equilibrium makes its persistence possible.</p>
+        <blockquote>What changed, relative to what reference, inside which enclosure, under causal projection from what enclosing equilibrium, while exchanging what across which boundaries, and where does the present map stop?</blockquote>
+        <div class="hero-actions">
+          <a class="button primary" href="Continuum_Map_Field_Worksheet.md">Open the worksheet</a>
+          <a class="button secondary" href="data/atlas.schema.json">Inspect the schema</a>
+          <a class="button secondary" href="data/candle_flame.json">Read the worked record</a>
+        </div>
+      </div>
+      <div class="return-route" aria-label="Return route">
+        <span>Observe</span><i></i><span>Address</span><i></i><span>Enclose</span><i></i><span>Exchange</span><i></i><span>Target</span><i></i><span>Return</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span><strong>Nested Causality Atlas</strong> · Working release 0.1</span>
+    <span>A map, not the territory. The present frontier is not the end of inquiry.</span>
+  </footer>
+
+  <script src="outputs/atlas_data.js"></script>
+  <script src="atlas.js"></script>
+</body>
+</html>

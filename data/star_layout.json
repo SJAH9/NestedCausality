@@ -1,0 +1,19 @@
+{
+  "nodes": [
+    {"id": "zero-infinity", "label": "0∞", "kind": "reference", "x": 800, "y": 500, "size": 15},
+    {"id": "flame-envelope", "label": "Visible flame", "kind": "active", "x": 800, "y": 420, "size": 20},
+    {"id": "room-atmosphere", "label": "Room atmosphere", "kind": "enclosing", "x": 800, "y": 175, "size": 18},
+    {"id": "wick-fuel-interface", "label": "Wick + vapor", "kind": "enclosed", "x": 800, "y": 735, "size": 16},
+    {"id": "exhaust-plume", "label": "Exhaust plume", "kind": "parallel", "x": 1190, "y": 365, "size": 14},
+    {"id": "wax-pool", "label": "Wax pool", "kind": "parallel", "x": 410, "y": 650, "size": 14},
+    {"id": "target-oxygen", "label": "O₂ boundary target", "kind": "target", "x": 1040, "y": 255, "size": 13}
+  ],
+  "edges": [
+    {"source": "room-atmosphere", "target": "flame-envelope", "kind": "projection", "label": "oxygen · pressure · flow"},
+    {"source": "wick-fuel-interface", "target": "flame-envelope", "kind": "contribution", "label": "fuel vapor · heat feedback"},
+    {"source": "flame-envelope", "target": "exhaust-plume", "kind": "exchange", "label": "products · heat"},
+    {"source": "wax-pool", "target": "wick-fuel-interface", "kind": "exchange", "label": "liquid fuel"},
+    {"source": "room-atmosphere", "target": "target-oxygen", "kind": "targeting", "label": "vary enclosing condition"},
+    {"source": "target-oxygen", "target": "flame-envelope", "kind": "targeting", "label": "predicted persistence change"}
+  ]
+}

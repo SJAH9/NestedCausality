@@ -1,16 +1,21 @@
 cff-version: 1.2.0
-message: "Cite the specific paper or instrument used. For the repository as a whole, use this metadata."
-title: "Nested Causality"
+message: "Cite the specific mapped source used. For the Atlas software and instrument, use this metadata."
+title: "The Nested Causality Atlas: The Continuum Map"
 type: software
+version: "0.1.0-dev"
+date-released: "2026-08-14"
 authors:
   - family-names: "Hubbard"
     given-names: "Sid J.A."
 repository-code: "https://github.com/SJAH9/NestedCausality"
 url: "https://github.com/SJAH9/NestedCausality"
-abstract: "Research, computational models, and interactive instruments for Nested Causal Modelling, the Departure Calculus, and the Continuum of Steady States."
+abstract: "A web and print atlas for mapping departures, causal enclosures, nested exchange, scale routes, and the Final Frontier using the Nested Causality compass rose."
 keywords:
+  - nested causality atlas
+  - continuum map
   - nested causal modelling
   - departure calculus
   - continuum of steady states
-  - enclosure-aware game theory
+  - causal enclosure
+  - scientific mapping
 license: "LicenseRef-Proprietary"
