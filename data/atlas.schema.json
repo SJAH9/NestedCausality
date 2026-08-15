@@ -8,6 +8,7 @@
     "inquiry",
     "observation",
     "reference",
+    "time_address",
     "departure",
     "active_enclosure",
     "ivm_passage",
@@ -43,6 +44,37 @@
         "zero_infinity_role": {
           "const": "recursively_available_departure_reference"
         }
+      },
+      "additionalProperties": false
+    },
+    "time_address": {
+      "type": "object",
+      "required": [
+        "beginning_boundary",
+        "ending_boundary",
+        "enclosing_clock",
+        "counted_transition",
+        "completed_passages",
+        "phase",
+        "passage_direction",
+        "measured_rate",
+        "scale_address",
+        "final_frontier"
+      ],
+      "properties": {
+        "beginning_boundary": {"type": "string", "minLength": 1},
+        "ending_boundary": {"type": "string", "minLength": 1},
+        "enclosing_clock": {"type": "string", "minLength": 1},
+        "counted_transition": {"type": "string", "minLength": 1},
+        "completed_passages": {"type": ["integer", "string"]},
+        "phase": {"enum": [-1, 0, 1, "unassigned"]},
+        "passage_direction": {"enum": ["contracting", "expanding", "through_zero_inward", "through_zero_outward", "maintained", "unresolved"]},
+        "measured_rate": {"type": "string", "minLength": 1},
+        "scale_address": {"type": "string", "minLength": 1},
+        "conventional_translation": {"type": "string"},
+        "rate_variation": {"type": "string"},
+        "final_frontier": {"type": "string", "minLength": 1},
+        "evidence_status": {"enum": ["observed", "derived", "hypothesized", "illustrative", "unresolved"]}
       },
       "additionalProperties": false
     },
@@ -125,12 +157,32 @@
     },
     "final_frontier": {
       "type": "object",
-      "required": ["observed_end", "derived_end", "unavailable", "halt_reason"],
+      "required": ["observed_end", "derived_end", "unavailable", "halt_reason", "scale_extremes", "temporal_frontier"],
       "properties": {
         "observed_end": {"type": "string", "minLength": 1},
         "derived_end": {"type": "string", "minLength": 1},
         "unavailable": {"type": "string", "minLength": 1},
         "halt_reason": {"type": "string", "minLength": 1},
+        "scale_extremes": {
+          "type": "object",
+          "required": ["inward", "outward"],
+          "properties": {
+            "inward": {"$ref": "#/$defs/frontierExtreme"},
+            "outward": {"$ref": "#/$defs/frontierExtreme"}
+          },
+          "additionalProperties": false
+        },
+        "temporal_frontier": {
+          "type": "object",
+          "required": ["beginning_boundary", "ending_boundary", "beyond_current_count", "halt_condition"],
+          "properties": {
+            "beginning_boundary": {"type": "string", "minLength": 1},
+            "ending_boundary": {"type": "string", "minLength": 1},
+            "beyond_current_count": {"type": "string", "minLength": 1},
+            "halt_condition": {"type": "string", "minLength": 1}
+          },
+          "additionalProperties": false
+        },
         "frontier_condition": {
           "const": "deterministic_infinity_at_present_end_of_knowledge_and_physical_availability"
         },
@@ -166,6 +218,16 @@
   },
   "additionalProperties": false,
   "$defs": {
+    "frontierExtreme": {
+      "type": "object",
+      "required": ["mapped_anchor", "frontier_beyond", "reason"],
+      "properties": {
+        "mapped_anchor": {"type": "string", "minLength": 1},
+        "frontier_beyond": {"type": "string", "minLength": 1},
+        "reason": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
     "observation": {
       "type": "object",
       "required": ["statement", "kind", "observer", "time", "uncertainty"],

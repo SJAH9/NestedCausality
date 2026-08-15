@@ -16,6 +16,7 @@ from .modules import (
     ReferenceModule,
     ScaleRouteModule,
     TargetingModule,
+    TemporalAddressModule,
 )
 
 
@@ -28,6 +29,7 @@ class AtlasRecord:
     ivm_passage: IVMPassageModule
     exchange: ExchangeModule
     scale_route: ScaleRouteModule
+    time_address: TemporalAddressModule
     frontier: FrontierModule
     target: TargetingModule
 
@@ -48,6 +50,7 @@ class AtlasRecord:
             ivm_passage=IVMPassageModule.map(raw.get("ivm_passage", {})),
             exchange=ExchangeModule.map(raw.get("exchanges", [])),
             scale_route=ScaleRouteModule.map(raw.get("scale_route", {})),
+            time_address=TemporalAddressModule.map(raw.get("time_address", {})),
             frontier=FrontierModule.map(raw.get("final_frontier", {})),
             target=TargetingModule.map(raw.get("target", {})),
         )
@@ -66,6 +69,8 @@ class AtlasRecord:
             "exchange_count": len(self.exchange.exchanges),
             "unresolved_exchange_count": len(self.exchange.unresolved),
             "current_tier": self.scale_route.current_tier,
+            "temporal_phase": self.time_address.phase,
+            "temporal_frontier": self.time_address.final_frontier,
             "frontier": self.frontier.halt_reason,
             "target": self.target.boundary_condition,
         }

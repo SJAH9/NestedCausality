@@ -28,6 +28,21 @@ window.CONTINUUM_ATLAS = {
       "justification": "the comparison isolates the maintained combustion departure without treating the local unlit state as the origin of all scale",
       "zero_infinity_role": "recursively_available_departure_reference"
     },
+    "time_address": {
+      "beginning_boundary": "the declared onset of a stable visible flame after ignition",
+      "ending_boundary": "extinction or the declared end of the instrumented burn interval",
+      "enclosing_clock": "the bounded stable-burn interval maintained by the candle and room atmosphere",
+      "counted_transition": "one completed synchronized observation sample of flame geometry and boundary exchange",
+      "completed_passages": "not counted in this worked map",
+      "phase": 1,
+      "passage_direction": "maintained",
+      "measured_rate": "fuel mass loss, heat release, and image samples per conventional second",
+      "scale_address": "macroscopic combustion time within the room-atmosphere enclosure",
+      "conventional_translation": "instrument timestamps retained in UTC-compatible seconds",
+      "rate_variation": "flicker, fuel flow, and heat-release variation remain observable rather than being replaced by the sampling clock",
+      "final_frontier": "the ending boundary of the instrumented burn interval",
+      "evidence_status": "illustrative"
+    },
     "departure": {
       "description": "a luminous, heat-releasing, non-equilibrium steady-state reaction envelope",
       "sign": 1,
@@ -191,6 +206,24 @@ window.CONTINUUM_ATLAS = {
       "derived_end": "mass and energy pathways supported by the selected thermodynamic, fluid, and reaction models",
       "unavailable": "unmeasured microscopic trajectories and influences beyond the instrumented room and time interval",
       "halt_reason": "the inquiry ends where available instruments and the declared model cannot distinguish further boundary contributions",
+      "scale_extremes": {
+        "inward": {
+          "mapped_anchor": "the wick-fuel interface is the smallest displayed enclosure; the standard Planck-length reference remains farther inward",
+          "frontier_beyond": "the inward Final Frontier is placed beyond the Planck-length anchor toward smaller presently unavailable enclosures",
+          "reason": "no displayed or standard minimum scale is promoted into the end of possible depth"
+        },
+        "outward": {
+          "mapped_anchor": "the room atmosphere is the largest displayed enclosing equilibrium",
+          "frontier_beyond": "the outward Final Frontier is placed beyond the room and every larger enclosure currently displayed",
+          "reason": "the largest mapped influence cannot be promoted into the end of the physical universe"
+        }
+      },
+      "temporal_frontier": {
+        "beginning_boundary": "stable flame onset after ignition",
+        "ending_boundary": "extinction or declared observation halt",
+        "beyond_current_count": "prior ignition history and later room evolution remain available to enclosing temporal maps",
+        "halt_condition": "the present flame record ends when its declared burn interval ends"
+      },
       "frontier_condition": "deterministic_infinity_at_present_end_of_knowledge_and_physical_availability",
       "prohibited_promotions": [
         "a bounded residual is not proof of destruction",
@@ -408,7 +441,36 @@ window.CONTINUUM_ATLAS = {
         "role": "adjacent",
         "address": "IVM:combustion:extinguished-or-transformed-envelope"
       }
-    ]
+    ],
+    "frontiers": {
+      "outward": {
+        "cx": 800,
+        "cy": 500,
+        "rx": 745,
+        "ry": 480,
+        "label_x": 1110,
+        "label_y": 48,
+        "label": "OUTWARD FINAL FRONTIER · BEYOND LARGEST MAPPED ENCLOSURE"
+      },
+      "inward": {
+        "cx": 800,
+        "cy": 500,
+        "radius": 47,
+        "label": "INWARD FINAL FRONTIER · BEYOND PLANCK-LENGTH ANCHOR",
+        "label_x": 365,
+        "label_y": 445
+      },
+      "temporal": {
+        "path": "M620 585 A235 175 0 0 0 980 585",
+        "begin_x": 620,
+        "begin_y": 585,
+        "end_x": 980,
+        "end_y": 585,
+        "label_x": 800,
+        "label_y": 705,
+        "label": "TEMPORAL ENCLOSURE · BEGINNING → COUNT → FINAL FRONTIER"
+      }
+    }
   },
   "volumes": {
     "registry_version": "0.1.0",
@@ -472,11 +534,11 @@ window.CONTINUUM_ATLAS = {
       },
       {
         "volume": 8,
-        "title": null,
-        "status": "unmapped",
+        "title": "The Clock Is the Countably Infinite Scale to the Smooth Infinity of Time",
+        "status": "provisional",
         "doi": null,
-        "primary_region": "Unlocated",
-        "mapping_note": "Identify the canonical manuscript before assigning any destination."
+        "primary_region": "Temporal enclosure",
+        "mapping_note": "Working manuscript maps event, clock, calendar, bounded count, phase, measured rate, and the bridge between countably infinite clocks and smooth time. It is the conceptual origin of the Nested Causality Atlas."
       },
       {
         "volume": 9,

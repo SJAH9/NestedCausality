@@ -16,7 +16,13 @@ The Nested Causality Atlas is the navigational instrument produced by
 *Causality and Attraction*, Volumes I--X. It begins with one observation and
 retains the reference, departure, enclosing conditions, enclosed contributions,
 parallel relations, exchanges, local IVM passage, scale routes, and present
-limit of the map.
+temporal address and limits of the map. Volume VIII supplies its conceptual
+origin: a calendar is a map of time and a clock is its scale.
+
+Its modules operationalize the Three Laws without reducing them to software
+rules or selected patterns: enclosure and inward causal projection, lossless
+exchange across parallel and nested boundaries, and enclosure continuing in
+both scale directions to the same Final Frontier.
 
 \vfill
 
@@ -35,8 +41,9 @@ progress. This atlas is a map, not the territory.
 \end{figure}
 
 Every visible object has a machine-readable equivalent. Stars are observations
-or states. Routes retain direction. The dashed horizon is the Final Frontier
-of this inquiry, not a claim that the chart contains all territory.
+or states. Routes retain direction. The dashed horizons place the Final
+Frontier inward and outward, while the curved beginning-to-end route bounds
+the temporal enclosure. None claims that the chart contains all territory.
 
 \clearpage
 
@@ -53,22 +60,30 @@ of this inquiry, not a claim that the chart contains all territory.
 | Boundary route | Balance Nested Exchange across a shared boundary. |
 | IVM field | Locate the local Vector Equilibrium, periphery, and adjacent scale enclosures. |
 | Jitterbug passage | Record the geometric transition available when the current enclosure reaches capacity. |
-| Horizon | Declare the Final Frontier of observation, derivation, and physical availability. |
+| Temporal arc | Bound the passage and retain clock, count, phase, and measured rate. |
+| Inner / outer horizons | Place the same Final Frontier beyond the smallest and largest addressed scales. |
 
 # Canonical Question
 
-> What changed, relative to what reference, inside which enclosure, under
-> causal projection from what enclosing equilibrium, while exchanging what
-> across which boundaries, and where does the present map stop?
+> What changed, relative to what reference, inside which enclosure, during
+> which bounded passage, under causal projection from what enclosing
+> equilibrium, while exchanging what across which boundaries, and where does
+> the present map stop?
 
 \clearpage
 
-# Nine Mapping Modules
+# Ten Mapping Modules
 
 ## Reference
 
 Declare the local zero, scale address, duration, and resolution. The local zero
 is not promoted into the origin of every scale.
+
+## Time
+
+Declare the beginning and ending boundaries, enclosing clock, counted
+transition, completed passages, phase, direction, measured rate, and temporal
+Final Frontier. Conventional timestamps remain translations.
 
 ## Departure
 
@@ -108,8 +123,8 @@ departure while retaining its geometry.
 ## Frontier
 
 Separate the observed end, derived end, unavailable exterior, and reason the
-map halts. The boundary moves as knowledge expands and remains the same
-deterministic condition.
+map halts. Place the same deterministic boundary inward, outward, and at the
+end of the present passage.
 
 ## Targeting
 
@@ -129,7 +144,7 @@ the map from alternatives. State prediction and falsification before action.
 | V | Cosmological enclosure | Source located |
 | VI | The formal discipline | Corrected source located |
 | VII | The observing enclosure | Source located |
-| VIII | Awaiting canonical source | Unmapped |
+| VIII | Temporal enclosure and the origin of the Atlas | Provisional |
 | IX | Awaiting canonical volume | Unmapped |
 | X | Human-machine inquiry | Provisional |
 
@@ -164,6 +179,16 @@ test, and open destination.
 **Departure, sign, magnitude, unit, duration, and state:**
 
 \vspace{0.5in}
+
+## Temporal Address
+
+**Beginning / ending boundaries and enclosing clock:**
+
+\vspace{0.35in}
+
+**Counted transition / completed passages / phase / measured rate:**
+
+\vspace{0.45in}
 
 ## Active Enclosure
 
@@ -220,9 +245,9 @@ test, and open destination.
 
 \vspace{0.35in}
 
-## Final Frontier
+## Final Frontiers
 
-**Observed end / derived end / unavailable exterior / halt reason:**
+**Inward / outward / temporal limits and halt reasons:**
 
 \vspace{0.55in}
 

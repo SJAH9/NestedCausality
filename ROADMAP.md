@@ -8,10 +8,12 @@ reason to enlarge the active release.
 
 Status: in development.
 
-Establish the compass rose, star-map grammar, nine mapping modules, canonical
+Establish the compass rose, star-map grammar, ten mapping modules, canonical
 record, web atlas, print atlas, worked example, field worksheet, and Volumes
-I--X destination registry. Complete three independent design cycles before the
-release candidate is accepted. See `docs/RELEASE_0.1.md`.
+I--X destination registry. The tenth module supplies a bounded temporal address
+for every map; it does not yet animate a sequence of changing maps. Complete
+three independent design cycles before the release candidate is accepted. See
+`docs/RELEASE_0.1.md`.
 
 ## 0.2 -- The Gazetteer
 
@@ -33,7 +35,8 @@ release candidate is accepted. See `docs/RELEASE_0.1.md`.
 
 ## 0.4 -- The Observatory
 
-- Time-dependent maps and observation sequences.
+- Time-dependent map sequences built from the bounded temporal addresses in
+  0.1.
 - Competing maps retained in parallel.
 - Instrument, observer, resolution, and uncertainty overlays.
 - Reproducible frontier movement as new observations are added.

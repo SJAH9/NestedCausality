@@ -7,6 +7,12 @@ instrument. Its purpose is not to complete the map. Its purpose is to make the
 compass, map grammar, data contract, and publication forms firm enough that new
 destinations can be added without changing what the bearings mean.
 
+The mapping modules operationalize the Three Laws without reducing them to
+rules or unevenly observed patterns. The release preserves their status as
+universal observations of enclosure and inward causal projection, lossless
+boundary exchange, and nesting toward the same Final Frontier in both scale
+directions.
+
 ## Locked Feature Set
 
 The following features define 0.1. New ideas discovered during implementation
@@ -23,7 +29,8 @@ work correctly.
 - Emergence, contribution, and feedback directed outward under their own names.
 - Nested Exchange along shared boundaries.
 - Isotropic Vector Matrix passage geometry at every mapped scale address.
-- Final Frontier as the horizon of the presently available map.
+- Final Frontier beyond the smallest and largest presently addressed scales
+  and at the ending boundary of the presently counted passage.
 
 ### 2. Star-Map Representation
 
@@ -36,10 +43,10 @@ work correctly.
 - projection, contribution, exchange, and targeting rendered as distinct routes;
 - every visible object connected to a machine-readable record.
 
-### 3. Nine Mapping Modules
+### 3. Ten Mapping Modules
 
-Reference, Departure, Enclosure, IVM Passage, Projection, Exchange, Scale
-Route, Frontier, and Targeting.
+Reference, Time, Departure, Enclosure, IVM Passage, Projection, Exchange,
+Scale Route, Frontier, and Targeting.
 
 ### 4. One Canonical Data Source
 
@@ -71,6 +78,10 @@ The release includes a registry capable of locating discoveries, models,
 interventions, unresolved targets, and superseded routes from all ten volumes.
 An entry may be marked `unmapped`, `source-located`, `provisional`, `mapped`, or
 `tested`. The registry must not fill absent coordinates by analogy.
+
+Volume VIII is the declared conceptual origin of the Atlas: a calendar is a
+map of time and a clock is its scale. Volume X may document construction but
+must not displace that origin.
 
 ### 8. Reproducibility and Boundaries
 
@@ -122,6 +133,7 @@ Release 0.1 is complete when a new user can:
 6. validate that record locally;
 7. locate each volume in the destination registry;
 8. print a coherent field instrument from the same source data;
-9. distinguish the edge of the present map from the end of the territory;
+9. locate the inward, outward, and temporal Final Frontiers beyond the present
+   map without turning a displayed anchor into the end of territory;
 10. remain coherent and visually compelling in day, night, screen, and print
    forms after all three design cycles.

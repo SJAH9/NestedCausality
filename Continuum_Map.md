@@ -19,9 +19,19 @@ possible.
 
 Its governing question is:
 
-> **What changed, relative to what reference, inside which enclosure, under
-> causal projection from what enclosing equilibrium, while exchanging what
-> across which boundaries, and where does the present map stop?**
+> **What changed, relative to what reference, inside which enclosure, during
+> which bounded passage, under causal projection from what enclosing
+> equilibrium, while exchanging what across which boundaries, and where does
+> the present map stop?**
+
+The instrument begins from the Three Laws as observations visible everywhere
+an inquiry is directed, not as rules imposed by the Atlas. Stable entities are
+enclosed and stabilized by larger equilibria while enclosing participating
+states. Matter, energy, state, and information transit parallel and nested
+boundaries without destruction. Enclosure remains available inward and outward
+to the same deterministic Final Frontier of the present physical and
+epistemic universe. The mapping modules make those observations addressable;
+they do not turn universal observations into optional procedure.
 
 The map begins at Zero Infinity, locates the inquiry in a local Isotropic
 Vector Matrix, moves through a countable hierarchy of adjacent scale
@@ -30,6 +40,24 @@ coordinates within a lawful IVM field without granting any local equation
 unlimited authority across every scale. It allows the observer to approach
 infinity by addressed geometric escalation and de-escalation rather than
 falling into an undifferentiated infinite coordinate.
+
+# The Atlas Arises from Volume VIII
+
+The RTLDI Atlas arose from Volume I when a field of institutions, rules,
+claims, and interventions required a navigable map. The Nested Causality Atlas
+arises from Volume VIII when time itself requires the same operation.
+
+A calendar is a map of time. A clock is its scale. A clock places boundaries
+around motion, counts the passages between them, and makes a smooth duration
+available as a countable address. Once an enclosure has a beginning, an ending,
+a clock, a count, a phase, and a measured rate, it can be placed beside every
+other addressed enclosure without losing when its state was maintained or when
+its transition occurred.
+
+Volume VIII therefore supplies the temporal bearing missing from a static
+star chart. Volume X records the human-machine process by which the instrument
+was built. The construction history does not displace the discovery from which
+the Atlas became necessary.
 
 # The Compass Rose
 
@@ -128,13 +156,16 @@ change phase. Information may become inaccessible to a selected observer. The
 map must name the transformation, storage, or authority boundary rather than
 recording destruction by omission.
 
-## Horizon: The Final Frontier
+## Horizons: The Final Frontier
 
 The Final Frontier is the deterministic infinity at the end of presently
 available physical knowledge. It is encountered where the physical universe
 available to observation and the authority of the observer's map end together.
-New observation moves the frontier without abolishing it. The boundary changes
-location while remaining the same condition.
+The Atlas places the same condition beyond the smallest presently addressed
+scale, beyond the largest presently addressed enclosure, and at the ending
+boundary of the presently counted passage. New observation moves a frontier
+without abolishing it. The boundary changes location while remaining the same
+condition.
 
 The Final Frontier is therefore more than a convenient cutoff. A finite model
 uses it as a halt condition because the inquiry has reached the lawful edge of
@@ -169,6 +200,25 @@ They do not assert a completed physical inventory of every tier. The IVM at one
 address does not enclose the entire infinite matrix as completed occupancy. It
 provides the repeatable local geometry by which an adjacent address can be
 defined.
+
+# The Temporal Address
+
+Every mapped enclosure occupies a bounded passage as well as an addressed
+scale. Its minimum temporal record is:
+
+- the event that begins the count;
+- the event that ends it;
+- the enclosing clock whose motion is counted;
+- the completed passages and present phase;
+- the direction and measured rate of passage;
+- the scale at which that clock is available;
+- any translation into a conventional timestamp;
+- the temporal Final Frontier where the present record stops.
+
+This record does not turn time into a list of static points. It preserves the
+smooth passage while making its boundaries and count computationally
+available. A later Atlas release may animate sequences of such maps. Release
+0.1 first makes each map temporally addressable.
 
 # Isotropic Vector Matrix Passage
 
@@ -233,6 +283,7 @@ A complete practical record also carries:
 
 - observer and instrument;
 - scale address and resolution;
+- temporal beginning, ending, clock, count, phase, and measured rate;
 - reference state;
 - observed departure;
 - enclosing causal projection;
@@ -259,41 +310,48 @@ State the reference relative to which change becomes visible. Do not use an
 unstated population average, institutional verdict, or mathematical origin as
 the zero of the phenomenon.
 
-## 3. Name the departure
+## 3. Bound the passage
+
+Name the beginning and ending conditions, the enclosing clock, what is counted,
+the present phase, and the rate at which the passage is occurring. Retain a
+conventional timestamp as a translation when useful, not as a replacement for
+the observed temporal enclosure.
+
+## 4. Name the departure
 
 Describe the changed state without claiming more than the observation permits.
 Record direction, magnitude, duration, and whether the departure is sustained,
 oscillating, escalating, de-escalating, or transitioning.
 
-## 4. Find the active enclosure
+## 5. Find the active enclosure
 
 Identify the smallest enclosure whose conditions presently maintain the
 departure. This is the intervention scale until evidence requires movement.
 
-## 5. Follow north
+## 6. Follow north
 
 Name the larger equilibrium projecting conditions inward. Remove or vary one
 candidate support conceptually or experimentally. If the interior's admissible
 states do not change, the proposed enclosure may be context rather than cause.
 
-## 6. Follow south
+## 7. Follow south
 
 Name the enclosed states whose interactions, emergence, and feedback
 participate in the observed form. Do not reduce the active state to an
 inventory when its identity belongs to maintained relations.
 
-## 7. Traverse east and west
+## 8. Traverse east and west
 
 Map parallel enclosures sharing boundaries or exchanging capacity. Record
 competition, cooperation, substitution, leakage, and displacement.
 
-## 8. Balance the junctions
+## 9. Balance the junctions
 
 For each boundary crossing, account for what departed, what arrived, what was
 stored, and what changed form. Mark missing measurements rather than filling
 them with narrative.
 
-## 9. Test the tier
+## 10. Test the tier
 
 Ask whether the active enclosure still contains the departure. Escalate only
 when the current geometry reaches its limit. De-escalate only when the smaller
@@ -303,17 +361,19 @@ Place that test in the local IVM. Name the Vector Equilibrium, active cell,
 periphery condition, contracted or expanded state, and adjacent enclosure. A
 scale arrow without a mapped passage is incomplete.
 
-## 10. Declare the Final Frontier
+## 11. Declare the Final Frontiers
 
-State where observation, derivation, or model authority ends. Unknown is a
-valid mapped state. Do not extend the field with invented interiors.
+State where observation, derivation, or model authority ends inward, outward,
+and in the present passage. Unknown is a valid mapped state. Do not extend the
+field with invented interiors or mistake a displayed scale anchor for the end
+of possible depth.
 
-## 11. Select the target
+## 12. Select the target
 
 Choose the boundary condition whose modification should change the departure.
 State the predicted direction and observable consequence before intervention.
 
-## 12. Return home
+## 13. Return home
 
 Retrace the addressed tiers to the local scale of action. A successful map
 returns with a measurement, prediction, decision, or intervention that can be
@@ -324,13 +384,14 @@ performed in the enclosure where the inquiry began.
 The Continuum Map points toward the common center of scientific inquiry:
 
 1. establish a reference;
-2. observe a difference;
-3. locate the conditions under which it persists;
-4. vary those conditions;
-5. account for what crosses the boundaries;
-6. predict the next observable state;
-7. stop where evidence ends;
-8. permit another observer to repeat the route.
+2. bound and count the passage;
+3. observe a difference;
+4. locate the conditions under which it persists;
+5. vary those conditions;
+6. account for what crosses the boundaries;
+7. predict the next observable state;
+8. stop where evidence ends;
+9. permit another observer to repeat the route.
 
 The instrument does not replace physics, chemistry, biology, psychology,
 economics, history, systems analysis, or game theory. It gives their models
@@ -346,13 +407,14 @@ A Continuum Map is complete for its declared inquiry when:
 
 - the departure is reproducibly observable;
 - its reference and scale address are explicit;
+- its temporal beginning, ending, clock, count, phase, and measured rate are explicit;
 - the active, enclosing, enclosed, and parallel enclosures are named;
 - inward projection is distinguished from outward emergence;
 - boundary exchanges balance within measurement uncertainty or are marked
   unknown;
 - escalation and de-escalation conditions are stated;
 - the local IVM address, periphery, and passage geometry are stated;
-- the Final Frontier is explicit;
+- the inward, outward, and temporal Final Frontiers are explicit;
 - the model makes a differentiating prediction;
 - a return path reaches an actionable scale;
 - failure conditions are recorded.

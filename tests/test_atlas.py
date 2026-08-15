@@ -25,6 +25,20 @@ class AtlasTests(unittest.TestCase):
         record = load_record(self.path)
         self.assertTrue(all("residual" in item for item in record.exchange.exchanges))
 
+    def test_time_address_is_bounded_and_ternary(self):
+        record = load_record(self.path)
+        self.assertTrue(record.time_address.beginning_boundary)
+        self.assertTrue(record.time_address.ending_boundary)
+        self.assertIn(record.time_address.phase, (-1, 0, 1, "unassigned"))
+        self.assertTrue(record.time_address.final_frontier)
+
+    def test_final_frontier_has_two_scale_extremes_and_time(self):
+        record = load_record(self.path)
+        self.assertIn("Planck", record.frontier.inward["mapped_anchor"])
+        self.assertIn("beyond", record.frontier.inward["frontier_beyond"])
+        self.assertIn("beyond", record.frontier.outward["frontier_beyond"])
+        self.assertTrue(record.frontier.temporal["ending_boundary"])
+
     def test_projection_is_outer_to_inner(self):
         record = load_record(self.path)
         outer_ids = {item["id"] for item in record.enclosure.enclosing}
@@ -68,6 +82,43 @@ class AtlasTests(unittest.TestCase):
         passages = [edge for edge in layout["edges"] if edge["kind"] == "ivm"]
         self.assertEqual(len(passages), 1)
         self.assertEqual(passages[0]["target"], "adjacent-ivm")
+
+    def test_star_map_places_frontiers_beyond_displayed_scale_anchors(self):
+        layout = json.loads((ROOT / "data" / "star_layout.json").read_text(encoding="utf-8"))
+        frontiers = layout["frontiers"]
+        outward = frontiers["outward"]
+
+        displayed_points = []
+        for node in layout["nodes"]:
+            radius = node["size"] + 11
+            displayed_points.extend((
+                (node["x"] - radius, node["y"]),
+                (node["x"] + radius, node["y"]),
+                (node["x"], node["y"] - radius),
+                (node["x"], node["y"] + radius),
+            ))
+        for cell in layout["ivm_cells"]:
+            displayed_points.extend((
+                (cell["cx"] - .866 * cell["radius"], cell["cy"]),
+                (cell["cx"] + .866 * cell["radius"], cell["cy"]),
+                (cell["cx"], cell["cy"] - cell["radius"]),
+                (cell["cx"], cell["cy"] + cell["radius"]),
+            ))
+
+        for x, y in displayed_points:
+            position = ((x - outward["cx"]) / outward["rx"]) ** 2 + ((y - outward["cy"]) / outward["ry"]) ** 2
+            self.assertLess(position, 1, f"displayed point {(x, y)} crosses the outward Final Frontier")
+
+        self.assertIn("PLANCK", frontiers["inward"]["label"].upper())
+        self.assertTrue(frontiers["temporal"]["path"].startswith("M"))
+        self.assertNotEqual(frontiers["temporal"]["begin_x"], frontiers["temporal"]["end_x"])
+
+    def test_schema_requires_temporal_address_and_three_frontier_directions(self):
+        schema = json.loads((ROOT / "data" / "atlas.schema.json").read_text(encoding="utf-8"))
+        self.assertIn("time_address", schema["required"])
+        frontier_required = schema["properties"]["final_frontier"]["required"]
+        self.assertIn("scale_extremes", frontier_required)
+        self.assertIn("temporal_frontier", frontier_required)
 
 
 if __name__ == "__main__":

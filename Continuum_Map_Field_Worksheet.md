@@ -24,7 +24,20 @@ What was directly observed?
 **State:** stable / sustained / oscillating / escalating / de-escalating / transitioning  
 **Magnitude and duration:**  
 
-## 3. Active Enclosure
+## 3. Temporal Address
+
+**Beginning boundary:** \
+**Ending boundary:** \
+**Enclosing clock:** \
+**Counted transition:** \
+**Completed passages:** \
+**Current phase:** -1 / 0∞ / +1 / unassigned \
+**Passage direction:** \
+**Measured rate and variation:** \
+**Conventional timestamp translation:** \
+**Temporal Final Frontier:**
+
+## 4. Active Enclosure
 
 What is the smallest enclosure presently maintaining the departure?
 
@@ -33,7 +46,7 @@ What is the smallest enclosure presently maintaining the departure?
 **Maintained identity:**  
 **Conditions required for persistence:**  
 
-## 4. Compass Bearings
+## 5. Compass Bearings
 
 ### North: Enclosing equilibrium
 
@@ -52,7 +65,7 @@ What is the smallest enclosure presently maintaining the departure?
 |---|---|---|---|
 | | | | |
 
-## 5. Exchange Ledger
+## 6. Exchange Ledger
 
 | Boundary | Quantity | Departing | Arriving | Stored | Transformed | Unknown |
 |---|---|---:|---:|---:|---:|---:|
@@ -62,7 +75,7 @@ What is the smallest enclosure presently maintaining the departure?
 **Measurement uncertainty:**  
 **Unresolved residual:**  
 
-## 6. Scale Address
+## 7. Scale Address
 
 **Current tier:**  
 **Locally valid laws or models:**  
@@ -85,16 +98,18 @@ What is the smallest enclosure presently maintaining the departure?
 **Adjacent IVM address:**  
 **Matter, energy, state, or information preserved across passage:**  
 
-## 7. Final Frontier
+## 8. Final Frontiers
 
 Where does present physical or epistemic availability end?
 
-**Observed frontier:**  
-**Derived frontier:**  
-**Unknown exterior:**  
+**Observed and derived extent:** \
+**Inward mapped anchor and frontier beyond it:** \
+**Outward mapped anchor and frontier beyond it:** \
+**Temporal ending boundary and frontier:** \
+**Unknown exteriors:** \
 **Claims prohibited beyond this boundary:**  
 
-## 8. Target
+## 9. Target
 
 **Boundary condition selected:**  
 **Proposed variation or intervention:**  
@@ -103,7 +118,7 @@ Where does present physical or epistemic availability end?
 **Differentiating alternative:**  
 **Falsification condition:**  
 
-## 9. Return Path
+## 10. Return Path
 
 List the addressed tiers traversed back to the actionable scale.
 
@@ -115,7 +130,7 @@ List the addressed tiers traversed back to the actionable scale.
 **Responsible enclosure:**  
 **Reassessment date or trigger:**  
 
-## 10. Minimal Enclosure Function
+## 11. Minimal Enclosure Function
 
 $$
 \mathcal{E}_n=[\mathcal{E}_{n+1}\mid D_n\mid\mathcal{E}_{n-1}]
@@ -130,6 +145,7 @@ $$
 
 - [ ] Observation is distinguished from inference.
 - [ ] Reference is explicit.
+- [ ] Beginning, ending, clock, count, phase, and measured rate are explicit.
 - [ ] Departure is measurable.
 - [ ] Active enclosure is identified.
 - [ ] Causal projection is inward and testable.
@@ -138,6 +154,6 @@ $$
 - [ ] Exchanges balance or residuals are explicit.
 - [ ] Scale-transition triggers are stated.
 - [ ] IVM address, Vector Equilibrium, periphery, and passage are stated.
-- [ ] Final Frontier is declared.
+- [ ] Inward, outward, and temporal Final Frontiers are declared.
 - [ ] Prediction precedes intervention.
 - [ ] Return path reaches an actionable scale.

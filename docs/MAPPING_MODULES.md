@@ -2,9 +2,10 @@
 
 ## Canonical Question
 
-> What changed, relative to what reference, inside which enclosure, under
-> causal projection from what enclosing equilibrium, while exchanging what
-> across which boundaries, and where does the present map stop?
+> What changed, relative to what reference, inside which enclosure, during
+> which bounded passage, under causal projection from what enclosing
+> equilibrium, while exchanging what across which boundaries, and where does
+> the present map stop?
 
 Every module answers one part of this question. No module is allowed to erase
 the records supplied to another.
@@ -20,7 +21,18 @@ measurement origin for this inquiry.
 **Failure condition:** the reference changes silently while departures are
 compared.
 
-## 2. Departure
+## 2. Time
+
+The time module declares the beginning and ending boundaries of the passage,
+the enclosing clock, the transition being counted, completed passages, current
+phase, direction, measured rate, and scale address. Conventional timestamps
+may be retained as translations, but they do not replace the observed clock.
+A clock makes smooth time countable by placing boundaries around motion.
+
+**Failure condition:** an event is given a timestamp but no bounded passage,
+phase, rate, or temporal halt condition can be recovered.
+
+## 3. Departure
 
 The departure module records the observed difference from the local reference.
 A departure can be signed `-1`, `0`, or `+1` when the inquiry supports ternary
@@ -29,7 +41,7 @@ classification. The sign does not replace magnitude, unit, duration, or state.
 **Failure condition:** the label is assigned by analogy rather than an explicit
 comparison with the declared reference.
 
-## 3. Enclosure
+## 4. Enclosure
 
 The enclosure module finds the maintained identity and its boundaries:
 
@@ -44,7 +56,7 @@ steady-state equilibrium. Inventory turnover does not disprove persistence.
 **Failure condition:** a container is named without a stabilizing relation, or
 a relation is claimed without a boundary test.
 
-## 4. IVM Passage
+## 5. IVM Passage
 
 The IVM-passage module maps the geometry by which a scale address is maintained
 and by which it may change. Each mapped tier carries a local Isotropic Vector
@@ -64,7 +76,7 @@ scale address.
 Vector Equilibrium, saturation condition, periphery, or adjacent enclosure can
 be named.
 
-## 5. Projection
+## 6. Projection
 
 Causal projection is reserved for outer-to-inner influence. The module records
 the condition, carrier, direction, and a removal or variation test. Inner-to-
@@ -72,7 +84,7 @@ outer activity is recorded as emergence, contribution, feedback, or exchange.
 
 **Failure condition:** direction is reversed for rhetorical convenience.
 
-## 6. Exchange
+## 7. Exchange
 
 The exchange module follows matter, energy, state, or information across a
 shared boundary. It records departure, arrival, storage, transformation,
@@ -82,7 +94,7 @@ be observed. An unexplained residual remains an unresolved entry.
 **Failure condition:** the ledger balances only because an unobserved quantity
 was set to zero.
 
-## 7. Scale Route
+## 8. Scale Route
 
 The scale-route module asks whether the present equations and categories retain
 authority at the current tier. A junction is opened when the current enclosure
@@ -95,23 +107,27 @@ jurisdiction across every scale.
 **Failure condition:** a mathematical infinity is mistaken for a completed
 physical occupancy, or a local cutoff is mistaken for the end of scale.
 
-## 8. Frontier
+## 9. Frontier
 
-The frontier module marks three distinguishable limits:
+The frontier module marks three distinguishable evidentiary limits:
 
 - what has been observed;
 - what has been derived from those observations;
 - what remains physically or epistemically unavailable.
 
-The Final Frontier is the deterministic outer condition of the present map. In
-human experience the observable end of knowledge and the physical end of the
-universe meet there. New observation moves the boundary without changing what
-the boundary is.
+The same Final Frontier condition is then placed in three directions. The
+inward frontier lies beyond the smallest presently addressed scale, including
+beyond a Planck-length anchor whenever it is displayed. The outward frontier
+lies beyond the largest presently addressed enclosure. The temporal frontier
+lies at the ending boundary of the presently counted passage. In human
+experience the observable end of knowledge and the physical end of the
+universe meet at the scale frontiers. New observation moves any of these
+boundaries without changing what the boundary is.
 
 **Failure condition:** an unknown exterior is populated with inherited facts,
 or the present map is mistaken for all territory.
 
-## 9. Targeting
+## 10. Targeting
 
 The targeting module selects the smallest boundary condition whose controlled
 change can distinguish the proposed causal map from alternatives. It declares
@@ -137,7 +153,9 @@ and exchange ledger are complete.
 | Vector Equilibrium star | balanced reference at a scale address |
 | Periphery cell | limit of the current enclosure geometry |
 | Jitterbug passage | escalation or de-escalation into an adjacent enclosure |
-| Dashed horizon | Final Frontier |
+| Curved passage with beginning and end | temporal enclosure and counted transition |
+| Inner dashed horizon | inward Final Frontier beyond the smallest addressed scale |
+| Outer dashed horizon | outward Final Frontier beyond the largest addressed enclosure |
 | Reticle | prediction or intervention target |
 
 The star map is not decorative. Every visible object has a corresponding

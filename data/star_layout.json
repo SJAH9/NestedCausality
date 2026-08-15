@@ -26,5 +26,34 @@
     {"id": "ivm-east", "cx": 1170, "cy": 500, "radius": 128, "role": "parallel", "address": "parallel IVM field"},
     {"id": "ivm-southwest", "cx": 615, "cy": 820, "radius": 128, "role": "enclosed", "address": "enclosed IVM field A"},
     {"id": "ivm-southeast", "cx": 985, "cy": 820, "radius": 128, "role": "adjacent", "address": "IVM:combustion:extinguished-or-transformed-envelope"}
-  ]
+  ],
+  "frontiers": {
+    "outward": {
+      "cx": 800,
+      "cy": 500,
+      "rx": 745,
+      "ry": 480,
+      "label_x": 1110,
+      "label_y": 48,
+      "label": "OUTWARD FINAL FRONTIER · BEYOND LARGEST MAPPED ENCLOSURE"
+    },
+    "inward": {
+      "cx": 800,
+      "cy": 500,
+      "radius": 47,
+      "label": "INWARD FINAL FRONTIER · BEYOND PLANCK-LENGTH ANCHOR",
+      "label_x": 365,
+      "label_y": 445
+    },
+    "temporal": {
+      "path": "M620 585 A235 175 0 0 0 980 585",
+      "begin_x": 620,
+      "begin_y": 585,
+      "end_x": 980,
+      "end_y": 585,
+      "label_x": 800,
+      "label_y": 705,
+      "label": "TEMPORAL ENCLOSURE · BEGINNING → COUNT → FINAL FRONTIER"
+    }
+  }
 }

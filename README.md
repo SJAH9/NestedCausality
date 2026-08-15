@@ -19,10 +19,26 @@ The atlas is modeled after the RTLDI Atlas architecture:
 - a printable field instrument;
 - reproducible validation.
 
+Its conceptual origin is Volume VIII, *The Clock Is the Countably Infinite
+Scale to the Smooth Infinity of Time*. A calendar is a map of time and a clock
+is its scale. Volume VIII supplies the missing temporal address that lets an
+enclosure map retain beginning, count, phase, measured rate, and end. Volume X
+records the human-machine construction of the instrument; it does not replace
+Volume VIII as the discovery from which the Atlas arises.
+
 It is a map, not the territory. It does not make every claim true. It records
 where a claim begins, what encloses it, what it encloses, what crosses its
 boundaries, which scale gives its terms meaning, and where present knowledge
 ends.
+
+The Three Laws represented here are observations, not software rules or
+patterns selected from favorable cases: stable entities are enclosed and
+stabilized by larger equilibria while enclosing participating states; matter,
+energy, state, and information cross parallel and nested boundaries without
+destruction; and enclosure remains available inward and outward to the same
+Final Frontier of the present physical and epistemic universe. The ten modules
+preserve these observations in a usable record. They do not reduce their
+universality to a checklist.
 
 ## Compass Rose
 
@@ -43,22 +59,24 @@ ends.
   within which contracted, balanced, and expanded states approach a periphery
   boundary and may transform through a Jitterbug transition into an adjacent
   enclosure.
-- **Horizon -- Final Frontier:** the deterministic infinity at the end of
-  presently available knowledge and physical reach. It moves when the map
-  expands and remains the same boundary condition.
+- **Horizons -- Final Frontiers:** the same deterministic infinity placed
+  beyond the smallest and largest presently addressed scales and at the end of
+  the bounded passage. Each moves when the map expands and remains the same
+  boundary condition.
 
 ## Mapping Modules
 
 1. `reference` declares the local zero and scale address.
-2. `departure` records what differs from that reference.
-3. `enclosure` identifies active, enclosing, enclosed, and parallel states.
-4. `ivm_passage` maps the local Vector Equilibrium, periphery saturation, and
+2. `time_address` bounds the passage and retains clock, count, phase, and rate.
+3. `departure` records what differs from that reference.
+4. `enclosure` identifies active, enclosing, enclosed, and parallel states.
+5. `ivm_passage` maps the local Vector Equilibrium, periphery saturation, and
    Jitterbug transition geometry.
-5. `projection` records testable outer-to-inner stabilizing conditions.
-6. `exchange` balances what crosses each boundary.
-7. `scale_route` tests local authority and maps escalation or de-escalation.
-8. `frontier` marks the end of observation, derivation, and model authority.
-9. `targeting` turns the completed map into a prediction or intervention.
+6. `projection` records testable outer-to-inner stabilizing conditions.
+7. `exchange` balances what crosses each boundary.
+8. `scale_route` tests local authority and maps escalation or de-escalation.
+9. `frontier` places inward, outward, and temporal halt conditions.
+10. `targeting` turns the completed map into a prediction or intervention.
 
 ## Layout
 

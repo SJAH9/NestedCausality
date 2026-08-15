@@ -99,6 +99,10 @@ def build_svg(layout: dict) -> str:
     ivm_cells = "".join(ivm_cell(cell) for cell in layout.get("ivm_cells", []))
     edges = "".join(line(edge, nodes) for edge in layout["edges"])
     stars = "".join(star(node) for node in layout["nodes"])
+    frontiers = layout["frontiers"]
+    outward = frontiers["outward"]
+    inward = frontiers["inward"]
+    temporal = frontiers["temporal"]
     lattice = []
     for y in range(70, 940, 75):
         lattice.append(f'<path d="M100 {y} L1500 {y}"/>')
@@ -119,6 +123,10 @@ def build_svg(layout: dict) -> str:
   .lattice path{{stroke:#9ab6ff;stroke-opacity:.055;stroke-width:1}}
   .tier{{fill:none;stroke:#8fa2bd;stroke-opacity:.28;stroke-width:1.5}}
   .frontier{{fill:none;stroke:#f4c95d;stroke-opacity:.68;stroke-width:2;stroke-dasharray:8 10}}
+  .inward-frontier{{fill:#07111f;fill-opacity:.52;stroke:#f4c95d;stroke-opacity:.82;stroke-width:1.6;stroke-dasharray:4 6}}
+  .frontier-leader{{fill:none;stroke:#f4c95d;stroke-opacity:.46;stroke-width:1}}
+  .temporal-route{{fill:none;stroke:#7dd3c7;stroke-opacity:.86;stroke-width:2.4;stroke-dasharray:3 7}}
+  .temporal-boundary{{fill:#07111f;stroke:#7dd3c7;stroke-width:2}}
   .target-ring{{fill:none;stroke:#f4c95d;stroke-width:2;stroke-dasharray:5 5}}
   .ivm-cell polygon,.ivm-cell line{{fill:none;stroke:#9ab6ff;stroke-opacity:.22;stroke-width:1.2}}
   .ivm-cell circle{{fill:#9ab6ff;fill-opacity:.44}}
@@ -130,11 +138,20 @@ def build_svg(layout: dict) -> str:
 </style>
 <rect width="1600" height="1000" fill="#07111f"/>
 <g class="lattice">{''.join(lattice)}</g>
-<ellipse cx="800" cy="500" rx="745" ry="480" class="frontier"/>
+<ellipse cx="{outward['cx']}" cy="{outward['cy']}" rx="{outward['rx']}" ry="{outward['ry']}" class="frontier"/>
+<circle cx="{inward['cx']}" cy="{inward['cy']}" r="{inward['radius']}" class="inward-frontier"/>
+<path d="M{inward['label_x'] + 10} {inward['label_y'] + 7} L{inward['cx'] - inward['radius']} {inward['cy']}" class="frontier-leader"/>
+<text x="{inward['label_x']}" y="{inward['label_y']}" text-anchor="middle" class="small">{html.escape(inward['label'])}</text>
+<path d="{temporal['path']}" class="temporal-route" marker-end="url(#arrow-exchange)"/>
+<circle cx="{temporal['begin_x']}" cy="{temporal['begin_y']}" r="7" class="temporal-boundary"/>
+<circle cx="{temporal['end_x']}" cy="{temporal['end_y']}" r="7" class="temporal-boundary"/>
+<text x="{temporal['begin_x']}" y="{temporal['begin_y'] - 18}" text-anchor="middle" class="small">BEGIN</text>
+<text x="{temporal['end_x']}" y="{temporal['end_y'] - 18}" text-anchor="middle" class="small">END</text>
+<text x="{temporal['label_x']}" y="{temporal['label_y']}" text-anchor="middle" class="axis">{html.escape(temporal['label'])}</text>
 <rect x="70" y="28" width="505" height="90" fill="#07111f"/>
 <text x="90" y="72" class="title">THE CONTINUUM MAP</text>
 <text x="92" y="103" class="small">Nested Causality Atlas · worked enclosure chart</text>
-<text x="800" y="82" text-anchor="middle" class="axis">FINAL FRONTIER · PRESENT MAP HORIZON</text>
+<text x="{outward['label_x']}" y="{outward['label_y']}" text-anchor="middle" class="axis">{html.escape(outward['label'])}</text>
 {ivm_cells}
 <text x="800" y="130" text-anchor="middle" class="axis">ENCLOSING · SCALE ESCALATION</text>
 <text x="800" y="910" text-anchor="middle" class="axis">ENCLOSED · SCALE DE-ESCALATION</text>
@@ -154,13 +171,15 @@ def build_svg(layout: dict) -> str:
   <text x="-9" y="85" text-anchor="end" class="small">PARALLEL</text>
   <text x="169" y="85" class="small">PARALLEL</text>
 </g>
-<g transform="translate(1190,760)">
+<g transform="translate(1190,720)">
   <text x="0" y="0" class="axis">ROUTE LEGEND</text>
   <line x1="0" y1="28" x2="70" y2="28" stroke="#e98b73" stroke-width="3"/><text x="82" y="34" class="small">causal projection</text>
   <line x1="0" y1="58" x2="70" y2="58" stroke="#9ab6ff" stroke-width="3" stroke-dasharray="10 8"/><text x="82" y="64" class="small">emergence / contribution</text>
   <line x1="0" y1="88" x2="70" y2="88" stroke="#79c7c5" stroke-width="3"/><text x="82" y="94" class="small">nested exchange</text>
   <line x1="0" y1="118" x2="70" y2="118" stroke="#d7a6ff" stroke-width="3" stroke-dasharray="6 6"/><text x="82" y="124" class="small">IVM / Jitterbug passage</text>
   <line x1="0" y1="148" x2="70" y2="148" stroke="#f4c95d" stroke-width="3" stroke-dasharray="10 8"/><text x="82" y="154" class="small">targeting route</text>
+  <line x1="0" y1="178" x2="70" y2="178" stroke="#7dd3c7" stroke-width="3" stroke-dasharray="3 7"/><text x="82" y="184" class="small">temporal passage</text>
+  <line x1="0" y1="208" x2="70" y2="208" stroke="#f4c95d" stroke-width="2" stroke-dasharray="8 10"/><text x="82" y="214" class="small">Final Frontiers</text>
 </g>
 </svg>'''
 

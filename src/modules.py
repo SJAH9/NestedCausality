@@ -181,18 +181,74 @@ class ScaleRouteModule:
 
 
 @dataclass(frozen=True)
+class TemporalAddressModule:
+    beginning_boundary: str
+    ending_boundary: str
+    enclosing_clock: str
+    counted_transition: str
+    completed_passages: int | str
+    phase: int | str
+    passage_direction: str
+    measured_rate: str
+    scale_address: str
+    final_frontier: str
+
+    @classmethod
+    def map(cls, record: Mapping[str, Any]) -> "TemporalAddressModule":
+        for field in (
+            "beginning_boundary",
+            "ending_boundary",
+            "enclosing_clock",
+            "counted_transition",
+            "measured_rate",
+            "scale_address",
+            "final_frontier",
+        ):
+            _require_text(record.get(field), f"time_address.{field}")
+        if "completed_passages" not in record:
+            raise MapError("time_address.completed_passages is required")
+        if record.get("phase") not in (-1, 0, 1, "unassigned"):
+            raise MapError("time_address.phase must be -1, 0, +1, or unassigned")
+        return cls(
+            record["beginning_boundary"],
+            record["ending_boundary"],
+            record["enclosing_clock"],
+            record["counted_transition"],
+            record["completed_passages"],
+            record["phase"],
+            _require_text(record.get("passage_direction"), "time_address.passage_direction"),
+            record["measured_rate"],
+            record["scale_address"],
+            record["final_frontier"],
+        )
+
+
+@dataclass(frozen=True)
 class FrontierModule:
     observed_end: str
     derived_end: str
     unavailable: str
     halt_reason: str
+    inward: Mapping[str, Any]
+    outward: Mapping[str, Any]
+    temporal: Mapping[str, Any]
 
     @classmethod
     def map(cls, record: Mapping[str, Any]) -> "FrontierModule":
-        return cls(*(
+        values = [
             _require_text(record.get(field), f"final_frontier.{field}")
             for field in ("observed_end", "derived_end", "unavailable", "halt_reason")
-        ))
+        ]
+        extremes = record.get("scale_extremes", {})
+        inward = extremes.get("inward", {})
+        outward = extremes.get("outward", {})
+        temporal = record.get("temporal_frontier", {})
+        for direction, extreme in (("inward", inward), ("outward", outward)):
+            for field in ("mapped_anchor", "frontier_beyond", "reason"):
+                _require_text(extreme.get(field), f"final_frontier.scale_extremes.{direction}.{field}")
+        for field in ("beginning_boundary", "ending_boundary", "beyond_current_count", "halt_condition"):
+            _require_text(temporal.get(field), f"final_frontier.temporal_frontier.{field}")
+        return cls(*values, inward, outward, temporal)
 
 
 @dataclass(frozen=True)

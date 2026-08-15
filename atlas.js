@@ -13,18 +13,19 @@
   const colors = {
     reference: "#f4c95d", active: "#f8fafc", enclosing: "#79c7c5",
     enclosed: "#e98b73", parallel: "#9ab6ff", target: "#ffcf70", passage: "#d7a6ff",
-    projection: "#e98b73", contribution: "#9ab6ff", exchange: "#79c7c5", ivm: "#d7a6ff", targeting: "#f4c95d"
+    projection: "#e98b73", contribution: "#9ab6ff", exchange: "#79c7c5", ivm: "#d7a6ff", time: "#7dd3c7", frontier: "#f4c95d", targeting: "#f4c95d"
   };
 
   const modules = [
     ["Reference", "Declare the local zero and scale address without turning either into the origin of everything."],
+    ["Time", "Bound the passage, identify its enclosing clock, and retain count, phase, measured rate, and temporal frontier."],
     ["Departure", "Record what differs from the reference, including sign, magnitude, duration, and state."],
     ["Enclosure", "Locate the active, enclosing, enclosed, and parallel states that maintain the identity."],
     ["IVM Passage", "Map the local Vector Equilibrium, active cell, periphery saturation, and Jitterbug route into an adjacent enclosure."],
     ["Projection", "Test the conditions projected from an outer equilibrium into the maintained interior."],
     ["Exchange", "Follow matter, energy, state, or information across a boundary and retain every residual."],
     ["Scale Route", "Test local authority and move through an addressed escalation or de-escalation junction."],
-    ["Frontier", "Mark the observed end, derived end, unavailable exterior, and reason the map halts."],
+    ["Frontier", "Place the inward, outward, and temporal limits beyond the presently available map and state why each route halts."],
     ["Targeting", "Choose a boundary condition, predict its effect, state an alternative, and define failure."]
   ];
 
@@ -74,8 +75,34 @@
       group.append(el("text", { x: cell.cx, y: cell.cy + cell.radius + 20, "text-anchor": "middle", fill: "#7f8ea5", "font-size": 10 }, cell.address));
       svg.append(group);
     });
-    svg.append(el("ellipse", { cx: 800, cy: 500, rx: 745, ry: 480, fill: "none", stroke: "#f4c95d", "stroke-opacity": .62, "stroke-width": 2, "stroke-dasharray": "8 11" }));
-    svg.append(el("text", { x: 800, y: 71, "text-anchor": "middle", fill: "#f4c95d", "font-size": 14, "font-weight": 750 }, "FINAL FRONTIER · PRESENT MAP HORIZON"));
+    const frontiers = atlas.layout.frontiers;
+    const outward = frontiers.outward;
+    const inward = frontiers.inward;
+    const temporal = frontiers.temporal;
+    const frontierLayer = el("g", { class: "map-layer layer-frontier", tabindex: 0, role: "button", "aria-label": "Inward and outward Final Frontiers" });
+    frontierLayer.append(
+      el("ellipse", { cx: outward.cx, cy: outward.cy, rx: outward.rx, ry: outward.ry, fill: "none", stroke: colors.frontier, "stroke-opacity": .62, "stroke-width": 2, "stroke-dasharray": "8 11" }),
+      el("text", { x: outward.label_x, y: outward.label_y, "text-anchor": "middle", fill: colors.frontier, "font-size": 14, "font-weight": 750 }, outward.label),
+      el("circle", { cx: inward.cx, cy: inward.cy, r: inward.radius, fill: "#07111f", "fill-opacity": .52, stroke: colors.frontier, "stroke-opacity": .82, "stroke-width": 1.6, "stroke-dasharray": "4 6" }),
+      el("line", { x1: inward.label_x + 10, y1: inward.label_y + 7, x2: inward.cx - inward.radius, y2: inward.cy, stroke: colors.frontier, "stroke-opacity": .46 }),
+      el("text", { x: inward.label_x, y: inward.label_y, "text-anchor": "middle", fill: colors.frontier, "font-size": 12, style: "paint-order:stroke;stroke:#07111f;stroke-width:4px" }, inward.label)
+    );
+    frontierLayer.addEventListener("click", () => inspectSpecial("frontier"));
+    frontierLayer.addEventListener("keydown", event => { if (event.key === "Enter" || event.key === " ") inspectSpecial("frontier"); });
+    svg.append(frontierLayer);
+
+    const timeLayer = el("g", { class: "map-layer layer-time", tabindex: 0, role: "button", "aria-label": "Temporal enclosure" });
+    timeLayer.append(
+      el("path", { d: temporal.path, fill: "none", stroke: colors.time, "stroke-opacity": .86, "stroke-width": 2.4, "stroke-dasharray": "3 7", "marker-end": "url(#web-arrow-exchange)" }),
+      el("circle", { cx: temporal.begin_x, cy: temporal.begin_y, r: 7, fill: "#07111f", stroke: colors.time, "stroke-width": 2 }),
+      el("circle", { cx: temporal.end_x, cy: temporal.end_y, r: 7, fill: "#07111f", stroke: colors.time, "stroke-width": 2 }),
+      el("text", { x: temporal.begin_x, y: temporal.begin_y - 18, "text-anchor": "middle", fill: "#9eabc0", "font-size": 12 }, "BEGIN"),
+      el("text", { x: temporal.end_x, y: temporal.end_y - 18, "text-anchor": "middle", fill: "#9eabc0", "font-size": 12 }, "END"),
+      el("text", { x: temporal.label_x, y: temporal.label_y, "text-anchor": "middle", fill: colors.time, "font-size": 14, "font-weight": 750 }, temporal.label)
+    );
+    timeLayer.addEventListener("click", () => inspectSpecial("time"));
+    timeLayer.addEventListener("keydown", event => { if (event.key === "Enter" || event.key === " ") inspectSpecial("time"); });
+    svg.append(timeLayer);
     svg.append(el("text", { x: 800, y: 124, "text-anchor": "middle", fill: "#79c7c5", "font-size": 14, "font-weight": 750 }, "ENCLOSING · SCALE ESCALATION"));
     svg.append(el("text", { x: 800, y: 925, "text-anchor": "middle", fill: "#e98b73", "font-size": 14, "font-weight": 750 }, "ENCLOSED · SCALE DE-ESCALATION"));
     svg.append(el("text", { x: 125, y: 505, fill: "#9ab6ff", "font-size": 14, "font-weight": 750 }, "PARALLEL"));
@@ -152,6 +179,16 @@
     inspector.innerHTML = `<p class="eyebrow">Selected route</p><h3>${escapeHtml(edge.label)}</h3><p class="inspector-kind">${escapeHtml(edge.kind)}</p><p>${descriptions[edge.kind]}</p><dl><div><dt>Departure</dt><dd>${escapeHtml(edge.source)}</dd></div><div><dt>Arrival</dt><dd>${escapeHtml(edge.target)}</dd></div><div><dt>Direction retained</dt><dd>Yes</dd></div></dl>`;
   }
 
+  function inspectSpecial(kind) {
+    if (kind === "time") {
+      const time = atlas.record.time_address;
+      inspector.innerHTML = `<p class="eyebrow">Selected route</p><h3>Temporal enclosure</h3><p class="inspector-kind">${escapeHtml(time.enclosing_clock)} · phase ${escapeHtml(time.phase)}</p><p>${escapeHtml(time.counted_transition)}</p><dl><div><dt>Beginning</dt><dd>${escapeHtml(time.beginning_boundary)}</dd></div><div><dt>Ending</dt><dd>${escapeHtml(time.ending_boundary)}</dd></div><div><dt>Measured rate</dt><dd>${escapeHtml(time.measured_rate)}</dd></div><div><dt>Final Frontier</dt><dd>${escapeHtml(time.final_frontier)}</dd></div></dl>`;
+      return;
+    }
+    const scale = atlas.record.final_frontier.scale_extremes;
+    inspector.innerHTML = `<p class="eyebrow">Selected boundary</p><h3>Final Frontiers</h3><p class="inspector-kind">The present map halts in both scale directions and in time.</p><p>Each boundary remains beyond the largest or smallest presently addressed object. New observation moves the map without abolishing its frontier.</p><dl><div><dt>Inward</dt><dd>${escapeHtml(scale.inward.frontier_beyond)}</dd></div><div><dt>Outward</dt><dd>${escapeHtml(scale.outward.frontier_beyond)}</dd></div><div><dt>Temporal</dt><dd>${escapeHtml(atlas.record.final_frontier.temporal_frontier.ending_boundary)}</dd></div></dl>`;
+  }
+
   function escapeHtml(value) {
     return String(value).replace(/[&<>"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[char]);
   }
@@ -173,9 +210,9 @@
       document.querySelectorAll(".layer-control").forEach(item => item.classList.remove("active"));
       button.classList.add("active");
       const layer = button.dataset.layer;
-      document.querySelectorAll(".map-edge").forEach(edge => {
-        edge.style.opacity = layer === "all" || edge.classList.contains(`layer-${layer}`) ? "1" : ".08";
-        edge.style.pointerEvents = layer === "all" || edge.classList.contains(`layer-${layer}`) ? "auto" : "none";
+      document.querySelectorAll(".map-edge, .map-layer").forEach(item => {
+        item.style.opacity = layer === "all" || item.classList.contains(`layer-${layer}`) ? "1" : ".08";
+        item.style.pointerEvents = layer === "all" || item.classList.contains(`layer-${layer}`) ? "auto" : "none";
       });
     }));
     document.getElementById("themeToggle").addEventListener("click", () => {

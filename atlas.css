@@ -164,6 +164,8 @@ h3 { font-size: 25px; font-weight: 500; }
 .route-key.contribution { background: repeating-linear-gradient(90deg,#9ab6ff 0 5px,transparent 5px 8px); }
 .route-key.exchange { background: #79c7c5; }
 .route-key.ivm { background: repeating-linear-gradient(90deg,#d7a6ff 0 3px,transparent 3px 6px); }
+.route-key.time { background: repeating-linear-gradient(90deg,#7dd3c7 0 3px,transparent 3px 6px); }
+.route-key.frontier { height: 6px; background: transparent; border: 1px dashed #f4c95d; }
 .route-key.targeting { background: repeating-linear-gradient(90deg,#f4c95d 0 5px,transparent 5px 8px); }
 .map-inspector { padding: 30px 25px; border-left: 1px solid var(--line); background: color-mix(in srgb, var(--surface-solid) 82%, transparent); }
 .map-inspector h3 { margin-bottom: 9px; }
