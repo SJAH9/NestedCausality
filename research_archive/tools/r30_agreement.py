@@ -13,7 +13,7 @@ import math
 import unittest
 
 
-def flattened_rule30(count: int) -> list[int]:
+def flattened_r30(count: int) -> list[int]:
     """Generate F(n) using square row starts and masked parent indices.
 
     F(0) = 1; t = floor(sqrt(n)); r = n - t*t.
@@ -32,11 +32,11 @@ def flattened_rule30(count: int) -> list[int]:
     return states
 
 
-def center_rule30(rows: int) -> list[int]:
+def center_r30(rows: int) -> list[int]:
     """Select c(t) = F(t*(t+1)) from the flattened formula."""
     if rows < 1:
         return []
-    states = flattened_rule30((rows - 1) * rows + 1)
+    states = flattened_r30((rows - 1) * rows + 1)
     return [states[t * (t + 1)] for t in range(rows)]
 
 
@@ -87,11 +87,11 @@ def center_bits(samples: int) -> list[int]:
 class AgreementTests(unittest.TestCase):
     def test_flattened_formula_matches_independent_evolution(self):
         """65,536 cells: all cells in rows 0 through 255."""
-        self.assertEqual(flattened_rule30(65536), flattened_bits(65536))
+        self.assertEqual(flattened_r30(65536), flattened_bits(65536))
 
     def test_center_formula_matches_independent_evolution(self):
         """4,096 center states: times 0 through 4,095."""
-        self.assertEqual(center_rule30(4096), center_bits(4096))
+        self.assertEqual(center_r30(4096), center_bits(4096))
 
 
 if __name__ == "__main__":
