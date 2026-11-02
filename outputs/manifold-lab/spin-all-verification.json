@@ -1,0 +1,185 @@
+{
+  "recorded_at": "2026-11-02T03:22:18.675358+00:00",
+  "production": {
+    "url": "https://sidhubbard.com/continuum/lab/",
+    "passed": true,
+    "checks": [
+      "actual master gesture supplies identical angular velocities to all six configurators",
+      "all six stopped angular displacements exactly match controller, including e response",
+      "each selects its own visible facet and updates native subject geometry",
+      "Explore untouched; Save and reopen retain resulting configuration",
+      "mobile header control visible; reduced motion; no horizontal overflow"
+    ],
+    "release": {
+      "yaw": 1.0253981633974485,
+      "pitch": 0.7114797086703875,
+      "spin": [
+        0.0017230951392936196,
+        0.0006892380918866125
+      ],
+      "pending": true,
+      "lastInput": {
+        "rotation": [
+          0.24,
+          0.096
+        ],
+        "velocity": [
+          0.0017230951392936196,
+          0.0006892380918866125
+        ],
+        "response": 2.718281828459045,
+        "controllerStart": [
+          0.7853981633974483,
+          0.6154797086703874
+        ],
+        "starts": [
+          [
+            0.7853981633974483,
+            0.6154797086703874
+          ],
+          [
+            0.7853981633974483,
+            0.6154797086703874
+          ],
+          [
+            0.7853981633974483,
+            -0.4875543550724156
+          ],
+          [
+            0.7853981633974483,
+            0.6154797086703874
+          ],
+          [
+            -0.6221558398042546,
+            0.6154797086703874
+          ],
+          [
+            0.7853981633974483,
+            0.6154797086703874
+          ],
+          [
+            0.7853981633974483,
+            0.6154797086703874
+          ],
+          [
+            0.7853981633974483,
+            0.6154797086703874
+          ]
+        ]
+      },
+      "reserved": {
+        "yaw": 1.0253981633974485,
+        "pitch": 0.7114797086703875,
+        "spin": [
+          0.0017230951392936196,
+          0.0006892380918866125
+        ]
+      }
+    },
+    "final": {
+      "yaw": 19.35707051385478,
+      "pitch": 8.044149033649989,
+      "spin": [
+        0,
+        0
+      ],
+      "pending": false,
+      "lastInput": {
+        "rotation": [
+          0.24,
+          0.096
+        ],
+        "velocity": [
+          0.0017230951392936196,
+          0.0006892380918866125
+        ],
+        "response": 2.718281828459045,
+        "controllerStart": [
+          0.7853981633974483,
+          0.6154797086703874
+        ],
+        "starts": [
+          [
+            0.7853981633974483,
+            0.6154797086703874
+          ],
+          [
+            0.7853981633974483,
+            0.6154797086703874
+          ],
+          [
+            0.7853981633974483,
+            -0.4875543550724156
+          ],
+          [
+            0.7853981633974483,
+            0.6154797086703874
+          ],
+          [
+            -0.6221558398042546,
+            0.6154797086703874
+          ],
+          [
+            0.7853981633974483,
+            0.6154797086703874
+          ],
+          [
+            0.7853981633974483,
+            0.6154797086703874
+          ],
+          [
+            0.7853981633974483,
+            0.6154797086703874
+          ]
+        ]
+      },
+      "reserved": {
+        "yaw": 19.35707051385478,
+        "pitch": 8.044149033649989,
+        "spin": [
+          0,
+          0
+        ]
+      }
+    },
+    "configuration": [
+      1,
+      1,
+      2,
+      1,
+      1,
+      1
+    ],
+    "observed_coast_ms": 27024.899999976158
+  },
+  "touch": {
+    "passed": true,
+    "input": "Chromium touchStart/touchMove/touchEnd, mobile viewport, reduced motion",
+    "rotation": [
+      0.192,
+      0.064
+    ],
+    "configuration": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ]
+  },
+  "production_sha256": {
+    "vendor/facet-lab.js": "e79401a564df99c6c4f2897e7424086c21c72e5fa28e09e035d6b4e8a6c0937c",
+    "lab.css": "eaf7edb40f321cf5c1682c05b185a9b7eb76462ec0eb8a1e3c13f66cd614761f",
+    "README.md": "851db75e409e435522f97102d75d002343be1f30fa4c43f1cb38994ffa720175",
+    "provenance.json": "5cc0948d051e2ec6cac10e99629c825d1078e461149e90a138422819515df144",
+    "verify_spin_all.py": "7e9b253edd304d7e5ec7f5c3a139a26bf5164b6714a0729855706df75622b907"
+  },
+  "parameters": {
+    "old_configurator_decay_ms": 800,
+    "configurator_decay_ms": 4000,
+    "central_subject_decay_ms": 1400,
+    "stop_speed": 4e-05
+  },
+  "atlas_tests_passed": 12
+}

@@ -66,3 +66,20 @@ storage. It also accepts a local `file:///…/index.html` URL. Checks exercise n
 controls, save/reopen geometry, persistence, rejected imports, export, a 2,809-item
 menu, keyboard navigation, and mobile layout. Screenshots and JSON evidence go to
 the specified output directory. Generated browser state is not part of the app.
+
+## Spin all
+
+Push the tiny **Spin all** VE in the lab header. It transfers the same angular
+increments and release velocity to every configurator box, preserving each
+box’s starting orientation. All use the controller’s response and decay for that
+gesture, even if a settling selection changes the rule field. The six setting
+controls then select their own most visible facets and update the subject. Explore
+and the reserved VE rotate too; Explore actions remain explicit. No random numbers,
+shuffled configurations or generated impulses are used. Reduced motion applies
+the dragged rotation and selects at release without coasting.
+
+Configurator and Spin all inertia use a 4-second decay constant, increased fivefold
+from the first spin-control implementation. Release speed comes from the gesture;
+for the same release velocity, the coast lasts approximately five times as long
+and covers approximately five times the angle before reaching the same stop
+threshold. The central subject preview retains its native inertia.
