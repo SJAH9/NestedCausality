@@ -224,3 +224,14 @@ It draws at up to 30 fps beneath the transparent geometry. Reduced motion stops
 ground travel; hidden pages pause. One environment GPU context supplements the
 existing geometry context pool on mobile, independently of the pane count.
 Source and SHA-256 are recorded in `environment-provenance.json`.
+
+## Projections presets
+
+The four left VE menus provide 56 browser-local preset slots. Clicking an empty
+`+` facet saves the current irrational, mode, block size, block limit and native
+geometry configuration. Clicking a filled facet restores that snapshot without
+overwriting it, even if the original saved geometry is no longer in the menu.
+Rotation alone does not select or save a preset. The matching select controls
+provide the same actions by keyboard. Presets use their own versioned storage
+key and leave Facet Lab addresses unchanged; unavailable browser storage is
+reported explicitly.

@@ -27,7 +27,7 @@ def run(url,out):
    assert page.locator('#address-list button').nth(2).text_content()=='12 · 14 · 4 · 1 · 1 · 1'
    page.locator('#address-list button').nth(1).click();page.wait_for_function('Projections.state.ready')
    state=page.evaluate('Projections.state');assert state['facetBudget']==0 and state['blockLimit']==1 and state['configurators']==8
-   assert page.locator('#projections .lab-config').count()==8 and page.locator('#projections .lab-config select').count()==4
+   assert page.locator('#projections .lab-config').count()==8 and page.locator('#projections .lab-config select').count()==8
    blocks=page.get_by_label('3 · Block size',exact=True);assert blocks.locator('option').all_text_contents()==list(map(str,[0,8,16,32,64,128,256,512,1024,2048,4096,8196,16392,32784]))
    page.get_by_label('Saved Facet Lab geometry',exact=True).select_option('12-14-4-1-1-1');page.wait_for_function('Projections.state.ready');assert page.evaluate('Projections.state.minimumFacets')==6
    await_ready='Projections.state.ready && Projections.state.blockSize===8'
