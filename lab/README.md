@@ -9,9 +9,13 @@ external asset, server process or paid service is needed. The published location
 is https://sidhubbard.com/continuum/lab/.
 
 The initial menu is a canonical VE (12 vertices, 24 edges, six squares and eight
-triangles). Only one face is assigned: **Facet Lab**. Other faces remain unassigned
-until configurations are saved. Larger menus use the native Arcade subdivision
-and empty-cell compaction functions, without a preset address-count ceiling.
+triangles), using the Arcade foyer’s initial yaw, pitch, roll and front-first
+facet ordering. **Facet Lab** is the only initial destination. The native Arcade
+territory algorithm assigns spare facets to existing destinations: one destination
+initially owns all fourteen facets, rather than leaving thirteen unassigned.
+Saved addresses receive their own connected territories. Beyond fourteen items,
+the menu uses the Arcade [ff] subdivision, empty-cell compaction and territory
+assignment, without a preset address-count ceiling.
 Machine memory and browser storage are finite; this is not a claim of constant
 rendering cost or an infinite materialized mesh.
 
@@ -83,3 +87,9 @@ from the first spin-control implementation. Release speed comes from the gesture
 for the same release velocity, the coast lasts approximately five times as long
 and covers approximately five times the angle before reaching the same stop
 threshold. The central subject preview retains its native inertia.
+
+`verify_menu_rules.py --url <app URL> --output <evidence directory>` checks
+exact geometry, territory ownership, boundary edges, surface anchors and starting
+view against the native Arcade contract at 1, 2, 14, 15 and 2,809 destinations.
+It confirms the retained upstream source still matches the production Arcade
+and opens an addressed configuration through a real facet at each population.

@@ -1,0 +1,162 @@
+{
+  "geometry_parity": {
+    "url": "https://sidhubbard.com/continuum/lab/",
+    "arcade_sha256": "ba5ad2826ea7e6af66cd4acc923c399f274cb113feed28a8c5f808be31cbed70",
+    "checks": [
+      {
+        "count": 1,
+        "faces": 14,
+        "view": {
+          "yaw": 0.7853981633974483,
+          "pitch": 0.6154797086703874,
+          "roll": 0.7853981633974483,
+          "distance": 4.5
+        },
+        "equal": true,
+        "allOwned": true,
+        "destinations": 1,
+        "hitsCorrect": true,
+        "rendererError": 0,
+        "facet_entry_passed": true,
+        "clicked_facet": 0
+      },
+      {
+        "count": 2,
+        "faces": 14,
+        "view": {
+          "yaw": 0.7853981633974483,
+          "pitch": 0.6154797086703874,
+          "roll": 0.7853981633974483,
+          "distance": 4.5
+        },
+        "equal": true,
+        "allOwned": true,
+        "destinations": 2,
+        "hitsCorrect": true,
+        "rendererError": 0,
+        "facet_entry_passed": true,
+        "clicked_facet": 1
+      },
+      {
+        "count": 14,
+        "faces": 14,
+        "view": {
+          "yaw": 0.7853981633974483,
+          "pitch": 0.6154797086703874,
+          "roll": 0.7853981633974483,
+          "distance": 4.5
+        },
+        "equal": true,
+        "allOwned": true,
+        "destinations": 14,
+        "hitsCorrect": true,
+        "rendererError": 0,
+        "facet_entry_passed": true,
+        "clicked_facet": 13
+      },
+      {
+        "count": 15,
+        "faces": 26,
+        "view": {
+          "yaw": 0.7853981633974483,
+          "pitch": 0.6154797086703874,
+          "roll": 0.7853981633974483,
+          "distance": 4.5
+        },
+        "equal": true,
+        "allOwned": true,
+        "destinations": 15,
+        "hitsCorrect": true,
+        "rendererError": 0,
+        "facet_entry_passed": true,
+        "clicked_facet": 14
+      },
+      {
+        "count": 2809,
+        "faces": 2812,
+        "view": {
+          "yaw": 0.7853981633974483,
+          "pitch": 0.6154797086703874,
+          "roll": 0.7853981633974483,
+          "distance": 4.5
+        },
+        "equal": true,
+        "allOwned": true,
+        "destinations": 2809,
+        "hitsCorrect": true,
+        "rendererError": 0,
+        "facet_entry_passed": true,
+        "clicked_facet": 2808
+      }
+    ],
+    "passed": true
+  },
+  "browser": {
+    "url": "https://sidhubbard.com/continuum/lab/",
+    "checks": [
+      {
+        "check": "initial VE: one destination, 14 faces, 12 vertices, six squares/eight triangles",
+        "passed": true
+      },
+      {
+        "check": "native controls, Save, actual menu address and identical reopened geometry",
+        "passed": true,
+        "mesh_sha256": "dda17710cdaaaea75d95a48a524067773c31e996002cc90ab6bcbcb70fc96c1b"
+      },
+      {
+        "check": "duplicate Save is idempotent; Back discards unsaved changes; reload preserves collection",
+        "passed": true
+      },
+      {
+        "check": "portable export; malformed import rejected without collection mutation",
+        "passed": true
+      },
+      {
+        "check": "2,809 destinations on one native shell; address search and keyboard entry",
+        "passed": true,
+        "faces": 2812
+      },
+      {
+        "check": "changing configuration hash while lab is active opens the requested geometry",
+        "passed": true
+      },
+      {
+        "check": "no JavaScript errors or failed asset requests",
+        "passed": true
+      },
+      {
+        "check": "mobile touch entry, native controls, Save and return; no horizontal overflow",
+        "passed": true
+      }
+    ],
+    "passed": true
+  },
+  "published_asset_sha256": {
+    "menu.js": "d8962b07b7edb7e8b6d0a326c18f84909ac0ff11955207d9d579e1308de26b2c",
+    "vendor/arcade-contract.js": "9ef72d7a67a0337d4acdd5f9ce7e89edabb54355891255aa1723e9b2b6e28997",
+    "vendor/ve-renderer.js": "3865b75780bec0f3c4ed24130d60ef3c8d66855a7d5f16035376551e6273e836",
+    "vendor/facet-lab.js": "e79401a564df99c6c4f2897e7424086c21c72e5fa28e09e035d6b4e8a6c0937c"
+  },
+  "deployment": {
+    "backup": "/home/sjah/continuum-lab-backup-iej1bt03",
+    "files": 4,
+    "manifest": {
+      "continuum/lab/provenance.json": {
+        "before": "5cc0948d051e2ec6cac10e99629c825d1078e461149e90a138422819515df144",
+        "after": "0757636047b3d2010c0b49303233f325436a1438e9eddc2b9d7bfcecdf5f5af2"
+      },
+      "continuum/lab/README.md": {
+        "before": "851db75e409e435522f97102d75d002343be1f30fa4c43f1cb38994ffa720175",
+        "after": "abb49486f037dde86a4fc89fce5eef28b3c55ac556c5015905be72dde5845870"
+      },
+      "continuum/lab/verify_menu_rules.py": {
+        "before": null,
+        "after": "2207f5eb82948be8c3865fc19b695b1eef017f7be0a6398af19c118d17580640"
+      },
+      "continuum/lab/menu.js": {
+        "before": "4e8cc356213a87cc27b5a81eea7cf95d8aa2fa934ccc2388103cdeae0691bd5b",
+        "after": "d8962b07b7edb7e8b6d0a326c18f84909ac0ff11955207d9d579e1308de26b2c"
+      }
+    }
+  }
+}
