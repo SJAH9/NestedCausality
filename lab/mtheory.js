@@ -8,7 +8,7 @@ const catalog=[
  {name:'S⁷ / Zₖ · Hopf quotient',dimension:7,description:'z ∼ exp(2πi/k)z in C⁴, Σ|zᵢ|² = R². A Hopf T² section in z₃=z₄=0, displayed through quotient-invariant coordinates.',source:'https://arxiv.org/abs/0806.1218'},
  {name:'C(S³ × S³) · conical G₂ limit',dimension:7,description:'Radial cone over S³ × S³. A T² section of the link at radius ρ. Topological cone coordinates only; the nearly Kähler link metric and torsion-free G₂ metric are not calculated.',source:'https://arxiv.org/abs/hep-th/0107177'}
 ];
-function valid(c){return Array.isArray(c)&&(c.length===6||c.length===10)&&c.every((v,i)=>Number.isInteger(v)&&v>=1&&v<=(i===0?12:i===6?5:14));}
+function valid(c){return Array.isArray(c)&&(c.length===6||c.length===7||c.length===10)&&c.every((v,i)=>Number.isInteger(v)&&v>=1&&v<=(i===0?12:i===6&&c.length===10?5:14));}
 function parameters(c){return {type:c[6]||1,radius:(c[7]||4)/4,latitude:(c[8]||7)*Math.PI/30,k:c[9]||3};}
 function point(c,u,v){const {type,radius:R,latitude:a,k}=parameters(c),cu=Math.cos(u),su=Math.sin(u),cv=Math.cos(v),sv=Math.sin(v);let source,display;
  if(type===2){const angles=[u,v,a,a,a,a,a];source=angles.flatMap(t=>[R*Math.cos(t),R*Math.sin(t)]);/* A declared nonlinear embedding of the T² section into R³, preserving both periods. */display=[R*(1+.32*cv)*cu,R*(1+.32*cv)*su,R*.32*sv];}

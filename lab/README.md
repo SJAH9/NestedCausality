@@ -97,52 +97,81 @@ It confirms the retained upstream source still matches the production Arcade
 and opens an addressed configuration through a real facet at each population.
 
 
-## M-theory starting conditions (configurator 8)
+## G₂ inputs from the explorer (configurator 8)
 
-The construction selector contains Native Arcade, T⁷, S⁷, S⁷/Zₖ and the
-conical limit C(S³ × S³). Selecting a construction establishes a reproducible
-initial condition: unit radius, section angle 42°, and quotient order 3 for the
-Hopf quotient. Native Arcade returns to the original six-field geometry.
-Radius, section angle and quotient order are explicit controls, with dimensionless
-units. Item count controls section sampling density, not physical population.
-Native symmetry/rule/branching/Bucky controls are disabled in section mode because
-those aesthetic transformations have no declared action on the physical family.
+The fourteen-facet selector chooses one operation. Its inputs come from the
+completed explorer mesh, after the original symmetry, envelope, Bucky, branching,
+occupancy and subdivision operations. Selecting a facet preserves the first six
+configuration fields. All original controls and Spin all remain active.
+The selector uses the same numerical VE labels and native territory renderer as
+the other numerical configurators. No independent radius/angle form replaces
+the explorer mesh.
 
-`mtheory.js` owns the equations, source-coordinate samples and section maps.
-All four ambient spaces have dimension seven. Only a specified two-dimensional
-section is rendered. The torus uses a T² section of (S¹)⁷ (five fixed angles);
-the sphere uses a latitude S² in R⁸; the quotient uses a Hopf T² in C² ⊂ C⁴;
-the cone uses one circle in each S³ at fixed positive radial coordinate.
-The renderer receives a sampled triangulated embedding of that section via the
-existing geometryFromCells contract, using its native surface draw mode.
-It is not an isometric embedding of the ambient manifold or an image of all
-seven dimensions. Source-coordinate samples remain attached to the mesh.
+Choices: native explorer, flat R⁷, flat T⁷, G₂ cross product, associative frame,
+coassociative complement, cone over S³ × S³, and the seven associative coordinate
+planes of the standard positive three-form. Additional initial conditions are
+allowed when a construction requires them; the present operations derive their
+inputs from the object under study.
 
-The quotient obeys z → exp(2πi/k)z. Section coordinates u = k arg(z₁) and
-v = arg(z₂/z₁) are invariant; the displayed torus embeds those coordinates.
-Changing k changes the quotient identification and source lift while the section
-can retain the same displayed shape. This is an actual equivalence relation,
-not an arbitrary k-lobed deformation.
+The executable contract is in g2.js. For each explorer vertex p=(x,y,z), the
+declared seven-coordinate lift is
+L(p)=(x,y,z,(x+y)/√2,(y+z)/√2,(z+x)/√2,(x−y+z)/√3).
+Incident face normals supply the second vector. Face incidence, vertex positions,
+edge lengths and derived angular relationships remain inspectable in the input
+mesh; source coordinates, normals and display projections remain attached as
+g.g2.samples. This lift and the display projection are lab design choices,
+not equations imported from a physical theory.
 
-The cone entry preserves the product-sphere constraints and radial coordinate.
-It supplies a topological section of the conical limit, not the nearly Kähler
-metric on its link or a computed torsion-free G₂ metric. No flux background,
-field equations, spectrum, vacuum or universe selection is calculated.
-No Joyce resolution or twisted connected sum is claimed as generated geometry.
+The cross product uses
+φ=e123+e145+e167+e246−e257−e347−e356.
+The associative frame uses orthonormal u,v and u×v; radial/normal alignment uses a
+deterministic orthogonal-axis fallback. The complement is span(e4,e5,e6,e7).
+The torus uses the lift as periodic angles, displayed through sines and the stated
+linear projection. The cone uses stereographic S³ charts of position and incident
+normal plus the explorer radius, then a declared three-coordinate projection.
+Nonlinear operations triangulate before applying the vertex map. Final display
+normalization fits the existing viewport. Native six-field geometry remains
+unchanged.
 
-Sources: [M-theory on twisted tori](https://arxiv.org/abs/hep-th/0504108),
-[ABJM](https://arxiv.org/abs/0806.1218),
-[Atiyah–Witten](https://arxiv.org/abs/hep-th/0107177).
-The catalog links each construction to its source in the application.
+These are executable explorer influences and projected constructions. The cone's
+nearly Kähler metric, torsion-free metric solutions, physical spectra and vacuum
+selection are not computed. They are not replaced with invented scores.
 
-Old six-number addresses, imports and exports remain valid. New addresses append
-four integers: type (1–5), radius index (1–14, divided by 4), angle index (1–14,
-multiplied by 6°), and k (1–14). Export format version 1 now accepts either
-six or ten values; older app releases reject the extension rather than truncate
-it. Reopening, reloading and hash links restore these initial conditions.
+Sources: [Karigiannis, Introduction to G₂ geometry](https://arxiv.org/abs/1909.09717)
+and [Atiyah–Witten](https://arxiv.org/abs/hep-th/0107177).
 
-Run `verify_mtheory.py --url <URL> --output <directory>` for source equation
-residuals, mesh Euler characteristics, closed-edge incidence, quotient orbit
-invariance, actual controls, native-mode return, save/reopen/reload, WebGL errors
-and mobile overflow checks. These are mathematical/interface checks; this is not
-narrative visual work and carries no blind narrative review claim.
+New saved addresses use seven integers: the original six and the selected facet
+1–14. Existing six-number addresses are unchanged. Previously saved ten-number
+section addresses retain their former equations through mtheory.js, without
+silently overwriting or migrating them. Selecting a new configurator-8 facet
+creates the new seven-number construction; the earlier address remains in the
+collection. Import/export and hash validation accept all three formats.
+
+verify_g2.py checks all fourteen operations, cross-product identities, geometry
+dependence, preservation of original settings, active controls and save/reopen.
+verify_mtheory.py records the preceding section implementation and is not the
+acceptance test for the current configurator interface.
+
+## Phone graphics resources
+
+Touch/coarse-pointer devices and Android use `render-budget.js`: a presentation
+adapter around the same native WebGL renderer. All eleven views share **one**
+WebGL2 context, buffer, shader programs and bounded 24 MiB label cache. Each pane
+keeps its geometry, rotation, hit testing and controls; the native completed frame
+is copied to that pane's Canvas2D display. Desktop retains per-view WebGL rendering.
+Side labels use at most 256 pixels; main labels at most 512. Phone view buffers
+use DPR ≤ 1.5 and at most 1.2 million pixels per visible canvas. These are raster
+resource limits, not changes to geometry, topology, calculations or address capacity.
+
+The prior app created eleven contexts at startup, including hidden panes. In
+Chromium with an eight-context limit, the menu and central lab contexts were lost.
+`verify_fold.py` exercises the actual URL under a **one-context** limit, with
+Android Edge user-agent/touch emulation, folded/unfolded/landscape resizing,
+nonblank pixel checks, native and M-theory controls, save/reopen, and actual
+WEBGL_lose_context loss/restoration. This is emulation, not a claim of running on
+physical Pixel Fold hardware or its Android Edge binary. Native context-loss
+handlers preserve saved data; graphics startup failures show a readable status.
+
+## Fullscreen
+
+The Arcade-style fullscreen button stays at the lower right in the menu and Facet Lab, including phone safe areas. It enters/exits native browser fullscreen without reloading or changing the selected configuration. Browser exits synchronize the button state. Keyboard focus includes the button in the lab. Fullscreen request failures appear as readable status text. verify_fullscreen.py checks desktop and touch layouts, browser exit and configuration retention against the actual URL.

@@ -8,26 +8,26 @@
     "ve-renderer.js": "3865b75780bec0f3c4ed24130d60ef3c8d66855a7d5f16035376551e6273e836"
   },
   "contract": "arcade-contract.js contains verbatim geometryCache through morphGeometry and hoverCallout from arcade.js. Full original arcade.js retained as an unloaded reference.",
-  "adaptation": "Host open/close/save integration, storage namespace, back label and public exports; configurator VEs additionally select the greatest visible-area occupied facet after rotational momentum stops (4000 ms decay; central preview retains 1400 ms). Reduced motion skips coasting. Native geometry calculations, preview enumeration and renderer are unchanged. Opening accepts the six configuration values and original preview item count (0..2352). No physical model or score is generated. Configurator 8 now selects mathematical constructions with explicit initial conditions; no physical predictions are generated.",
-  "spin_all": "Header VE transfers actual pointer angular increments and release velocity to all eight side panes. Starting orientations are preserved; gesture response and 4000 ms decay are shared. Seven setting panes select on stop; Explore remains explicit. Native influence panes are disabled while a mathematical section is active. No randomness.",
+  "adaptation": "Standalone host with native Arcade geometry/territory pipeline. Configurator 8 receives the completed explorer mesh through g2.js; one of fourteen operations, no reset or disabled original controls. Six-, seven- and earlier ten-number addresses remain readable. No manuscript or score generated.",
+  "spin_all": "Header VE transfers actual pointer angular increments and release velocity to all eight side panes. Starting orientations are preserved; gesture response and 4000 ms decay are shared. Seven setting panes select on stop; Explore remains explicit. All original influence panes stay active. No randomness.",
   "momentum_revision": "Configurator and shared-controller exponential decay increased from 800 ms to 4000 ms, preserving measured release velocity and the stop threshold. Five times the coast distance and decay duration for the same input, response and starting state. Subject preview remains at its native 1400 ms.",
   "main_menu": "Native Arcade foyer VE, front-first facet ordering at yaw pi/4, pitch asin(1/sqrt(3)), roll pi/4, camera distance 4.5. Above fourteen destinations, native expanded-room subdivision and compaction. All populations pass through verbatim facetTerritories with width 1; physical facets map to semantic destinations through faceItems. Native callout positions and complete-facet eligibility. Standalone address persistence/search and direct navigation remain host adaptations.",
   "mtheory": {
-    "module": "mtheory.js",
-    "contract": "Equation-defined source coordinates \u2192 declared 2D section embedding \u2192 geometryFromCells \u2192 native VERenderer surface mode. Native six-field geometry remains intact. Optional ten-field addresses retain construction, radius/4, angle\u00d76 degrees, quotient order.",
-    "families": [
-      "T7 flat product",
-      "S7 round sphere",
-      "S7/Zk common Hopf phase quotient",
-      "topological cone over S3\u00d7S3"
-    ],
+    "module": "g2.js",
+    "contract": "Completed native explorer mesh -> declared seven-coordinate lift / incident normals -> selected G2 operation -> geometryFromCells -> native territory labels and renderer. Fourteen choices. Optional additional initial conditions remain possible; no separate initial-condition form is required by these operations.",
+    "address": "Six native fields plus one facet index. Earlier ten-field sections are retained by mtheory.js for existing saved addresses.",
     "absent": [
-      "flux equations",
-      "G2 metric solution",
+      "torsion-free metric solve",
+      "physical spectra",
       "vacuum selection",
-      "spectra",
       "narrative score"
     ]
   },
-  "renderer_extension": "Optional setGeometry(..., preserveWinding=false): true retains supplied face winding for non-star-shaped section meshes. Original radial normal adjustment remains the default for all native geometry. Mathematical sections use existing cell surface=true to omit VE core."
+  "renderer_extension": "Optional setGeometry(..., preserveWinding=false): true retains supplied face winding for non-star-shaped section meshes. Original radial normal adjustment remains the default for all native geometry. Mathematical sections use existing cell surface=true to omit VE core.",
+  "mobile_rendering": {
+    "adapter": "render-budget.js",
+    "contract": "Coarse-pointer / Android uses one native VERenderer and WebGL2 context; view facades retain meshes and controls, draw sequentially through native shaders and copy completed frames into 2D display canvases. No geometric approximation or new score.",
+    "limits": "256-pixel side labels; 512-pixel main labels; one 24 MiB GPU label cache; displayed canvas DPR \u22641.5 with \u22641.2 million pixels per view. Desktop keeps the native per-view path.",
+    "reproduction": "Before this change, Chromium with max-active-webgl-contexts=8 evicted the menu and central lab contexts (11 created). Actual Pixel Fold Edge crash not directly inspected."
+  }
 }
