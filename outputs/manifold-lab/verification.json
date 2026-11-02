@@ -1,0 +1,154 @@
+{
+  "recorded_at": "2026-11-02T02:58:01.793735+00:00",
+  "local_http": {
+    "url": "http://127.0.0.1:8876/",
+    "checks": [
+      {
+        "check": "initial VE: one destination, 14 faces, 12 vertices, six squares/eight triangles",
+        "passed": true
+      },
+      {
+        "check": "native controls, Save, actual menu address and identical reopened geometry",
+        "passed": true,
+        "mesh_sha256": "dda17710cdaaaea75d95a48a524067773c31e996002cc90ab6bcbcb70fc96c1b"
+      },
+      {
+        "check": "duplicate Save is idempotent; Back discards unsaved changes; reload preserves collection",
+        "passed": true
+      },
+      {
+        "check": "portable export; malformed import rejected without collection mutation",
+        "passed": true
+      },
+      {
+        "check": "2,809 destinations on one native shell; address search and keyboard entry",
+        "passed": true,
+        "faces": 2812
+      },
+      {
+        "check": "no JavaScript errors or failed asset requests",
+        "passed": true
+      },
+      {
+        "check": "mobile touch entry, native controls, Save and return; no horizontal overflow",
+        "passed": true
+      }
+    ],
+    "passed": true
+  },
+  "local_file": {
+    "url": "file:///\u2026/lab/index.html",
+    "checks": [
+      {
+        "check": "initial VE: one destination, 14 faces, 12 vertices, six squares/eight triangles",
+        "passed": true
+      },
+      {
+        "check": "native controls, Save, actual menu address and identical reopened geometry",
+        "passed": true,
+        "mesh_sha256": "dda17710cdaaaea75d95a48a524067773c31e996002cc90ab6bcbcb70fc96c1b"
+      },
+      {
+        "check": "duplicate Save is idempotent; Back discards unsaved changes; reload preserves collection",
+        "passed": true
+      },
+      {
+        "check": "portable export; malformed import rejected without collection mutation",
+        "passed": true
+      },
+      {
+        "check": "2,809 destinations on one native shell; address search and keyboard entry",
+        "passed": true,
+        "faces": 2812
+      },
+      {
+        "check": "no JavaScript errors or failed asset requests",
+        "passed": true
+      },
+      {
+        "check": "mobile touch entry, native controls, Save and return; no horizontal overflow",
+        "passed": true
+      }
+    ],
+    "passed": true
+  },
+  "production": {
+    "url": "https://sidhubbard.com/continuum/lab/",
+    "checks": [
+      {
+        "check": "initial VE: one destination, 14 faces, 12 vertices, six squares/eight triangles",
+        "passed": true
+      },
+      {
+        "check": "native controls, Save, actual menu address and identical reopened geometry",
+        "passed": true,
+        "mesh_sha256": "dda17710cdaaaea75d95a48a524067773c31e996002cc90ab6bcbcb70fc96c1b"
+      },
+      {
+        "check": "duplicate Save is idempotent; Back discards unsaved changes; reload preserves collection",
+        "passed": true
+      },
+      {
+        "check": "portable export; malformed import rejected without collection mutation",
+        "passed": true
+      },
+      {
+        "check": "2,809 destinations on one native shell; address search and keyboard entry",
+        "passed": true,
+        "faces": 2812
+      },
+      {
+        "check": "changing configuration hash while lab is active opens the requested geometry",
+        "passed": true
+      },
+      {
+        "check": "no JavaScript errors or failed asset requests",
+        "passed": true
+      },
+      {
+        "check": "mobile touch entry, native controls, Save and return; no horizontal overflow",
+        "passed": true
+      }
+    ],
+    "passed": true
+  },
+  "facet_address": {
+    "passed": true,
+    "checks": [
+      "physical saved-menu facet selects its configuration and preview count",
+      "unsaved hash address opens requested configuration",
+      "same-document hash change updates active geometry",
+      "saved hash restores preview count"
+    ],
+    "corrected_during_verification": "Hash handler originally ran only at load; now also handles hashchange."
+  },
+  "live_asset_hashes": {
+    "passed": true,
+    "sha256": {
+      "start.js": "af585db5a017423f977c4bd1aa14e7c5c206add1295451735cdc4e5e9661c402",
+      "index.html": "a1f22d1e2d72be8ef4dbe3c1f97d7a1d39dcfd51ece58527f2b5e8dcabbd4b23",
+      "provenance.json": "e1fcd66b26d6979cfd6ab2dacb4723201ec76401cee1eec81c5d2aa0a2d9894b",
+      "lab.css": "e5f8acf6bec0726b1f3a839b9236bfa05ff9ce399075cc8a3c532ba64464fff9",
+      "README.md": "5096f5c5cb261d786a4ea6b62c18840fe579f06872fd8f9e57351d89f3578b6f",
+      "verify.py": "f48cbf1426645d715bfdc2521e335510ba3017624fd84611e9313ba50cb9acf3",
+      "menu.js": "4e8cc356213a87cc27b5a81eea7cf95d8aa2fa934ccc2388103cdeae0691bd5b",
+      "publish.py": "9ba7552ab52201f36a9654e851dfac8f615dc3a8f43c6dc2c37322aca000bd7d",
+      "vendor/arcade-contract.js": "9ef72d7a67a0337d4acdd5f9ce7e89edabb54355891255aa1723e9b2b6e28997",
+      "vendor/arcade.js": "ba5ad2826ea7e6af66cd4acc923c399f274cb113feed28a8c5f808be31cbed70",
+      "vendor/ve-renderer.js": "3865b75780bec0f3c4ed24130d60ef3c8d66855a7d5f16035376551e6273e836",
+      "vendor/facet-lab.js": "ef2887011168877bad01b49b1ce7dec7f4e3c8df97879c1d02a976773acec6e0",
+      "vendor/facet-lab.original.js": "f35761185c27f39897412197d061a49d1cfbde2e8149575d3e846816a19ae9cc",
+      "vendor/facet-lab.css": "e0b66d7644800bab75e58fa569fc17e1d7dc255fa0270af5fdbbebf0bb92c720"
+    }
+  },
+  "atlas_regressions": {
+    "passed": true,
+    "tests": 12,
+    "commands": [
+      "python3 -m src.generate_star_map",
+      "python3 -m unittest discover -s tests"
+    ],
+    "generated_outputs_unchanged": true
+  },
+  "limits": "Browser verification used headless Chromium WebGL2 (SwiftShader), desktop and mobile viewports. Firefox, Safari and physical devices were not tested. No physical model or universe-selection result is claimed."
+}

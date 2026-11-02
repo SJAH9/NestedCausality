@@ -1,0 +1,12 @@
+{
+  "source": "https://sidhubbard.com/arcade/",
+  "retrieved": "2026-11-02T02:46:04.908661+00:00",
+  "assets": {
+    "arcade.js": "ba5ad2826ea7e6af66cd4acc923c399f274cb113feed28a8c5f808be31cbed70",
+    "facet-lab.js": "f35761185c27f39897412197d061a49d1cfbde2e8149575d3e846816a19ae9cc",
+    "facet-lab.css": "e0b66d7644800bab75e58fa569fc17e1d7dc255fa0270af5fdbbebf0bb92c720",
+    "ve-renderer.js": "3865b75780bec0f3c4ed24130d60ef3c8d66855a7d5f16035376551e6273e836"
+  },
+  "contract": "arcade-contract.js contains verbatim geometryCache through morphGeometry and hoverCallout from arcade.js. Full original arcade.js retained as an unloaded reference.",
+  "adaptation": "facet-lab.js changes only storage namespace, host open/close/save integration and exports. Native geometry, controls, preview enumeration and renderer unchanged. Opening accepts the six configuration values and original preview item count (0..2352). No physical model or score is generated."
+}

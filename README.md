@@ -121,3 +121,11 @@ theory.
 The repository materials that preceded the Atlas remain available under
 `research_archive/` for provenance. They are not part of the 0.1 interface or
 release contract.
+
+## Continuum Manifold Lab
+
+The [standalone Manifold Lab](lab/README.md) preserves the executable Arcade Facet
+Lab inside a growing VE menu of saved numerical configuration addresses. Open
+[`lab/index.html`](lab/index.html) directly or serve that folder from a static host.
+The public instrument is at https://sidhubbard.com/continuum/lab/. This separate
+lab leaves the Atlas 0.1 canonical map and generated views unchanged.
