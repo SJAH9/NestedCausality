@@ -1,7 +1,7 @@
 /* Standalone host for the original Arcade geometry and Facet Lab contract. */
 (()=>{'use strict';
 const A=window.Arcade,$=id=>document.getElementById(id),key='continuum-manifold-addresses-v1',defaults=[12,14,1,1,1,1];
-const valid=c=>Array.isArray(c)&&c.length===6&&c.every((n,i)=>Number.isInteger(n)&&n>=1&&n<=(i?14:12));
+const valid=window.MTheorySections.valid;
 const code=c=>c.join(' · '),id=c=>c.join('-');
 function validate(entries){if(!Array.isArray(entries))throw Error('An address collection must contain an entries array.');const map=new Map();for(const e of entries){if(!e||!valid(e.configuration)||!Number.isInteger(e.count)||e.count<0||e.count>2352)throw Error('Invalid configuration or preview count in collection.');map.set(id(e.configuration),{configuration:e.configuration.slice(),count:e.count});}return [...map.values()];}
 let entries=[],storageMessage='';

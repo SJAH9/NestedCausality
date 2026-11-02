@@ -27,9 +27,9 @@ window.VERenderer=class {
   for(const [name,size,off]of [['position',3,0],['normal',3,3],['facet',1,6]]){const i=g.getAttribLocation(p,name);g.enableVertexAttribArray(i);g.vertexAttribPointer(i,size,g.FLOAT,false,28,off*4);}
   g.enable(g.DEPTH_TEST);g.disable(g.CULL_FACE);this.compiled=true;
  }
- setGeometry(faces,points,edges){if(this.meshFaces===faces)return;this.meshFaces=faces;this.faces=faces;this.points=points;this.edges=edges;const g=this.gl;
+ setGeometry(faces,points,edges,preserveWinding=false){if(this.meshFaces===faces)return;this.meshFaces=faces;this.faces=faces;this.points=points;this.edges=edges;const g=this.gl;
   const mesh=[];this.ranges=[];
-  this.faces.forEach((face,i)=>{const a=face[1].map((n,k)=>n-face[0][k]),b=face[2].map((n,k)=>n-face[0][k]),c=[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];if(c.reduce((s,n,k)=>s+n*face[0][k],0)<0)for(let k=0;k<3;k++)c[k]*=-1;const start=mesh.length/7;for(let j=1;j<face.length-1;j++)for(const v of [face[0],face[j],face[j+1]])mesh.push(...v,...c,i);this.ranges.push([start,mesh.length/7-start]);});
+  this.faces.forEach((face,i)=>{const a=face[1].map((n,k)=>n-face[0][k]),b=face[2].map((n,k)=>n-face[0][k]),c=[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];if(!preserveWinding&&c.reduce((s,n,k)=>s+n*face[0][k],0)<0)for(let k=0;k<3;k++)c[k]*=-1;const start=mesh.length/7;for(let j=1;j<face.length-1;j++)for(const v of [face[0],face[j],face[j+1]])mesh.push(...v,...c,i);this.ranges.push([start,mesh.length/7-start]);});
   this.edgeStart=mesh.length/7;for(const [a,b]of this.edges)for(const i of [a,b])mesh.push(...this.points[i],...this.points[a].map((v,k)=>(v+this.points[b][k])/2),-1);
   this.radialStart=mesh.length/7;for(const point of this.points)for(const v of [[0,0,0],point])mesh.push(...v,0,0,1,-1);
   // A canonical VE remains inside every expanded shell, including morphs.

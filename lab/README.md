@@ -39,18 +39,21 @@ uses its stored preview count; an unsaved address opens with an empty preview.
 
 ## Original executable module
 
-`vendor/ve-renderer.js` and `vendor/facet-lab.css` are byte-identical copies of the
-production files recorded in `provenance.json`. `vendor/arcade.js` is the original,
+`vendor/facet-lab.css` is a byte-identical copy of the production file.
+`vendor/ve-renderer.js` retains the production renderer with one optional
+`preserveWinding` argument to `setGeometry`, used only by mathematical sections;
+native Arcade calls retain the original radial-normal behavior. Original hashes
+are recorded in `provenance.json`. `vendor/arcade.js` is the original,
 unloaded reference; `vendor/facet-lab.original.js` retains the unadapted lab. `vendor/arcade-contract.js` extracts the native geometry,
 territory, projection and hover functions verbatim. `vendor/facet-lab.js` preserves
 all geometry calculations, adapting its host open/close/save contract,
 storage namespace, back label and public exports. Configuration VEs additionally
 coast after a rotational drag and select the occupied facet with the greatest
 visible projected area when momentum stops. Selection updates the corresponding
-field and subject geometry once. Explore actions and the reserved VE do not
-auto-activate. Reduced motion selects at release without continued coasting. It does not replace the lab with
-a visual approximation. No chapter transcript, narrative renderer or score is
-involved; no physical correspondence or universe-selection result is generated.
+field and subject geometry once. Explore actions do not auto-activate. Configurator 8 selects the mathematical construction after a spin. Reduced motion selects at release without continued coasting. It does not replace the lab with
+a visual approximation. No chapter transcript, narrative renderer or score is involved. Mathematical
+sections have an explicit coordinate correspondence; no physical prediction or
+universe-selection result is generated.
 
 `menu.js`, `start.js`, `index.html` and `lab.css` supply the standalone host.
 The address list is paginated for accessible keyboard/search use while the single
@@ -76,9 +79,8 @@ the specified output directory. Generated browser state is not part of the app.
 Push the tiny **Spin all** VE in the lab header. It transfers the same angular
 increments and release velocity to every configurator box, preserving each
 box’s starting orientation. All use the controller’s response and decay for that
-gesture, even if a settling selection changes the rule field. The six setting
-controls then select their own most visible facets and update the subject. Explore
-and the reserved VE rotate too; Explore actions remain explicit. No random numbers,
+gesture, even if a settling selection changes the rule field. The seven setting
+controls then select their own most visible facets and update the subject. The M-theory selector rotates too; Explore actions remain explicit. No random numbers,
 shuffled configurations or generated impulses are used. Reduced motion applies
 the dragged rotation and selects at release without coasting.
 
@@ -93,3 +95,54 @@ exact geometry, territory ownership, boundary edges, surface anchors and startin
 view against the native Arcade contract at 1, 2, 14, 15 and 2,809 destinations.
 It confirms the retained upstream source still matches the production Arcade
 and opens an addressed configuration through a real facet at each population.
+
+
+## M-theory starting conditions (configurator 8)
+
+The construction selector contains Native Arcade, T⁷, S⁷, S⁷/Zₖ and the
+conical limit C(S³ × S³). Selecting a construction establishes a reproducible
+initial condition: unit radius, section angle 42°, and quotient order 3 for the
+Hopf quotient. Native Arcade returns to the original six-field geometry.
+Radius, section angle and quotient order are explicit controls, with dimensionless
+units. Item count controls section sampling density, not physical population.
+Native symmetry/rule/branching/Bucky controls are disabled in section mode because
+those aesthetic transformations have no declared action on the physical family.
+
+`mtheory.js` owns the equations, source-coordinate samples and section maps.
+All four ambient spaces have dimension seven. Only a specified two-dimensional
+section is rendered. The torus uses a T² section of (S¹)⁷ (five fixed angles);
+the sphere uses a latitude S² in R⁸; the quotient uses a Hopf T² in C² ⊂ C⁴;
+the cone uses one circle in each S³ at fixed positive radial coordinate.
+The renderer receives a sampled triangulated embedding of that section via the
+existing geometryFromCells contract, using its native surface draw mode.
+It is not an isometric embedding of the ambient manifold or an image of all
+seven dimensions. Source-coordinate samples remain attached to the mesh.
+
+The quotient obeys z → exp(2πi/k)z. Section coordinates u = k arg(z₁) and
+v = arg(z₂/z₁) are invariant; the displayed torus embeds those coordinates.
+Changing k changes the quotient identification and source lift while the section
+can retain the same displayed shape. This is an actual equivalence relation,
+not an arbitrary k-lobed deformation.
+
+The cone entry preserves the product-sphere constraints and radial coordinate.
+It supplies a topological section of the conical limit, not the nearly Kähler
+metric on its link or a computed torsion-free G₂ metric. No flux background,
+field equations, spectrum, vacuum or universe selection is calculated.
+No Joyce resolution or twisted connected sum is claimed as generated geometry.
+
+Sources: [M-theory on twisted tori](https://arxiv.org/abs/hep-th/0504108),
+[ABJM](https://arxiv.org/abs/0806.1218),
+[Atiyah–Witten](https://arxiv.org/abs/hep-th/0107177).
+The catalog links each construction to its source in the application.
+
+Old six-number addresses, imports and exports remain valid. New addresses append
+four integers: type (1–5), radius index (1–14, divided by 4), angle index (1–14,
+multiplied by 6°), and k (1–14). Export format version 1 now accepts either
+six or ten values; older app releases reject the extension rather than truncate
+it. Reopening, reloading and hash links restore these initial conditions.
+
+Run `verify_mtheory.py --url <URL> --output <directory>` for source equation
+residuals, mesh Euler characteristics, closed-edge incidence, quotient orbit
+invariance, actual controls, native-mode return, save/reopen/reload, WebGL errors
+and mobile overflow checks. These are mathematical/interface checks; this is not
+narrative visual work and carries no blind narrative review claim.
