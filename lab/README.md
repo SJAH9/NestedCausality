@@ -213,3 +213,14 @@ and φ use integer arithmetic; π and e use mpmath with two guard precisions.
 assets support the full selectable budget; no large-block runtime performance
 claim is made. Verification is deliberately restricted to small block sizes at
 the author's request.
+
+## Arcade environment
+
+`vendor/menu-environment.js` is the unchanged production Arcade environment. Its
+analytic infinite plane, horizon, two grid scales, palette and advancing ground
+motion are retained. `environment.js` moves one environment canvas between the
+menu and the active explorer, supplying its native yaw, pitch, pan and distance.
+It draws at up to 30 fps beneath the transparent geometry. Reduced motion stops
+ground travel; hidden pages pause. One environment GPU context supplements the
+existing geometry context pool on mobile, independently of the pane count.
+Source and SHA-256 are recorded in `environment-provenance.json`.

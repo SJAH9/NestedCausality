@@ -1,0 +1,5 @@
+{
+  "source": "https://sidhubbard.com/arcade/menu-environment.js?v=20261101-grid-advance-2",
+  "sha256": "89651b5b2d260b5a276528817ceb97bce9631b84c0cd889567023bf430f77756",
+  "adaptation": "Native renderer unchanged. One environment canvas is moved between the active menu, Facet Lab and Projections viewports; camera inputs use each native view. Presentation is limited to 30 fps; reduced motion stops travel."
+}
