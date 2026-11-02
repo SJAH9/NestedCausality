@@ -82,7 +82,7 @@ class Pane{
    territories.push({item:g.faceItems[index],index,x,y,polygon});
   });
   let labeled=territories;
-  if(g.count>256||g.mtheory){const items=new Set();if(this===central){labHover.update();const candidates=this.hits.filter(f=>f.complete&&f.index<this.occupied);for(const [x,y]of anchors){const ay=y>.5&&w<600?.68:y,best=candidates.reduce((a,b)=>!a||Math.hypot(b.x-x*w,b.y-ay*h)<Math.hypot(a.x-x*w,a.y-ay*h)?b:a,null);if(best)items.add(g.faceItems[best.index]);}const hover=document.getElementById('lab-hover');if(!hover.hidden)items.add(g.faceItems[Number(hover.dataset.facet)]);}labeled=territories.filter(f=>items.has(f.item));}
+  if(g.count>256||g.mtheory){const items=new Set(this.visibleLabelItems||[]);if(this===central){labHover.update();const candidates=this.hits.filter(f=>f.complete&&f.index<this.occupied);for(const [x,y]of anchors){const ay=y>.5&&w<600?.68:y,best=candidates.reduce((a,b)=>!a||Math.hypot(b.x-x*w,b.y-ay*h)<Math.hypot(a.x-x*w,a.y-ay*h)?b:a,null);if(best)items.add(g.faceItems[best.index]);}const hover=document.getElementById('lab-hover');if(!hover.hidden)items.add(g.faceItems[Number(hover.dataset.facet)]);}labeled=territories.filter(f=>items.has(f.item));}
   this.territoryLabels=arcade.territoryLabels(r,labeled,i=>this.labels[g.faceItems.indexOf(i)],g.faceItems[this.selected],w,h,g,turn,camera,focal,[0,0,0],this===central?112:240);
   this.renderer.present?.();
   // Choose once, after a deliberate rotational gesture has lost its momentum.

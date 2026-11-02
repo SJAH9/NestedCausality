@@ -10,7 +10,7 @@ is https://sidhubbard.com/continuum/lab/.
 
 The initial menu is a canonical VE (12 vertices, 24 edges, six squares and eight
 triangles), using the Arcade foyer’s initial yaw, pitch, roll and front-first
-facet ordering. **Facet Lab** is the only initial destination. The native Arcade
+facet ordering. **Facet Lab**, **Projections** and **Data Sets** are the initial destinations. The native Arcade
 territory algorithm assigns spare facets to existing destinations: one destination
 initially owns all fourteen facets, rather than leaving thirteen unassigned.
 Saved addresses receive their own connected territories. Beyond fourteen items,
@@ -235,3 +235,44 @@ Rotation alone does not select or save a preset. The matching select controls
 provide the same actions by keyboard. Presets use their own versioned storage
 key and leave Facet Lab addresses unchanged; unavailable browser storage is
 reported explicitly.
+
+## Data Sets
+
+Data Sets adds populations to saved native geometries through `FacetGeometry.addFacets`
+and `FacetLab.createPane`. The original mesh rules, G₂ influences, camera, picking,
+renderer and Arcade environment remain executable. No manuscript or scores are generated.
+Seven VE configurators control rows, labels, label length, order, field types,
+missing values and facet budget. A field chooser, label/order field selectors and
+three checkboxes control link facets, split columns and repeated values. Repeats
+off merges identical field/value/link entries within a page, retaining all source
+row numbers. There is no data search. Pages, the page-position slider, source-page
+links, rotation, zoom and six callouts provide navigation. A seventh hover callout
+stays bottom center. View geometry hides all configurators, fills the viewport and
+requests browser fullscreen, retaining every callout, link target and paging control.
+
+The public catalog references live USGS month GeoJSON/day Atom and Vega airports CSV
+and movies JSON. Loading is explicit; no public library is duplicated locally.
+File, URL and pasted intake support CSV (quoted cells/newlines), TSV, JSON, JSONL,
+GeoJSON, structural JSON-LD, XML, RSS, Atom and RDF. N3 1.26.0 is vendored under its
+MIT license for Turtle, TriG, N-Triples and N-Quads; no runtime CDN is required.
+RDF terms, datatypes, languages and graphs remain fields, without inference.
+RDF/XML is honestly labelled as structural XML records, not a fully expanded graph.
+XML attributes/namespaces and nested objects are retained; a record path/element
+option handles wrappers. Unknown text becomes line records; binary input produces
+metadata and a byte preview, not an invented content decoding. Native binary
+spreadsheet, archive and database decoding is not implemented.
+
+Files and added URLs appear in the dataset dropdown for the current tab. Files stay in tab memory and are never uploaded. Browser URL intake omits credentials
+and depends on source CORS; blocked sources can be downloaded and opened as files.
+The initial working window is 64 MiB and 250,000 records, with explicit errors
+rather than silent truncation. The field chooser exposes at most 256 fields; original
+records remain inspectable. Facet budgets up to 32,768 bound each materialized view;
+column/link expansion can reduce rows per page and the status reports that. Larger
+source collections can be traversed via declared JSON/Atom next-page links. Dense
+views label callout targets and up to 48 other visible facets; they do not create
+per-record DOM elements. The first 128 visible link polygons provide native clickable
+anchors, supplemented by callouts and original-record links. Fit and interpretability
+depend on the dataset and selected geometry; no infinite resident data or untested
+large-view performance is claimed.
+
+Production verification: `python3 verify_datasets.py --url https://sidhubbard.com/continuum/lab/ --output <evidence-directory>`. Tests use isolated browser storage, actual public data and generated input fixtures. They include desktop/mobile emulation, 448 data facets, all supported format families, fullscreen callouts, links and small Projections regression (block 0). Physical-device Edge is not claimed.

@@ -1,0 +1,20 @@
+{
+  "module": "Data Sets",
+  "renderer": "vendor/ve-renderer.js + FacetLab.createPane",
+  "geometry": "FacetGeometry.addFacets; native pipeline retained",
+  "catalogSources": [
+    "https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php",
+    "https://github.com/vega/vega-datasets"
+  ],
+  "dependencies": [
+    {
+      "name": "N3",
+      "version": "1.26.0",
+      "url": "https://unpkg.com/n3@1.26.0/browser/n3.min.js",
+      "sha256": "442bd3f118fa86bc2ef68d2a56a5637e9e878076aaab52f1093d0aed2c9452c3",
+      "license": "vendor/N3-LICENSE.md"
+    }
+  ],
+  "scores": null,
+  "narrativeVisuals": false
+}

@@ -3,7 +3,7 @@
 let environment=null,lastDraw=0,lastKey='',currentHost=null;
 function draw(now){
  if(!document.hidden&&now-lastDraw>=1000/30){
-  const source=window.Projections?.active?window.Projections:window.FacetLab?.active?window.FacetLab:window.ContinuumLab;
+  const source=window.DataSets?.active?window.DataSets:window.Projections?.active?window.Projections:window.FacetLab?.active?window.FacetLab:window.ContinuumLab;
   const view=source?.environmentView,host=view&&document.getElementById(view.host);
   if(host){
    if(!environment){environment=new ArcadeEnvironment(host);environment.canvas.addEventListener('webglcontextrestored',()=>{lastKey='';});}

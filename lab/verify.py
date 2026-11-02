@@ -20,9 +20,9 @@ def run(url, output):
         page.goto(url)
         page.wait_for_function('window.FacetLab && window.ContinuumLab && ContinuumLab.state.hits.length > 0')
         initial = page.evaluate('ContinuumLab.state')
-        assert initial['items'] == 2 and initial['faces'] == 14 and initial['vertices'] == 12
+        assert initial['items'] == 3 and initial['faces'] == 14 and initial['vertices'] == 12
         assert initial['renderer']['error'] == 0 and initial['renderer']['squares'] == 6 and initial['renderer']['triangles'] == 8
-        passed('initial VE: two destinations, 14 faces, 12 vertices, six squares/eight triangles')
+        passed('initial VE: three destinations, 14 faces, 12 vertices, six squares/eight triangles')
         page.screenshot(path=str(output / 'initial-menu.png'))
         hit = next(h for h in initial['hits'] if h['item'] == 0)
         box = page.locator('#ve').bounding_box()
@@ -40,7 +40,7 @@ def run(url, output):
         native = page.evaluate('JSON.stringify(FacetLab.geometry)')
         page.screenshot(path=str(output / 'configured-lab.png'))
         page.locator('#lab-save').click()
-        assert page.evaluate('ContinuumLab.state.items') == 3
+        assert page.evaluate('ContinuumLab.state.items') == 4
         page.locator('#lab-back').click()
         label = ' · '.join(map(str, configuration))
         page.locator('#address-list').get_by_role('button', name=label, exact=True).click()
@@ -49,7 +49,7 @@ def run(url, output):
         assert page.evaluate('JSON.stringify(FacetLab.geometry)') == native
         passed('native controls, Save, actual menu address and identical reopened geometry', mesh_sha256=hashlib.sha256(native.encode()).hexdigest())
         page.locator('#lab-save').click()
-        assert page.evaluate('ContinuumLab.state.items') == 3
+        assert page.evaluate('ContinuumLab.state.items') == 4
         page.get_by_role('button', name='+ Facets ↑', exact=True).click()
         page.locator('#lab-back').click()
         page.reload()
@@ -68,7 +68,7 @@ def run(url, output):
         bad = {'format': 'continuum-manifold-lab', 'version': 1, 'entries': [{'configuration': [99, 1, 1, 1, 1, 1], 'count': 0}]}
         page.locator('#import').set_input_files({'name': 'bad.json', 'mimeType': 'application/json', 'buffer': json.dumps(bad).encode()})
         page.wait_for_function("document.getElementById('status').textContent.startsWith('Import rejected:')")
-        assert page.evaluate('ContinuumLab.state.items') == 3
+        assert page.evaluate('ContinuumLab.state.items') == 4
         passed('portable export; malformed import rejected without collection mutation')
         entries = []
         for number in range(2807):
@@ -79,11 +79,11 @@ def run(url, output):
             entries.append({'configuration': values, 'count': 14})
         collection = {'format': 'continuum-manifold-lab', 'version': 1, 'entries': entries}
         page.locator('#import').set_input_files({'name': 'scale.json', 'mimeType': 'application/json', 'buffer': json.dumps(collection).encode()})
-        page.wait_for_function('ContinuumLab.state.items === 2810', timeout=60000)
+        page.wait_for_function('ContinuumLab.state.items === 2811', timeout=60000)
         state = page.evaluate('ContinuumLab.state')
         assert state['faces'] >= 2809 and state['renderer']['error'] == 0
-        assert page.locator('#address-list button').count() <= 50
-        page.screenshot(path=str(output / '2810-destination-menu.png'))
+        assert page.locator('#address-list button').count() <= 51
+        page.screenshot(path=str(output / '2811-destination-menu.png'))
         last = entries[-1]['configuration']
         page.locator('#search').fill('-'.join(map(str, last)))
         page.locator('#address-list').get_by_role('button', name=' · '.join(map(str, last)), exact=True).click()
@@ -114,7 +114,7 @@ def run(url, output):
         page.get_by_role('button', name='+ Facets ↑', exact=True).tap()
         page.locator('#lab-save').tap()
         page.locator('#lab-back').tap()
-        assert page.evaluate('ContinuumLab.state.items') == 3
+        assert page.evaluate('ContinuumLab.state.items') == 4
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
         page.screenshot(path=str(output / 'mobile-menu.png'))
         passed('mobile touch entry, native controls, Save and return; no horizontal overflow')

@@ -27,7 +27,7 @@ def run(url,output):
    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
    page.screenshot(path=str(output/(name+'.png')))
   # Save/reopen remains ordinary UI, and side controls still turn with shared rendering.
-  page.locator('#lab-save').click();page.locator('#lab-back').click();page.locator('#address-list button').nth(2).click()
+  page.locator('#lab-save').click();page.locator('#lab-back').click();page.locator('#address-list button').nth(3).click()
   assert page.evaluate('FacetLab.state.configuration[6]')==4
   # Force a real graphics context loss and restoration without resetting saved state.
   print('Restoration',flush=True);before=page.evaluate('FacetLab.state.configuration')

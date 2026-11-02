@@ -12,7 +12,7 @@
   }catch(error){status.textContent=error.message||'Fullscreen could not open.';}
   sync();
  });
- button.addEventListener('keydown',event=>{if(event.key==='Tab'&&(window.FacetLab?.active||window.Projections?.active)){const host=window.Projections?.active?'#projections':'#facet-lab',controls=[...document.querySelectorAll(host+' button:not([hidden]),'+host+' canvas,'+host+' select')].filter(el=>!el.disabled&&el.getClientRects().length);const target=event.shiftKey?controls.at(-1):controls[0];if(target){event.preventDefault();target.focus();}}});
+ button.addEventListener('keydown',event=>{if(event.key==='Tab'&&(window.FacetLab?.active||window.Projections?.active||window.DataSets?.active)){const host=window.DataSets?.active?'#datasets':window.Projections?.active?'#projections':'#facet-lab',controls=[...document.querySelectorAll(host+' button:not([hidden]),'+host+' canvas,'+host+' select')].filter(el=>!el.disabled&&el.getClientRects().length);const target=event.shiftKey?controls.at(-1):controls[0];if(target){event.preventDefault();target.focus();}}});
  for(const name of ['fullscreenchange','webkitfullscreenchange'])document.addEventListener(name,sync);
  sync();
 })();

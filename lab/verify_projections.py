@@ -24,7 +24,7 @@ def run(url,out):
    assert page.locator('#address-list button').all_text_contents()[:2]==['Facet Lab','Projections']
    # Save through Facet Lab's normal controls, preserving the existing geometry contract.
    page.locator('#address-list button').nth(0).click();page.get_by_label('3 · Rule / influence',exact=True).select_option('4');page.get_by_role('button',name='Save',exact=True).click();page.locator('#lab-back').click()
-   assert page.locator('#address-list button').nth(2).text_content()=='12 · 14 · 4 · 1 · 1 · 1'
+   assert page.locator('#address-list button').nth(3).text_content()=='12 · 14 · 4 · 1 · 1 · 1'
    page.locator('#address-list button').nth(1).click();page.wait_for_function('Projections.state.ready')
    state=page.evaluate('Projections.state');assert state['facetBudget']==0 and state['blockLimit']==1 and state['configurators']==8
    assert page.locator('#projections .lab-config').count()==8 and page.locator('#projections .lab-config select').count()==8
@@ -51,7 +51,7 @@ def run(url,out):
    # Look for native GPU / shader errors and verify a populated central canvas.
    assert page.evaluate('(()=>{const c=document.getElementById("projection-geometry"),p=c.getContext("2d").getImageData(0,0,c.width,c.height).data;let n=0;for(let i=3;i<p.length;i+=4)if(p[i])n++;return n>100;})()')
    if mobile:assert page.evaluate('ManifoldGraphics.contexts')==1
-   page.locator('#projections-back').click();page.locator('#address-list button').nth(2).click();assert page.evaluate('FacetLab.state.configuration[2]')==4
+   page.locator('#projections-back').click();page.locator('#address-list button').nth(3).click();assert page.evaluate('FacetLab.state.configuration[2]')==4
    page.locator('#lab-back').click();page.goto(url+'#projections');page.wait_for_function('Projections.active && Projections.state.ready');assert page.evaluate('Projections.state.savedGeometries')==1
    assert not errors,errors
    records.append({'mobile':mobile,'passed':True,'blocksTested':[0,8],'facetBudgetsTested':[0,8,16],'errors':errors,'lastProjection':state});context.close()
