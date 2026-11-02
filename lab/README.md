@@ -243,7 +243,12 @@ and `FacetLab.createPane`. The original mesh rules, G₂ influences, camera, pic
 renderer and Arcade environment remain executable. No manuscript or scores are generated.
 Seven VE configurators control rows, labels, label length, order, field types,
 missing values and facet budget. A field chooser, label/order field selectors and
-three checkboxes control link facets, split columns and repeated values. Repeats
+Checkboxes control link facets, split columns and repeated values.
+The mutually exclusive **1 row = 1 facet** and **1 cell = 1 facet** modes assign
+each displayed row or included cell one selectable facet, leaving spare native
+mesh faces unassigned. These modes retain duplicates and empty cells; row/type
+filters and field selection still apply. Cell link facets stay clickable when
+hyperlinks are enabled; row links remain available in record inspection. Repeats
 off merges identical field/value/link entries within a page, retaining all source
 row numbers. There is no data search. Pages, the page-position slider, source-page
 links, rotation, zoom and six callouts provide navigation. A seventh hover callout
@@ -251,7 +256,14 @@ stays bottom center. View geometry hides all configurators, fills the viewport a
 requests browser fullscreen, retaining every callout, link target and paging control.
 
 The public catalog references live USGS month GeoJSON/day Atom and Vega airports CSV
-and movies JSON. Loading is explicit; no public library is duplicated locally.
+and movies JSON, plus US ZIP codes, flights, Seattle weather, cars, penguins,
+barley yields, stocks, population and Gapminder countries from Vega.
+**All numbers** generates integers locally, starting at 1 and stopping at the
+selected **Rows per geometry** count. Changing that count regenerates the sequence.
+**No paging / show all data** renders all loaded rows after the selected data
+filters, bypassing both row-page and facet-budget limits, without sampling or
+silent clipping. It does not fetch additional source pages. The generated integer
+sequence still stops at its selected count. Loading is explicit; no public library is duplicated locally.
 File, URL and pasted intake support CSV (quoted cells/newlines), TSV, JSON, JSONL,
 GeoJSON, structural JSON-LD, XML, RSS, Atom and RDF. N3 1.26.0 is vendored under its
 MIT license for Turtle, TriG, N-Triples and N-Quads; no runtime CDN is required.
@@ -266,7 +278,7 @@ Files and added URLs appear in the dataset dropdown for the current tab. Files s
 and depends on source CORS; blocked sources can be downloaded and opened as files.
 The initial working window is 64 MiB and 250,000 records, with explicit errors
 rather than silent truncation. The field chooser exposes at most 256 fields; original
-records remain inspectable. Facet budgets up to 32,768 bound each materialized view;
+records remain inspectable. With paging enabled, facet budgets up to 32,768 bound each materialized view;
 column/link expansion can reduce rows per page and the status reports that. Larger
 source collections can be traversed via declared JSON/Atom next-page links. Dense
 views label callout targets and up to 48 other visible facets; they do not create
@@ -276,3 +288,5 @@ depend on the dataset and selected geometry; no infinite resident data or untest
 large-view performance is claimed.
 
 Production verification: `python3 verify_datasets.py --url https://sidhubbard.com/continuum/lab/ --output <evidence-directory>`. Tests use isolated browser storage, actual public data and generated input fixtures. They include desktop/mobile emulation, 448 data facets, all supported format families, fullscreen callouts, links and small Projections regression (block 0). Physical-device Edge is not claimed.
+
+New-source and exact-facet production checks: `python3 verify_dataset_modes.py --url https://sidhubbard.com/continuum/lab/ --output <evidence-directory>`. These verify generation through 112 integers, mutually exclusive modes, 50 row facets / 150 cell facets including duplicates, empty cells and links, all-loaded display beyond a budget of 1, fullscreen callouts and every added public URL.
