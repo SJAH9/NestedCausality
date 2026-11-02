@@ -1,0 +1,165 @@
+{
+  "recorded_at": "2026-11-02T03:07:35.139282+00:00",
+  "local": {
+    "url": "http://127.0.0.1:8877/",
+    "passed": true,
+    "checks": [
+      {
+        "check": "real pointer push coasts, stops, and selects largest visible facet",
+        "passed": true,
+        "release": {
+          "name": "3 \u00b7 Rule / influence",
+          "spin": [
+            0.0010306641423776075,
+            0.0003435547141258691
+          ],
+          "pending": true,
+          "selected": 4,
+          "yaw": 0.9699884667272387,
+          "pitch": 0.7754797086703875,
+          "lastSpinSelection": null
+        },
+        "settled": {
+          "name": "3 \u00b7 Rule / influence",
+          "spin": [
+            0,
+            0
+          ],
+          "pending": false,
+          "selected": 1,
+          "yaw": 2.023964705693905,
+          "pitch": 1.1402419981322407,
+          "lastSpinSelection": {
+            "facet": 0,
+            "item": 0,
+            "area": 3235.1055380377484,
+            "view": {
+              "yaw": 1.765095649613401,
+              "pitch": 1.0405154362991076,
+              "roll": 0.7853981633974483,
+              "distance": 4.5,
+              "pan": [
+                0,
+                0
+              ]
+            }
+          }
+        }
+      },
+      {
+        "check": "all six configuration fields drive native subject geometry; reduced motion skips coasting",
+        "passed": true
+      },
+      {
+        "check": "Explore actions require explicit activation; selected configuration saves and reopens",
+        "passed": true
+      }
+    ]
+  },
+  "production": {
+    "url": "https://sidhubbard.com/continuum/lab/",
+    "passed": true,
+    "checks": [
+      {
+        "check": "real pointer push coasts, stops, and selects largest visible facet",
+        "passed": true,
+        "release": {
+          "name": "3 \u00b7 Rule / influence",
+          "spin": [
+            0.0009757441033413073,
+            0.00032524803444710244
+          ],
+          "pending": true,
+          "selected": 4,
+          "yaw": 0.9699884667272387,
+          "pitch": 0.7754797086703875,
+          "lastSpinSelection": null
+        },
+        "settled": {
+          "name": "3 \u00b7 Rule / influence",
+          "spin": [
+            0,
+            0
+          ],
+          "pending": false,
+          "selected": 1,
+          "yaw": 1.9886061024273858,
+          "pitch": 1.1284557970434013,
+          "lastSpinSelection": {
+            "facet": 0,
+            "item": 0,
+            "area": 3180.915518695501,
+            "view": {
+              "yaw": 1.7215471578699861,
+              "pitch": 1.0259992723846365,
+              "roll": 0.7853981633974483,
+              "distance": 4.5,
+              "pan": [
+                0,
+                0
+              ]
+            }
+          }
+        }
+      },
+      {
+        "check": "all six configuration fields drive native subject geometry; reduced motion skips coasting",
+        "passed": true
+      },
+      {
+        "check": "Explore actions require explicit activation; selected configuration saves and reopens",
+        "passed": true
+      }
+    ]
+  },
+  "regression": {
+    "url": "https://sidhubbard.com/continuum/lab/",
+    "checks": [
+      {
+        "check": "initial VE: one destination, 14 faces, 12 vertices, six squares/eight triangles",
+        "passed": true
+      },
+      {
+        "check": "native controls, Save, actual menu address and identical reopened geometry",
+        "passed": true,
+        "mesh_sha256": "dda17710cdaaaea75d95a48a524067773c31e996002cc90ab6bcbcb70fc96c1b"
+      },
+      {
+        "check": "duplicate Save is idempotent; Back discards unsaved changes; reload preserves collection",
+        "passed": true
+      },
+      {
+        "check": "portable export; malformed import rejected without collection mutation",
+        "passed": true
+      },
+      {
+        "check": "2,809 destinations on one native shell; address search and keyboard entry",
+        "passed": true,
+        "faces": 2812
+      },
+      {
+        "check": "changing configuration hash while lab is active opens the requested geometry",
+        "passed": true
+      },
+      {
+        "check": "no JavaScript errors or failed asset requests",
+        "passed": true
+      },
+      {
+        "check": "mobile touch entry, native controls, Save and return; no horizontal overflow",
+        "passed": true
+      }
+    ],
+    "passed": true
+  },
+  "production_sha256": {
+    "vendor/facet-lab.js": "a7a5993bd965efc35cd387b9089e2e7bf364d0a159e2a354cd8f504ea98a5153",
+    "provenance.json": "dcd6a50f5f393517891eb0b9a2dcad3cef5db22d15a5786600d64ad37ebc15f1",
+    "README.md": "4abebf875ff7eda74459f390b046e44ed1b75e08cb1266649ac31248c2201d4b",
+    "verify_spin.py": "e032050afb351f917f292a710f11c4e6e80c43fda202ecaea3f3e03046c3ea68"
+  },
+  "native_geometry_pipeline_unchanged": true,
+  "native_geometry_pipeline_sha256": "c0b9762934dabfa48a7df18537b583812baaa915baacb274e99bf8ff31c2ed2e",
+  "atlas_tests_passed": 12,
+  "browser": "Headless Chromium with WebGL2/SwiftShader; pointer drags, full motion and reduced motion."
+}

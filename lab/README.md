@@ -39,8 +39,12 @@ uses its stored preview count; an unsaved address opens with an empty preview.
 production files recorded in `provenance.json`. `vendor/arcade.js` is the original,
 unloaded reference; `vendor/facet-lab.original.js` retains the unadapted lab. `vendor/arcade-contract.js` extracts the native geometry,
 territory, projection and hover functions verbatim. `vendor/facet-lab.js` preserves
-all calculations and controls, adapting only its host open/close/save contract,
-storage namespace, back label and public exports. It does not replace the lab with
+all geometry calculations, adapting its host open/close/save contract,
+storage namespace, back label and public exports. Configuration VEs additionally
+coast after a rotational drag and select the occupied facet with the greatest
+visible projected area when momentum stops. Selection updates the corresponding
+field and subject geometry once. Explore actions and the reserved VE do not
+auto-activate. Reduced motion selects at release without continued coasting. It does not replace the lab with
 a visual approximation. No chapter transcript, narrative renderer or score is
 involved; no physical correspondence or universe-selection result is generated.
 

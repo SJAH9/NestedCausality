@@ -8,5 +8,5 @@
     "ve-renderer.js": "3865b75780bec0f3c4ed24130d60ef3c8d66855a7d5f16035376551e6273e836"
   },
   "contract": "arcade-contract.js contains verbatim geometryCache through morphGeometry and hoverCallout from arcade.js. Full original arcade.js retained as an unloaded reference.",
-  "adaptation": "facet-lab.js changes only storage namespace, host open/close/save integration and exports. Native geometry, controls, preview enumeration and renderer unchanged. Opening accepts the six configuration values and original preview item count (0..2352). No physical model or score is generated."
+  "adaptation": "Host open/close/save integration, storage namespace, back label and public exports; configurator VEs additionally select the greatest visible-area occupied facet after rotational momentum stops (800 ms decay; central preview retains 1400 ms). Reduced motion skips coasting. Native geometry calculations, preview enumeration and renderer are unchanged. Opening accepts the six configuration values and original preview item count (0..2352). No physical model or score is generated."
 }
