@@ -245,7 +245,10 @@ Seven VE configurators control rows, labels, label length, order, field types,
 missing values and facet budget. A field chooser, label/order field selectors and
 Checkboxes control link facets, split columns and repeated values.
 The mutually exclusive **1 row = 1 facet** and **1 cell = 1 facet** modes assign
-each displayed row or included cell one selectable facet, leaving spare native
+each displayed row or included cell one selectable facet. In cell mode, the
+selected rows × included columns determines facet population; the facet budget
+is disabled and never reduces that population. Paging selects rows first; show-all
+uses all loaded rows after filters. This leaves spare native
 mesh faces unassigned. These modes retain duplicates and empty cells; row/type
 filters and field selection still apply. Cell link facets stay clickable when
 hyperlinks are enabled; row links remain available in record inspection. Repeats

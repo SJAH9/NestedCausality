@@ -39,7 +39,7 @@ with sync_playwright() as p:
   page.locator('#data-view').click();page.wait_for_function('DataSets.state.focused');page.wait_for_function('document.querySelectorAll(".data-callout:not([hidden])").length===7');assert page.locator('.data-connectors line').count()==6
   assert not page.locator('.data-left').is_visible();page.screenshot(path=str(args.output/('mobile.png' if mobile else 'desktop.png')))
   page.locator('.data-callout button').first.click();assert page.locator('#data-record').is_visible();page.locator('#data-record button').click()
-  page.locator('#data-exit-view').click();setting(page,'Facet budget',7);s=toggle(page,'noPaging',False);assert s['pages']==25 and len(s['items'])==6
+  page.locator('#data-exit-view').click();assert page.get_by_role('combobox',name='Data Facet budget',exact=True).is_disabled();s=toggle(page,'noPaging',False);assert s['pages']==1 and len(s['items'])==150
   toggle(page,'cellFacet',False);toggle(page,'links',False);setting(page,'Facet budget',1792);setting(page,'Rows per geometry',14)
   sources=[]
   # Every newly referenced public source is fetched by the real reader, without an overlay.
