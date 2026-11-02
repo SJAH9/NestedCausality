@@ -34,7 +34,7 @@ function apply(g,type){if(type===1)return g;
   else{const term=terms[type-8],indices=term.slice(0,3);ambient=q.map((x,k)=>indices.includes(k)?x:0);display=indices.map((k,j)=>q[k]*(j===2?term[3]:1));}
   samples.push({input:p,normal:unit(normals[i]),source:ambient,display});return display;
  });
- const bound=Math.max(...transformed.map(p=>Math.hypot(...p)))||1,scale=type===2?1:Math.SQRT2/bound;
+ const bound=transformed.reduce((r,p)=>Math.max(r,Math.hypot(...p)),0)||1,scale=type===2?1:Math.SQRT2/bound;
  const cells=g.menuFaces.map(f=>{const vertices=f.vertices.map(p=>{const i=keys.get(p.map(x=>x.toFixed(7)).join(','));return transformed[i].map(x=>x*scale);}),a=vertices[1].map((x,k)=>x-vertices[0][k]),b=vertices[2].map((x,k)=>x-vertices[0][k]),normal=unit([a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]);return {vertices,normal,parent:f.parent};});
  const mesh=Arcade.geometryFromCells(cells,g.subdivision);mesh.g2={type,name:catalog[type-1].name,inputVertices:g.points.length,inputFaces:g.count,meanEdge,displayScale:scale,source,metricStatus:type===2||type===3?'flat standard G2 structure':'explorer influence; no torsion-free metric solve',samples};return mesh;
 }

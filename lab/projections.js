@@ -1,0 +1,39 @@
+/* Projections consumes saved Facet Lab geometries, preserving their native minimum mesh. */
+(()=>{'use strict';
+const A=window.Arcade,blocks=[0,8,16,32,64,128,256,512,1024,2048,4096,8196,16392,32784];
+const constants=[['pi','π'],['e','e'],['phi','φ'],...[2,3,5,6,7,10,11,13,17,19,23].map(n=>['sqrt'+n,'√'+n])];
+const modes=[['1 · Digit sequence','Each fractional decimal digit labels one facet.'],['2 · Digit occupancy','A digit d labels d consecutive facets. Zero adds no facets.'],['3 · Summed sequence','Previous displayed result + next source digit, reduced to one digit; one facet per result.'],['4 · Summed occupancy','The same running sum; result d labels d consecutive facets. Zero adds no facets.']];
+const el=(tag,attrs={},text='')=>{const e=document.createElement(tag);for(const [k,v]of Object.entries(attrs))e.setAttribute(k,v);e.textContent=text;return e;};
+let active=false,root,main,central,seed,seedConfiguration=[12,14,1,1,1,1],selectGeometry,status,worker,revision=0,payload=null,choice=[0,0,0,0],panels=[],returnFocus;
+function entries(){return window.ContinuumLab.state.entries;}
+function refreshSaved(){const previous=selectGeometry.value;selectGeometry.replaceChildren(el('option',{value:''},'VE · starting geometry'));for(const entry of entries())selectGeometry.append(el('option',{value:entry.configuration.join('-')},entry.configuration.join(' · ')));if([...selectGeometry.options].some(o=>o.value===previous))selectGeometry.value=previous;}
+function build(){
+ worker?.terminate();worker=null;payload=null;const id=++revision,budget=blocks[choice[2]]*(choice[3]+1);central.projectionData=null;
+ const native=FacetLab.geometryForConfiguration(seedConfiguration,0);
+ // The saved native construction receives the added facet count in the worker.
+ seed=native;central.set(native,[],0);status.textContent=budget?'Preparing '+budget.toLocaleString()+' labelled facets…':'0 labelled facets · minimum wireframe · '+native.count+' facets';
+ worker=new Worker('projection-worker.js?v=3');worker.onmessage=({data})=>{if(data.id!==revision||!active)return;if(data.error){status.textContent=data.error;return;}payload=data;central.projectionData=data;status.textContent=data.budget.toLocaleString()+' labelled facets · '+data.read.toLocaleString()+' decimal positions · '+constants[choice[0]][1];};worker.onerror=event=>{if(id===revision)status.textContent='Projection could not be drawn: '+event.message;};
+ worker.postMessage({id,configuration:seedConfiguration.slice(),budget,mode:choice[1]+1,constant:constants[choice[0]][0]});
+}
+function create(){
+ const Renderer=window.ManifoldGraphics.createRendererPool();root=el('section',{id:'projections',hidden:'','aria-label':'Projections explorer'});const header=el('header'),title=el('strong',{},'PROJECTIONS'),back=el('button',{id:'projections-back'},'← Manifold menu'),geometryLabel=el('label',{},'Saved geometry ');selectGeometry=el('select',{'aria-label':'Saved Facet Lab geometry',id:'projection-saved'});geometryLabel.append(selectGeometry);header.append(title,geometryLabel,back);root.append(header);
+ const left=el('aside',{class:'projection-left','aria-label':'Empty configurators'}),right=el('aside',{class:'projection-right','aria-label':'Projection configurators'});main=el('div',{id:'projection-main'});root.append(left,main,right);document.body.append(root);
+ central=FacetLab.createPane(main,'Projection geometry. Drag to turn, Shift-drag to move, wheel or pinch to zoom.',()=>{},Renderer);central.canvas.id='projection-geometry';
+ main.append(el('div',{class:'projection-notice'},'Drag to turn · Shift-drag to move · Wheel / pinch to zoom'));status=el('output',{id:'projection-state','aria-live':'polite'});main.append(status);
+ function panel(number,name,options,labels,host,field){const box=el('section',{class:'lab-config'}),heading=el('h3',{},number+' · '+name);box.append(heading);host.append(box);let select;const pane=FacetLab.createPane(box,name+' vector equilibrium',index=>{if(select&&index<options.length){select.value=String(index);select.dispatchEvent(new Event('change'));}},Renderer);box.prepend(heading);pane.set(A.geometryFor(14),labels,options.length);pane.spinSelect=options.length>0;const description=el('p');if(options.length){select=el('select',{'aria-label':number+' · '+name});options.forEach(([label],i)=>select.append(el('option',{value:i},label)));select.onchange=()=>{choice[field]=Number(select.value);pane.selected=choice[field];pane.spin=[0,0];pane.settlePending=false;description.textContent=options[choice[field]][1]||options[choice[field]][0];build();};select.value=String(choice[field]);pane.selected=choice[field];description.textContent=options[choice[field]][1]||options[choice[field]][0];box.append(select);}box.append(description);panels.push({pane,select});}
+ panel(1,'Irrational number',constants.map(([id,symbol])=>[symbol,'Digits after the decimal point of '+symbol+'.']),constants.map(c=>c[1]),right,0);
+ panel(2,'Mode',modes,['1','2','3','4'],right,1);
+ panel(3,'Block size',blocks.map(n=>[String(n),n+' facets per block.']),blocks.map(String),right,2);
+ panel(4,'Block limit',Array.from({length:14},(_,i)=>[String(i+1),(i+1)+' blocks; the product sets the labelled facet budget.']),Array.from({length:14},(_,i)=>String(i+1)),right,3);
+ for(let i=5;i<=8;i++)panel(i,'',[],[],left);
+ back.onclick=()=>close();selectGeometry.onchange=()=>{seedConfiguration=selectGeometry.value?selectGeometry.value.split('-').map(Number):[12,14,1,1,1,1];central.reset();build();};
+ root.addEventListener('keydown',event=>{if(event.key==='Escape'&&!document.fullscreenElement){event.preventDefault();close();}if(event.key==='Tab'){const controls=[...root.querySelectorAll('button,select,canvas')].filter(e=>e.getClientRects().length);if(!event.shiftKey&&event.target===controls.at(-1)){event.preventDefault();document.getElementById('lab-fullscreen').focus();}else if(event.shiftKey&&event.target===controls[0]){event.preventDefault();document.getElementById('lab-fullscreen').focus();}}});
+ const viewKey=p=>[p.canvas.clientWidth,p.canvas.clientHeight,devicePixelRatio,p.yaw,p.pitch,p.roll,p.distance,...p.pan,p.selected].join(':');
+ function drawPane(p,dt){const key=viewKey(p);if(p.drawKey!==key||p.drawGeometry!==p.g||p.drawPayload!==p.projectionData||p.spin.some(Boolean)||p.settlePending||p.target){p.render(dt);p.drawKey=viewKey(p);p.drawGeometry=p.g;p.drawPayload=p.projectionData;}}
+ let last=0;function draw(now){const dt=Math.min(50,now-last);last=now;if(active&&!document.hidden){drawPane(central,dt);panels.forEach(p=>drawPane(p.pane,dt));}requestAnimationFrame(draw);}requestAnimationFrame(draw);
+}
+function open(){if(active)return;returnFocus=document.activeElement;if(window.FacetLab.active)FacetLab.close();if(!root)create();refreshSaved();active=true;root.hidden=false;document.body.classList.add('projections-open');history.replaceState(null,'','#projections');build();backFocus();}
+function backFocus(){root.querySelector('button').focus();}
+function close(notify=true){if(!active)return;active=false;worker?.terminate();worker=null;root.hidden=true;document.body.classList.remove('projections-open');if(notify){window.dispatchEvent(new Event('manifold-close'));returnFocus?.focus();}}
+window.Projections={open,close,get active(){return active;},get state(){return {active,constant:constants[choice[0]][0],symbol:constants[choice[0]][1],mode:choice[1]+1,blockSize:blocks[choice[2]],blockLimit:choice[3]+1,facetBudget:blocks[choice[2]]*(choice[3]+1),configuration:seedConfiguration.slice(),minimumFacets:seed?.count,ready:!!payload,labelledFacets:payload?.budget??0,wireframeFacets:payload?.faces,construction:payload?.construction,sampleFaces:payload?.sampleFaces,decimalPositions:payload?.read??0,labels:payload?Array.from(payload.labels.slice(0,64)):[],sourcePositions:payload?Array.from(payload.positions.slice(0,64)):[],configurators:8,savedGeometries:selectGeometry?selectGeometry.options.length-1:0};}};
+})();

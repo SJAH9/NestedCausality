@@ -39,77 +39,7 @@ const normalize=c=>Array.isArray(c)&&c.length===3?[...c,1,1,1]:c;
 const valid=window.MTheorySections.valid;
 let saved=null;try{const c=normalize(JSON.parse(localStorage.getItem(storageKey)));if(valid(c))saved=c;}catch{}
 let config=saved?.slice()||defaults.slice(),active=false,count=0,unlocked=false,returnFocus=null,entryAllowed=false;
-const cache=new Map();
-function seed(c){
- const rule=c[2],sym=c[0];let planes=null;
- if(rule===2)planes=[[1,1,1],[1,-1,-1],[-1,1,-1],[-1,-1,1]].map(n=>[unit(n),1]);
- if(rule===3)planes=[-1,1].flatMap(x=>[-1,1].flatMap(y=>[-1,1].map(z=>[unit([x,y,z]),1])));
- if(rule===4||rule===12)planes=[[1,0,0],[-1,0,0],[0,1,0],[0,-1,0],[0,0,1],[0,0,-1]].map(n=>[n,1]);
- const axisSides=({6:2,7:3,8:4,9:6})[sym];
- if(axisSides||rule===11){const sides=Math.max(3,axisSides||6);planes=Array.from({length:sides},(_,i)=>[[Math.cos(2*Math.PI*i/sides),Math.sin(2*Math.PI*i/sides),0],1]);planes.push([[0,0,1],1],[[0,0,-1],1]);if(axisSides===2)planes=[[ [1,0,0],1],[[-1,0,0],1],[[0,1,0],.7],[[0,-1,0],.7],[[0,0,1],1],[[0,0,-1],1]];}
- if(c[5]===2)planes=[[1,1,1],[1,-1,-1],[-1,1,-1],[-1,-1,1]].map(n=>[unit(n),1]);
- if(c[5]===3)planes=[-1,1].flatMap(x=>[-1,1].flatMap(y=>[-1,1].map(z=>[unit([x,y,z]),1])));
- if(c[5]===4){const phi=(1+Math.sqrt(5))/2,inv=1/phi;planes=[...[-1,1].flatMap(x=>[-1,1].flatMap(y=>[-1,1].map(z=>[x,y,z]))),...[-1,1].flatMap(a=>[-1,1].flatMap(b=>[[0,a*inv,b*phi],[a*inv,b*phi,0],[b*phi,0,a*inv]]))].map(n=>[unit(n),1]);}
- if(c[5]===6)planes=arcade.geometryFor(14).menuFaces.map(f=>[f.normal,f.vertices.length===3?1.03:1]);
- let g=planes?arcade.geometryFromPlanes(planes):arcade.geometryFor(14);
- // Prism caps can have more than four sides: triangulate their centres.
- if(g.menuFaces.some(f=>f.vertices.length>4))g=arcade.geometryFromCells(g.menuFaces.flatMap((f,parent)=>f.vertices.length<=4?[{...f,parent}]:f.vertices.map((p,i)=>({parent,normal:f.normal,vertices:[f.center,p,f.vertices[(i+1)%f.vertices.length]]}))));
- return g;
-}
-function arrange(g,occupied){
- const spare=g.count-occupied;if(!spare)return g;
- const directions=g.menuFaces.map(f=>unit(f.center)),near=new Float64Array(g.count).fill(Infinity),used=new Set();
- for(let k=0;k<spare;k++){let best=-1,score=-Infinity;directions.forEach((p,i)=>{if(used.has(i))return;const d=k?near[i]:p[2];if(d>score){best=i;score=d;}});used.add(best);directions.forEach((p,i)=>near[i]=Math.min(near[i],1-dot(p,directions[best])));}
- const menuFaces=g.menuFaces.filter((_,i)=>!used.has(i)).concat(g.menuFaces.filter((_,i)=>used.has(i)));return {...g,menuFaces,faces:menuFaces.map(f=>f.vertices)};
-}
-function geometry(c,occupied){
- c=normalize(c);if(c.length===10&&(c[6]||1)>1)return window.MTheorySections.geometry(c,occupied);const itemCount=occupied;occupied*=c[4];
- const key=c.join('-')+':'+occupied;if(cache.has(key))return cache.get(key);
- if(c.join('-')===defaults.join('-')&&occupied<=14)return arcade.geometryFor(14);
- const base=seed(c),capacity=Math.max(occupied,1);let frequency=Math.max(1,Math.ceil(Math.sqrt(capacity/base.count)));
- if(c[2]===10){let a=1,b=2;while(a<frequency){[a,b]=[b,a+b];}frequency=a;}
- if(c[5]===12)frequency*=2;
- let g=arcade.subdivideVE(frequency,base),cells=g.menuFaces;
- const nonlinear=[5,8,13].includes(c[2])||c[3]>1||[5,7,10,11,13,14].includes(c[5]);
- if(nonlinear)cells=cells.flatMap(f=>f.vertices.length===3?[f]:[ {...f,vertices:[f.vertices[0],f.vertices[1],f.vertices[2]]},{...f,vertices:[f.vertices[0],f.vertices[2],f.vertices[3]]}]);
- const transform=p=>{
-  let [x,y,z]=p,rule=c[2],s=c[0],r=Math.hypot(x,y,z);
-  if(rule===5){x*=Math.SQRT2/r;y*=Math.SQRT2/r;z*=Math.SQRT2/r;}
-  if(rule===6)z*=(1+Math.sqrt(5))/2;
-  if(rule===7)z*=Math.SQRT2;
-  if(rule===8){const angle=z*Math.PI*(3-Math.sqrt(5));[x,y]=[x*Math.cos(angle)-y*Math.sin(angle),x*Math.sin(angle)+y*Math.cos(angle)];}
-  if(rule===13){const wave=1+.12*Math.sin(6*Math.atan2(y,x))*Math.sin(Math.PI*z/Math.SQRT2);x*=wave;y*=wave;z*=wave;}
-  if(rule===11)z*=1+Math.log2(1+occupied/14)*.22;
-  if(rule===12){const growth=1+Math.log2(1+occupied/14)*.08;x*=growth;y*=growth;z*=growth;}
-  const influence=c[5],growth=Math.log2(1+occupied/14);
-  if(influence===5||influence===7){const radius=Math.hypot(x,y,z)||1;x*=Math.SQRT2/radius;y*=Math.SQRT2/radius;z*=Math.SQRT2/radius;}
-  if(influence===8)z*=(1+Math.sqrt(5))/2;
-  if(influence===9)z*=Math.SQRT2;
-  if([10,11,14].includes(influence)){const angle=influence===10?z*Math.PI*(3-Math.sqrt(5)):influence===11?.45*Math.tanh(z*3):.6*Math.sin(growth)*z;[x,y]=[x*Math.cos(angle)-y*Math.sin(angle),x*Math.sin(angle)+y*Math.cos(angle)];if(influence===14)z*=1-.18*Math.sin(growth);}
-  const direction=unit([x,y,z]);let lobes=0;
-  if(c[3]>1){const mode=c[3],stage=Math.max(1,Math.floor(growth)+1),fib=[1,2,3,5,8,13],primes=[2,3,5,7,11,13],branches=mode===2?2:mode===3?3:mode===4?4:mode===5?2:mode===6?Math.min(12,stage*2):mode===7?12:mode===8?Math.min(14,stage*3):mode===9?fib[Math.min(5,stage)]:mode===10?primes[Math.min(5,stage)]:mode===11?4:mode===12?Math.min(14,stage*2):mode===13?1:4;
-   for(let k=0;k<branches;k++){let d;if(mode===14)d=unit([[1,1,1],[1,-1,-1],[-1,1,-1],[-1,-1,1]][k]);else if(mode===5)d=[0,0,k?1:-1];else{const angle=2*Math.PI*k/branches+(mode===8?k*.7:mode===11?(stage%2)*Math.PI/4:0),height=mode===6?.5:mode===8||mode===12?2*(k+.5)/branches-1:mode===13?1:0;d=unit([Math.cos(angle),Math.sin(angle),height]);}lobes=Math.max(lobes,Math.pow(Math.max(0,dot(direction,d)),12));}
-  }
-  if(influence===13)for(const d of [[1,1,1],[1,-1,-1],[-1,1,-1],[-1,-1,1]])lobes=Math.max(lobes,Math.pow(Math.max(0,dot(direction,unit(d))),8));
-  const branchScale=1+Math.min(.9,growth*.22)*lobes;x*=branchScale;y*=branchScale;z*=branchScale;
-  if(s===1){x+=.23*y+.13*z;y+=.17*z;x*=1.2;z*=.8;x+=.08*z*z;y+=.05*x*x;}
-  if(s===2){x+=.28*y;y+=.17*z;}
-  if(s===3){y+=.25*z;z*=.76;}
-  if(s===4){x+=.25*z;z*=.76;}
-  if(s===5){x+=.25*y;y*=.76;}
-  if(s===10)z+=.2*(x*x+y*y);
-  if(s===11){x*=1.24;z*=.72;}
-  return [x,y,z];
- };
- // Triangulate non-affine symmetry too, keeping each label on its true plane.
- if(c[0]===10||c[0]===1)cells=cells.flatMap(f=>f.vertices.length===3?[f]:[{...f,vertices:f.vertices.slice(0,3)},{...f,vertices:[f.vertices[0],f.vertices[2],f.vertices[3]]}]);
- cells=cells.map(f=>{const vertices=f.vertices.map(transform),n=unit(cross(vertices[1].map((v,k)=>v-vertices[0][k]),vertices[2].map((v,k)=>v-vertices[0][k])));return {parent:f.parent,vertices,normal:dot(n,vertices[0])<0?n.map(v=>-v):n};});
- g=arcade.geometryFromCells(cells,frequency);
- // Keep the outer envelope around the retained VE core and within menu zoom limits.
- const radius=Math.max(...g.points.map(p=>Math.hypot(...p))),growth=[11,12].includes(c[2])?1+Math.log2(1+occupied/14)*.06:1,scale=Math.SQRT2*growth/radius;
- g=arcade.geometryFromCells(cells.map(f=>({...f,vertices:f.vertices.map(p=>p.map(v=>v*scale))})),frequency);
- if(c.length===7)g=window.G2Influences.apply(g,c[6]);g.configuration=c.slice();g=arcade.compactEmptyFacets(g,occupied);g.facetsPerItem=c[4];g.itemCount=itemCount;g.occupiedFacets=occupied;cache.set(key,g);if(cache.size>24)cache.delete(cache.keys().next().value);return g;
-}
+const geometry=window.FacetGeometry.geometry;
 const el=(tag,attrs={},text='')=>{const e=document.createElement(tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);e.textContent=text;return e;};
 const entry=el('button',{id:'facet-lab-entry',hidden:''},'Facet Lab');document.body.append(entry);
 const root=el('section',{id:'facet-lab',hidden:'','aria-label':'Facet Lab menu explorer'}),header=el('header'),title=el('strong',{},'FACET LAB'),savedText=el('span',{'aria-live':'polite'}),save=el('button',{id:'lab-save'},'Save'),back=el('button',{id:'lab-back'},'← Manifold menu');header.append(title,savedText,save,back);root.append(header);
@@ -119,7 +49,7 @@ const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.id='l
 const anchors=[[.2,.15],[.8,.15],[.2,.76],[.8,.76],[.15,.45],[.85,.45]],callouts=anchors.map(([x,y])=>{const b=el('button',{class:'lab-callout'+(y===.45?' side-callout':''),hidden:''});b.style.left=x*100+'%';b.style.top=y*100+'%';main.append(b);const line=document.createElementNS(svg.namespaceURI,'line'),circle=document.createElementNS(svg.namespaceURI,'circle');circle.setAttribute('r',3);svg.append(line,circle);return {x,y,b,line,circle};});
 function inside([x,y],poly){let sign=0;return poly.every((a,i)=>{const b=poly[(i+1)%poly.length],v=(b[0]-a[0])*(y-a[1])-(b[1]-a[1])*(x-a[0]);if(Math.abs(v)<1e-6)return true;if(!sign)sign=Math.sign(v);return Math.sign(v)===sign;});}
 class Pane{
- constructor(host,label,onSelect){this.canvas=el('canvas',{tabindex:'0','aria-label':label});host.prepend(this.canvas);this.renderer=new VERenderer(this.canvas,arcade.geometryFor(14).faces,arcade.geometryFor(14).points,arcade.geometryFor(14).edges);this.roll=Math.PI/4;this.upright=null;this.lastInteraction=performance.now();this.lastRotation=-Infinity;this.yaw=Math.PI/4;this.pitch=Math.asin(1/Math.sqrt(3));this.distance=4.5;this.pan=[0,0];this.hits=[];this.onSelect=onSelect;this.pointers=new Map();this.spin=[0,0];this.selected=-1;this.bind();}
+ constructor(host,label,onSelect,Renderer=VERenderer){this.canvas=el('canvas',{tabindex:'0','aria-label':label});host.prepend(this.canvas);this.renderer=new Renderer(this.canvas,arcade.geometryFor(14).faces,arcade.geometryFor(14).points,arcade.geometryFor(14).edges);this.roll=Math.PI/4;this.upright=null;this.lastInteraction=performance.now();this.lastRotation=-Infinity;this.yaw=Math.PI/4;this.pitch=Math.asin(1/Math.sqrt(3));this.distance=4.5;this.pan=[0,0];this.hits=[];this.onSelect=onSelect;this.pointers=new Map();this.spin=[0,0];this.selected=-1;this.bind();}
  set(g,labels,occupied,width=1){this.upright=null;this.lastInteraction=performance.now();this.tour=null;g=arcade.facetTerritories(g,occupied/width,width);this.g=g;this.labels=g.faceItems.map(i=>i<0?null:labels[i*width]);this.occupied=g.occupiedFacets;this.renderer.setGeometry(g.faces,g.points,g.edges,!!g.mtheory);}
  focusFacet(i){const f=this.g.menuFaces[i];if(!f)return;const [x,y,z]=f.normal,angle=Math.atan2(x,z)+Math.PI;this.target={yaw:this.yaw+Math.atan2(Math.sin(angle-this.yaw),Math.cos(angle-this.yaw)),pitch:-Math.atan2(y,Math.hypot(x,z))};}
  reset(){this.settlePending=false;this.tour=null;this.target=null;this.roll=Math.PI/4;this.upright=null;this.lastInteraction=performance.now();this.lastRotation=-Infinity;this.yaw=Math.PI/4;this.pitch=Math.asin(1/Math.sqrt(3));this.distance=4.5;this.pan=[0,0];this.spin=[0,0];}
@@ -145,7 +75,7 @@ class Pane{
   }
   const rotation=[this.yaw,this.pitch,this.roll];if(this.previousRotation&&rotation.some((v,k)=>Math.abs(v-this.previousRotation[k])>1e-8))this.lastRotation=performance.now();this.previousRotation=rotation;
   const a=this.yaw,b=this.pitch,roll=this.roll,turn=([x,y,z])=>{const u=x*Math.cos(a)-z*Math.sin(a),v=z*Math.cos(a)+x*Math.sin(a),Y=y*Math.cos(b)-v*Math.sin(b);return [u*Math.cos(roll)+Y*Math.sin(roll),Y*Math.cos(roll)-u*Math.sin(roll),v*Math.cos(b)+y*Math.sin(b)];},camera=[-this.pan[0],-this.pan[1],-this.distance],focal=Math.min(w,h)*1.05,cx=w/2,cy=h/2;
-  const r=this.renderer,g=this.g,territories=[];r.begin({yaw:a,pitch:b,roll,camera,focal,width:w,height:h});r.cell([0,0,0],-1,this.selected,!!g.mtheory,this.occupied);this.hits=[];
+  const r=this.renderer,g=this.g,territories=[];r.begin({yaw:a,pitch:b,roll,camera,focal,width:w,height:h});if(this.projectionData){r.projection(this.projectionData);r.present?.();return;}r.cell([0,0,0],-1,this.selected,!!g.mtheory,this.occupied);this.hits=[];
   g.menuFaces.forEach((f,index)=>{const normal=turn(f.normal),center=turn(f.center).map((v,k)=>v-camera[k]);if(center[2]<.1||dot(normal,center)>=-.03)return;const vertices=f.vertices.map(p=>turn(p).map((v,k)=>v-camera[k]));if(vertices.some(p=>p[2]<=.06))return;const polygon=vertices.map(p=>[cx+focal*p[0]/p[2],cy-focal*p[1]/p[2]]),x=cx+focal*center[0]/center[2],y=cy-focal*center[1]/center[2],complete=polygon.every(([x,y])=>x>=8&&x<=w-8&&y>=8&&y<=h-8);
    this.hits.push({index,polygon,x,y,complete,depth:center[2]});const text=this.labels[index];if(!text)return;
    const base=turn(f.base).map((v,k)=>v-camera[k]),ux=turn(f.ux),vy=turn(f.vy),m=[focal*ux[0]+cx*ux[2],cy*ux[2]-focal*ux[1],0,ux[2],focal*vy[0]+cx*vy[2],cy*vy[2]-focal*vy[1],0,vy[2],0,0,1,0,focal*base[0]+cx*base[2],cy*base[2]-focal*base[1],0,base[2]];
@@ -199,7 +129,7 @@ entry.onpointerenter=()=>arcade.pauseNavigation();entry.onfocus=()=>arcade.pause
 root.addEventListener('keydown',e=>{if(e.code==='Escape'){e.preventDefault();close();}if(e.code==='Tab'){const focus=[...root.querySelectorAll('button:not([hidden]),canvas,select')].filter(e=>!e.disabled),first=focus[0],last=focus.at(-1);if(!e.shiftKey&&document.activeElement===last&&document.getElementById('lab-fullscreen')){e.preventDefault();document.getElementById('lab-fullscreen').focus();return;}if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
 function same(indices){return indices.length===6&&indices.every(i=>Number.isInteger(i)&&i===indices[0]);}
 let previous=0;function draw(now){const dt=Math.min(50,now-previous);previous=now;if(active&&!document.hidden){central.render(dt);labHover.update();spinAll.render(dt);panels.forEach(p=>p.pane.render(dt));if(!spinAll.pointers.size&&!spinAll.spin.some(Boolean)&&!followers().some(p=>p.settlePending||p.spin.some(Boolean))){spinAll.spinResponse=null;for(const p of followers())p.spinResponse=null;}const w=main.clientWidth,h=main.clientHeight;svg.setAttribute('viewBox',`0 0 ${w} ${h}`);const ids=[];for(const c of callouts){const ay=c.y>.5&&w<600?.68:c.y;c.b.style.top=ay*100+'%';const candidates=central.hits.filter(f=>f.complete&&f.index<central.occupied),best=candidates.reduce((a,b)=>!a||Math.hypot(b.x-c.x*w,b.y-ay*h)<Math.hypot(a.x-c.x*w,a.y-ay*h)?b:a,null);c.b.hidden=!best||(central.g.count<=256&&((!reduced.matches&&!central.upright?.done)||performance.now()-central.lastRotation<180));c.line.style.display=c.circle.style.display=!c.b.hidden?'':'none';ids.push(best?.index??null);if(!best){delete c.b.dataset.facet;continue;}c.b.dataset.facet=best.index;c.b.textContent=central.labels[best.index];c.b.disabled=false;c.b.onclick=()=>selectCombination(best.index);c.line.setAttribute('x1',best.x);c.line.setAttribute('y1',best.y);c.line.setAttribute('x2',c.x*w);c.line.setAttribute('y2',ay*h);c.circle.setAttribute('cx',best.x);c.circle.setAttribute('cy',best.y);}if(same(ids)){unlocked=true;save.hidden=false;}}requestAnimationFrame(draw);}requestAnimationFrame(draw);
-window.FacetLab={open,close,geometryForConfiguration:geometry,get geometry(){return central.g;},get projectedFacets(){return central.hits.map(f=>({...f}));},get active(){return active;},get navigationRate(){return saved?.[2]===9?Math.E:saved?.[2]===14?6/(2*Math.PI):1;},get hasSavedConfiguration(){return !!saved&&saved.join('-')!==defaults.join('-');},get state(){return {configuration:config.slice(),construction:central.g?.g2?{...central.g.g2,samples:undefined}:central.g?.mtheory?{...central.g.mtheory,samples:undefined}:null,spinAll:{yaw:spinAll.yaw,pitch:spinAll.pitch,spin:spinAll.spin.slice(),pending:!!spinAll.settlePending,lastInput:spinAll.lastInput||null,reserved:{yaw:reservedPane.yaw,pitch:reservedPane.pitch,spin:reservedPane.spin.slice()}},configurators:panels.map(p=>({name:p.select.getAttribute('aria-label'),spin:p.pane.spin.slice(),pending:!!p.pane.settlePending,selected:Number(p.select.value),yaw:p.pane.yaw,pitch:p.pane.pitch,lastSpinSelection:p.pane.lastSpinSelection||null})),saved:saved?.slice()||null,count,occupiedFacets:central.occupied,territoryLabels:central.territoryLabels,saveUnlocked:unlocked,entryAllowed,frequency:central.g?(central.g.subdivision||1):null,facets:central.g?.count,motion,tour:central.tour?{index:central.tour.index,faces:central.tour.options.length,phase:performance.now()-central.tour.start<central.tour.duration?'moving':'paused'}:null,view:{roll:central.roll,resting:!central.pointers.size&&performance.now()-central.lastRotation>=180,upright:central.upright,yaw:central.yaw,pitch:central.pitch,distance:central.distance,pan:central.pan.slice()},renderers:[central,...panels.map(p=>p.pane)].map(p=>p.renderer.diagnostics)};},observeMenuCallouts(indices){if(active)return;const counts=new Map();for(const item of indices)if(Number.isInteger(item)&&item>=0)counts.set(item,(counts.get(item)||0)+1);entryAllowed=[...counts.values()].some(n=>n>=4);entry.hidden=!entryAllowed||!!arcade.state.feature;},get facetsPerItem(){return saved?.[4]||1;},menuGeometry(required){return geometry(saved,required);}};
+window.FacetLab={createPane:(host,label,onSelect,Renderer)=>new Pane(host,label,onSelect,Renderer),open,close,geometryForConfiguration:geometry,get geometry(){return central.g;},get projectedFacets(){return central.hits.map(f=>({...f}));},get active(){return active;},get navigationRate(){return saved?.[2]===9?Math.E:saved?.[2]===14?6/(2*Math.PI):1;},get hasSavedConfiguration(){return !!saved&&saved.join('-')!==defaults.join('-');},get state(){return {configuration:config.slice(),construction:central.g?.g2?{...central.g.g2,samples:undefined}:central.g?.mtheory?{...central.g.mtheory,samples:undefined}:null,spinAll:{yaw:spinAll.yaw,pitch:spinAll.pitch,spin:spinAll.spin.slice(),pending:!!spinAll.settlePending,lastInput:spinAll.lastInput||null,reserved:{yaw:reservedPane.yaw,pitch:reservedPane.pitch,spin:reservedPane.spin.slice()}},configurators:panels.map(p=>({name:p.select.getAttribute('aria-label'),spin:p.pane.spin.slice(),pending:!!p.pane.settlePending,selected:Number(p.select.value),yaw:p.pane.yaw,pitch:p.pane.pitch,lastSpinSelection:p.pane.lastSpinSelection||null})),saved:saved?.slice()||null,count,occupiedFacets:central.occupied,territoryLabels:central.territoryLabels,saveUnlocked:unlocked,entryAllowed,frequency:central.g?(central.g.subdivision||1):null,facets:central.g?.count,motion,tour:central.tour?{index:central.tour.index,faces:central.tour.options.length,phase:performance.now()-central.tour.start<central.tour.duration?'moving':'paused'}:null,view:{roll:central.roll,resting:!central.pointers.size&&performance.now()-central.lastRotation>=180,upright:central.upright,yaw:central.yaw,pitch:central.pitch,distance:central.distance,pan:central.pan.slice()},renderers:[central,...panels.map(p=>p.pane)].map(p=>p.renderer.diagnostics)};},observeMenuCallouts(indices){if(active)return;const counts=new Map();for(const item of indices)if(Number.isInteger(item)&&item>=0)counts.set(item,(counts.get(item)||0)+1);entryAllowed=[...counts.values()].some(n=>n>=4);entry.hidden=!entryAllowed||!!arcade.state.feature;},get facetsPerItem(){return saved?.[4]||1;},menuGeometry(required){return geometry(saved,required);}};
 // Restore only a configuration explicitly saved by this viewer.
 entry.hidden=true;
 })();

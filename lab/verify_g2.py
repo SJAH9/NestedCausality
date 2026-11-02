@@ -42,7 +42,7 @@ def run(url,output):
    select.select_option(str(type));page.wait_for_timeout(60)
   assert page.evaluate('FacetLab.state.configuration[6]')==14
   page.locator('#lab-save').click();configuration=page.evaluate('FacetLab.state.configuration')
-  page.locator('#lab-back').click();page.locator('#address-list button').nth(1).click()
+  page.locator('#lab-back').click();page.locator('#address-list button').nth(2).click()
   assert page.evaluate('FacetLab.state.configuration')==configuration
   page.screenshot(path=str(output/'g2-lab.png'))
   page.reload();page.wait_for_function('window.FacetLab')

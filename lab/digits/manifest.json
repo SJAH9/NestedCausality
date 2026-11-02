@@ -1,0 +1,86 @@
+{
+  "pi": {
+    "decimalPlaces": 458976,
+    "sha256": "d75f012df8d57b18ac6a5b211af8b0ff4907889218acc65b42736917336663dc",
+    "method": "mpmath 1.3.0; 64 and 96 guard digits agree",
+    "prefix": "14159265358979323846264338327950"
+  },
+  "e": {
+    "decimalPlaces": 458976,
+    "sha256": "43272d4ecf4304bcc2b11e360c21b56d60b1f87ace04b662c074ee79529e1956",
+    "method": "mpmath 1.3.0; 64 and 96 guard digits agree",
+    "prefix": "71828182845904523536028747135266"
+  },
+  "sqrt2": {
+    "decimalPlaces": 458976,
+    "sha256": "ba7393d739f1d9a3cf5900a9e50f348945e25dd83abb2db712b874dbd72f6e24",
+    "method": "exact floor(sqrt(n * 10^(2N))) using integer isqrt",
+    "prefix": "41421356237309504880168872420969"
+  },
+  "sqrt3": {
+    "decimalPlaces": 458976,
+    "sha256": "7297d50683a6703c99ed2a2a9e1e7b8580b1470c2535daab3b3ce211ad4e3884",
+    "method": "exact floor(sqrt(n * 10^(2N))) using integer isqrt",
+    "prefix": "73205080756887729352744634150587"
+  },
+  "sqrt5": {
+    "decimalPlaces": 458976,
+    "sha256": "44e4144fc16323a5a52c2aa9d8e24a699d1c102b2f780aede3348426b464948b",
+    "method": "exact floor(sqrt(n * 10^(2N))) using integer isqrt",
+    "prefix": "23606797749978969640917366873127"
+  },
+  "sqrt6": {
+    "decimalPlaces": 458976,
+    "sha256": "34c318b5b11ba9055c61c0000e516da36a83e79caf290e26047734b87c8a5d5f",
+    "method": "exact floor(sqrt(n * 10^(2N))) using integer isqrt",
+    "prefix": "44948974278317809819728407470589"
+  },
+  "sqrt7": {
+    "decimalPlaces": 458976,
+    "sha256": "0f6d6aae275ffa4408ca130f91e06c8f380572b4ab0ee12b6dab6dee39f20d76",
+    "method": "exact floor(sqrt(n * 10^(2N))) using integer isqrt",
+    "prefix": "64575131106459059050161575363926"
+  },
+  "sqrt10": {
+    "decimalPlaces": 458976,
+    "sha256": "8b639197a944ec305d483164058e947b64c735bff34bd7b55293a5f27a9ad4e0",
+    "method": "exact floor(sqrt(n * 10^(2N))) using integer isqrt",
+    "prefix": "16227766016837933199889354443271"
+  },
+  "sqrt11": {
+    "decimalPlaces": 458976,
+    "sha256": "4ac6bf238763cb2ac23b1b64ad1fcebbd7fb43c6cb309c956dea89078267ae91",
+    "method": "exact floor(sqrt(n * 10^(2N))) using integer isqrt",
+    "prefix": "31662479035539984911493273667068"
+  },
+  "sqrt13": {
+    "decimalPlaces": 458976,
+    "sha256": "5ac54cab8a45200a54e46ba4758100e372abf13652b1fd1ee796f5263bcccecb",
+    "method": "exact floor(sqrt(n * 10^(2N))) using integer isqrt",
+    "prefix": "60555127546398929311922126747049"
+  },
+  "sqrt17": {
+    "decimalPlaces": 458976,
+    "sha256": "32d0e959064af04e1837236809a5f2a3df56e102b71569ced37428a68c83c4c2",
+    "method": "exact floor(sqrt(n * 10^(2N))) using integer isqrt",
+    "prefix": "12310562561766054982140985597407"
+  },
+  "sqrt19": {
+    "decimalPlaces": 458976,
+    "sha256": "8b4df85f15741e75bc3380095aec4294b64dad8f2b7032d5203be38838365d9c",
+    "method": "exact floor(sqrt(n * 10^(2N))) using integer isqrt",
+    "prefix": "35889894354067355223698198385961"
+  },
+  "sqrt23": {
+    "decimalPlaces": 458976,
+    "sha256": "8aeece4e5b5ea347d59eaac460418522c73f5be412651371030d1f17a005ca4c",
+    "method": "exact floor(sqrt(n * 10^(2N))) using integer isqrt",
+    "prefix": "79583152331271954159743806416269"
+  },
+  "phi": {
+    "decimalPlaces": 458976,
+    "sha256": "5f1d64b852989a8366012f39fd43b39145a42f0e0dfaec6560153565d195bd1e",
+    "method": "exact floor((10^N + floor(sqrt(5 * 10^(2N)))) / 2)",
+    "prefix": "61803398874989484820458683436563"
+  }
+}

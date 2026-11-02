@@ -16,11 +16,11 @@ def run(url, output):
         page = browser.new_page(reduced_motion='reduce', viewport={'width': 1440, 'height': 1000})
         errors = []
         page.on('pageerror', lambda error: errors.append(str(error)))
-        for count in [1, 2, 14, 15, 2809]:
+        for count in [2, 3, 14, 15, 2810]:
             page.goto(url)
             page.wait_for_function('window.ContinuumLab && window.FacetLab')
             page.evaluate('''count=>{
-                const entries=Array.from({length:count-1},(_,n)=>{let k=n;const configuration=[1,1,1,1,1,1];for(let i=5;i>=0;i--){const radix=i?14:12;configuration[i]=k%radix+1;k=Math.floor(k/radix);}return {configuration,count:14};});
+                const entries=Array.from({length:count-2},(_,n)=>{let k=n;const configuration=[1,1,1,1,1,1];for(let i=5;i>=0;i--){const radix=i?14:12;configuration[i]=k%radix+1;k=Math.floor(k/radix);}return {configuration,count:14};});
                 localStorage.setItem('continuum-manifold-addresses-v1',JSON.stringify({format:'continuum-manifold-lab',version:1,entries}));
             }''', count)
             page.reload()
@@ -42,11 +42,11 @@ def run(url, output):
             page.evaluate('(count)=>ContinuumLab.choose(count-1)', count)
             page.wait_for_function('(count)=>ContinuumLab.state.hits.some(h=>h.item===count-1)', arg=count)
             hit = page.evaluate('(count)=>ContinuumLab.state.hits.find(h=>h.item===count-1)', count)
-            expected = page.evaluate('(count)=>count===1?[12,14,1,1,1,1]:ContinuumLab.state.entries[count-2].configuration', count)
+            expected = page.evaluate('(count)=>count===2?null:ContinuumLab.state.entries[count-3].configuration', count)
             box = page.locator('#ve').bounding_box()
             page.mouse.click(box['x']+hit['x'], box['y']+hit['y'])
-            page.wait_for_function('FacetLab.active')
-            assert page.evaluate('FacetLab.state.configuration') == expected
+            page.wait_for_function('Projections.active' if count == 2 else 'FacetLab.active')
+            if count != 2:assert page.evaluate('FacetLab.state.configuration') == expected
             result['facet_entry_passed'] = True
             result['clicked_facet'] = hit['index']
             report['checks'].append(result)

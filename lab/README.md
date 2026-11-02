@@ -175,3 +175,41 @@ handlers preserve saved data; graphics startup failures show a readable status.
 ## Fullscreen
 
 The Arcade-style fullscreen button stays at the lower right in the menu and Facet Lab, including phone safe areas. It enters/exits native browser fullscreen without reloading or changing the selected configuration. Browser exits synchronize the button state. Keyboard focus includes the button in the lab. Fullscreen request failures appear as readable status text. verify_fullscreen.py checks desktop and touch layouts, browser exit and configuration retention against the actual URL.
+
+## Projections
+
+The top-level destination after Facet Lab opens an independent explorer with the
+same native camera, gestures, minimum saved geometry and eight VE configurators.
+Four are populated; four remain empty. Saved geometries come from the existing
+browser address collection and are never modified by projection.
+
+The first configurator offers π, e, φ, √2, √3, √5, √6, √7, √10, √11, √13,
+√17, √19 and √23. Expansions start after the decimal point. Mode 1 assigns one
+facet to each digit. Mode 2 assigns d consecutive facets to digit d (zero consumes
+a decimal position but adds no facets). Modes 3 and 4 use a running digital sum:
+r₀ = d₀; rₙ = digital_root(rₙ₋₁ + dₙ). Mode 3 assigns one facet per result;
+mode 4 assigns rₙ facets. The final run is truncated at the exact facet budget.
+
+Block values are exactly the author's sequence:
+0, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8196, 16392, 32784.
+Limit choices are 1–14. Defaults are block 0, limit 1. The product counts labelled
+facets, separately from decimal positions consumed. Unoccupied cells remain in
+the wireframe; with block 0 the minimum native surface alone is displayed.
+
+`facet-geometry.js` is the shared native Facet Lab construction. Both the lab
+and `projection-worker.js` call it. Projections supplies an exact added facet
+count through `addFacets`, retaining the saved symmetry, growth, branching and
+G₂ rules and native empty-facet compaction. It does not subdivide a frozen saved
+minimum surface. Jobs are cancelled when settings change. `projection-renderer.js` extends the native GPU renderer with a batched
+digit atlas using the same camera transform. All digit labels are submitted in
+one instanced draw, without per-facet DOM nodes or textures. Static panes retain
+their drawn image; they redraw for geometry, labels, motion or viewport changes. A native renderer
+pool shares one context among the nine projection panes; on mobile they use the
+existing global pool. No scores or physical predictions are generated.
+
+`generate_digits.py` reproduces the static fractional digit assets. Square roots
+and φ use integer arithmetic; π and e use mpmath with two guard precisions.
+`digits/manifest.json` records methods, prefixes and SHA-256 hashes. Decimal
+assets support the full selectable budget; no large-block runtime performance
+claim is made. Verification is deliberately restricted to small block sizes at
+the author's request.
